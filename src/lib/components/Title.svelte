@@ -50,7 +50,6 @@
 
     <div id="infoText" class="absolute bottom-16 w-full text-center text-xl sm:text-2xl lg:text-4xl font-medium">
         <h3>Tuesday 25th of November, 2025</h3>
-        <h3>Orpheus, Apeldoorn</h3>
     </div>
 
 </div>
