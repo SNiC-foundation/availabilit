@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h4 {
+        @apply text-2xl;
+        @apply font-bold;
+    }
+
+    a {
+        @apply text-aquamarine hover:text-picton-blue underline
+    }
+
+    .container {
+        @apply w-full mx-auto max-w-screen-lg flex
+    }
+
+}
+
