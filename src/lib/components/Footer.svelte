@@ -1,6 +1,7 @@
 <script>
     import WordMark from "$lib/images/WordMark.png";
     import SocialMediaButton from "./SocialMediaButton.svelte";
+    import { base } from "$app/paths";
 </script>
 
 <div id="wrapper" class="w-full bg-blue-whale text-white">
@@ -11,7 +12,7 @@
             </div>
     
         <div id="logo" class="order-1 md:order-none">
-            <a href="/" ><img src={WordMark} alt="" class="h-[5vh] w-auto sm:h-[10vh]"></a>
+            <a href="{base}/" ><img src={WordMark} alt="" class="h-[5vh] w-auto sm:h-[10vh]"></a>
         </div>
     
         <div id="socials" class="flex flex-row items-center md:justify-end gap-4 order-2 md:order-none md:w-80">

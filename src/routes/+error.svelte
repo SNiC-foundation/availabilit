@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import WordMark from "$lib/images/WordMark.png";
+    import { base } from "$app/paths";
 </script>
 
 <div id="error_page" class="bg-bottom-backdrop h-screen w-screen flex flex-col justify-evenly items-center text-white">
@@ -27,6 +28,6 @@
         <h3>
             Click to return to the home page:
         </h3>
-        <a href="/"><img src={WordMark} alt=""  class="h-12 md:h-20"></a>
+        <a href="{base}/"><img src={WordMark} alt=""  class="h-12 md:h-20"></a>
     </div>
 </div>
