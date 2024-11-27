@@ -9,7 +9,7 @@
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
         <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-blue-whale">
         <article class="lg:w-1/2">
-            SNiC, Stichting Nationaal informatica Congress (which can be translated as the Foundation National
+            SNiC, Stichting Nationaal informatica Congres (which can be translated as the Foundation National
             Informatics
             Congress), was established in December 2004. 10 study associations from cities in the Netherlands are
             affiliated.
