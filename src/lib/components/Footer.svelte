@@ -8,7 +8,7 @@
     <div class="container justify-between items-center px-8 py-4 gap-8 flex-col md:flex-row">
         <div id="copyright" class="flex flex-col order-3 md:order-none md:w-80">
             <p><i class="fa-regular fa-copyright"></i> 2024 Copyright</p>
-            <a href="https://snic.nl">Stichting Nationaal Informatica Congress</a>
+            <a href="https://snic.nl">Stichting Nationaal Informatica Congres</a>
             </div>
     
         <div id="logo" class="order-1 md:order-none">
