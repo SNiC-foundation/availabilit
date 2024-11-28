@@ -32,7 +32,8 @@
         </article>
 
         <article class="lg:w-1/2">
-            Various talks have been held at the congress by speaker from both the business world and the academic world.
+            Various talks have been held at the congress by speakers from both the business world and the academic
+            world.
             The students are challenged to dive into a specific topic from different perspectives. We want to inspire
             them
             and invite them to think further than their current views.
