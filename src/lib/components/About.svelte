@@ -9,12 +9,10 @@
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
         <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-blue-whale">
         <article class="lg:w-1/2">
-            SNiC, Stichting Nationaal informatica Congres (which can be translated as the Foundation National
-            Informatics
-            Congress), was established in December 2004. 10 study associations from cities in the Netherlands are
-            affiliated.
-            The aim of the foundation is to stimulate interest in knowledge of information and communication technology,
-            and to promote contact between students and the business world.
+            SNiC, Stichting Nationaal informatica Congress (which can be translated as the Foundation National
+            Informatics Congress), was established in December 2004. 10 study associations from cities in the
+            Netherlands are affiliated. The aim of the foundation is to stimulate interest in information and
+            communication technology, and to promote contact between students and the business world.
         </article>
 
         <article class="lg:w-1/2">
@@ -26,22 +24,19 @@
 
         <article class="lg:w-1/2">
             Visitors are enthusiastic Computer Science and Artificial Intelligence bachelor and master student from all
-            over
-            the country. Over the past years the congress has grown considerably. Where in 2017 the congress was visited
-            by 450 students, we expect around 700 visitors in 2025.
+            over the Netherlands. Over the past years the congress has grown considerably and we expect around 700
+            visitors in 2025
         </article>
 
         <article class="lg:w-1/2">
-            Various talks have been held at the congress by speakers from both the business world and the academic
-            world.
+            Various talks have been held at the congress by speaker from both the business world and the academic world.
             The students are challenged to dive into a specific topic from different perspectives. We want to inspire
-            them
-            and invite them to think further than their current views.
+            them and invite them to think further than their current views.
         </article>
 
         <article class="lg:w-1/2">
-            In addition, it is chance for students to speak with many companies during the breaks and the drinks at the
-            company fair, to connect with potential employers or to find a thesis or internship spot.
+            In addition, SNiC is a chance for students to speak with many companies during the breaks and the drinks at
+            the company fair, to connect with potential employers or to find a thesis or internship spot.
         </article>
 
         <ContactInfo/>
