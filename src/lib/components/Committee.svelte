@@ -1,4 +1,6 @@
 <script lang="ts">
+    import commiteePicture from "$lib/images/committeePicture.png";
+
     const members = [
         {name: "Matthias Wentink", functions: ["Chairman", "Public Relations"]},
         {name: "Dilan van Oosten", functions: ["Commissioner of Logistics"]},
@@ -7,15 +9,19 @@
         {name: "Mariska Frelier", functions: ["Commissioner of External Affairs"]},
         {name: "Bram Rutgers", functions: ["Commissioner of Speakers"]},
         {name: "Hayel Akel", functions: ["Commissioner of Speakers"]},
-        {name: "Anne van Esch", functions: ["Association Board Responsible"]},
-        {name: "Jarek Wiedemeijer", functions: ["Association Board Responsible"]},
+        // {name: "Anne van Esch", functions: ["Association Board Responsible"]},
+        // {name: "Jarek Wiedemeijer", functions: ["Association Board Responsible"]},
     ];
 </script>
 
 <div id="committee_section">
     <h1 class="sectionTitle">Committee</h1>
 
-    <div id="committee_picture"></div>
+    <p>This is the SNiCc 2025; AvailaibilIT</p>
+
+    <div id="committee_picture">
+        <img src={commiteePicture} alt="" />
+    </div>
 
     <div id="members_pictures" class="container">
         {#each members as member}
