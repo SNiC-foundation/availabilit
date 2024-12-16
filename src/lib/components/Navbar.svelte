@@ -6,8 +6,7 @@
     export let scroll:number;
     export let height:number;
 
-    let background:boolean;
-    background = true;
+    let background:boolean = true;
 </script>
 <nav class="navbar flex w-screen h-16 fixed top-0 z-10 backdrop-blur-md items-center" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
     <div class="container px-8 justify-between items-center">
@@ -16,6 +15,7 @@
             <Navbutton text="Home" section="#landing_section"/>
             <Navbutton text="Theme" section="#theme_section"/>
             <Navbutton text="About" section="#about_section"/>
+            <Navbutton text="Committee" section="#committee_section"/>
         </div>
     </div>
 </nav>

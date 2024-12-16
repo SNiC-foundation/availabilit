@@ -6,7 +6,7 @@
 
 
     <div id="text" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
-        <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
+        <h1 class="sectionTitle">About SNiC</h1>
         <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-blue-whale">
         <article class="lg:w-1/2">
             SNiC, Stichting Nationaal informatica Congress (which can be translated as the Foundation National
