@@ -9,9 +9,17 @@
         @apply text-3xl;
     }
 
+    h3 {
+        @apply text-2xl;
+    }
+
     h4 {
         @apply text-2xl;
         @apply font-bold;
+    }
+
+    h5 {
+        @apply text-xl font-bold;
     }
 
     a {
@@ -19,11 +27,19 @@
     }
 
     .container {
-        @apply w-full mx-auto max-w-screen-lg flex
+        @apply w-full mx-auto max-w-full flex
     }
 
     .sectionTitle {
         @apply text-blue-whale text-2xl md:text-5xl font-bold;
+    }
+
+    .memberContainer {
+        @apply flex flex-col items-center justify-center gap-y-3 w-[15vw] h-[80vh];
+    }
+
+    .memberRow {
+        @apply flex md:flex-row flex-col items-center justify-around;
     }
 
 
