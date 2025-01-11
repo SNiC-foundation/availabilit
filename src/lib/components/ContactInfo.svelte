@@ -1,4 +1,4 @@
-<div id="wrapper" class="lg:w-1/2 bg-start text-white flex flex-col gap-4 p-4">
+<div id="wrapper" class="lg:w-1/2 bg-start text-white flex flex-col gap-4 p-4 rounded-3xl">
 
     <h3 class="text-4xl">Contact</h3>
 
