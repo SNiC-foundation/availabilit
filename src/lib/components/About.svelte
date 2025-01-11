@@ -17,7 +17,7 @@
 
         <article class="lg:w-1/2">
             Every year one of the associations of the foundation organizes a congress with an IT related subject. On November the
-            25th in 2025, the congress will be organized by the study association <a
+            25th in 2025, the congress will be organized by the study association <a class="text-inter-actief"
                 href="https://www.inter-actief.utwente.nl">I.C.T.S.V. Inter-<i>Actief</i></a>
             from the University of Twente in Enschede.
         </article>
