@@ -44,12 +44,6 @@
                 the company fair, to connect with potential employers or to find a thesis or internship spot.
             </article>
 
-            <article class="lg:w-1/2">
-                At SNiC, we are dedicated to ensuring that our event is inclusive for all attendees. We strive to
-                accommodate various needs and provide a welcoming environment for everyone. If you have any questions or
-                specific accessibility requests, please do not hesitate to reach out to us. We are committed to making
-                your experience as comfortable and enjoyable as possible.
-            </article>
 
             <ContactInfo/>
         </div>
