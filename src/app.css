@@ -35,11 +35,11 @@
     }
 
     .memberContainer {
-        @apply flex flex-col items-center justify-center gap-y-3 w-[15vw] h-[80vh];
+        @apply flex flex-col items-center justify-start gap-1 w-[30vw] lg:w-[15vw] h-[60vh];
     }
 
     .memberRow {
-        @apply flex md:flex-row flex-col items-center justify-around;
+        @apply flex lg:flex-row flex-col items-center justify-around;
     }
 
 

@@ -17,7 +17,7 @@
 </script>
 
 <div id="committee_section" class="p-8 max-w-full">
-    <div id="title" class="flex flex-col gap-3 items-center mb-5 md:ml-24 md:items-start">
+    <div id="title" class="flex flex-col items-center mb-5 md:ml-24 md:items-start">
         <h1 class="sectionTitle">Committee</h1>
         <p>This is the SNiC Committee 2025; <a href="{base}/" class="text-blue-whale"><i>AvailabilIT</i></a></p>
     </div>
@@ -29,7 +29,7 @@
     </div>
 
 
-    <div id="members" class="container flex flex-col">
+    <div id="members" class="container flex flex-col mt-28">
         <div id="member_row_one" class="memberRow">
             {#each members.slice(0, 3) as member}
                 <Member member={member}/>
