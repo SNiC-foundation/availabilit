@@ -4,6 +4,7 @@
     import About from "$lib/components/About.svelte";
     import Navbar from "$lib/components/Navbar.svelte";
     import Theme from "$lib/components/Theme.svelte";
+    import Accessibility from "$lib/components/Accessibility.svelte";
 
     let y:number;
     let height:number;
@@ -18,6 +19,8 @@
     <Theme/>
 
     <About />
+
+    <Accessibility />
 
     <Footer />
 
