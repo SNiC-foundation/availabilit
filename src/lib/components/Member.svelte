@@ -8,7 +8,7 @@
 
 <div id="member" class="memberContainer">
     <div id="picture">
-        <img src={picture} alt="Picture of {member.name}" class="rounded-full h-[35vh]"/>
+        <img src={picture} alt="Picture of {member.name}" class="rounded-full h-[25vh] lg:h-[35vh]"/>
     </div>
     <div id="info" class="text-wrap text-center text-blue-whale">
         <h3 class="font-bold">{member.name}</h3>

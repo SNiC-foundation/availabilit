@@ -29,7 +29,7 @@
     </div>
 
 
-    <div id="members" class="container flex flex-col mt-28">
+    <div id="members" class="container flex flex-col mt-16 lg:mt-28">
         <div id="member_row_one" class="memberRow">
             {#each members.slice(0, 3) as member}
                 <Member member={member}/>

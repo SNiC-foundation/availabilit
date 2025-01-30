@@ -9,7 +9,7 @@
     let background:boolean = true;
 </script>
 <nav class="navbar flex w-screen h-16 fixed top-0 z-10 backdrop-blur-md items-center" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
-    <div class="container px-8 justify-between items-center">
+    <div class="container px-4 md:px-8 justify-between items-center">
         <a href="{base}/" class="h-12"><img src={WordMark} alt="" class="h-full"></a>
         <div class="flex flex-row gap-4">
             <Navbutton text="Home" section="#landing_section"/>
