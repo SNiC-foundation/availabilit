@@ -4,15 +4,15 @@
     import { base } from "$app/paths";
 
     const members = [
-        {name: "Matthias Wentink", functions: ["Chairman", "Public Relations"]},
-        {name: "Dilan van Oosten", functions: ["Commissioner of Logistics"]},
-        {name: "Danil Aliforenko", functions: ["Treasurer"]},
-        {name: "Arda Koç", functions: ["Commissioner of External Affairs"]},
-        {name: "Mariska Frelier", functions: ["Commissioner of External Affairs"]},
-        {name: "Bram Rutgers", functions: ["Commissioner of Speakers"]},
-        {name: "Hayel Akel", functions: ["Commissioner of Speakers"]},
-        {name: "Anne van Esch", functions: ["Association Board Representative"]},
-        {name: "Jarek Wiedemeijer", functions: ["Association Board Representative"]},
+        {name: "Matthias Wentink", functions: ["Chairman", "Public Relations"], linkedin: "https://www.linkedin.com/in/matthias-wentink/", email: "chairman@availabilit.snic.nl"},
+        {name: "Dilan van Oosten", functions: ["Commissioner of Logistics"], linkedin: "https://www.linkedin.com/in/dilanvanoosten/", email: "logistics@availabilit.snic.nl"},
+        {name: "Danil Aliforenko", functions: ["Treasurer"], linkedin: "https://www.linkedin.com/in/danil-aliforenko-8a9187317/", email: "treasurer@availabilit.snic.nl"},
+        {name: "Arda Koç", functions: ["Commissioner of External Affairs"], linkedin: "https://www.linkedin.com/in/ardakocm/", email: "arda@availabilit.snic.nl"},
+        {name: "Mariska Frelier", functions: ["Commissioner of External Affairs"], linkedin: "https://www.linkedin.com/in/mariska-frelier/", email: "mariska@availabilit.snic.nl"},
+        {name: "Bram Rutgers", functions: ["Commissioner of Speakers"],linkedin: "https://www.linkedin.com/in/bram-rutgers-81b318203/", email: "bram@availabilit.snic.nl"},
+        {name: "Hayel Akel", functions: ["Commissioner of Speakers"], linkedin: "https://www.linkedin.com/in/hayel-akel-a10175233/", email: "hayel@availabilit.snic.nl"},
+        {name: "Anne van Esch", functions: ["Association Board Representative"], linkedin: "https://www.linkedin.com/in/anne-van-eschaa/", email: "board@inter-actief.net"},
+        {name: "Jarek Wiedemeijer", functions: ["Association Board Representative"], linkedin: "https://www.linkedin.com/company/i.c.t.s.v.-inter-actief/", email: "board@inter-actief.net"},
     ];
 </script>
 

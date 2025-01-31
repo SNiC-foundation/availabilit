@@ -1,7 +1,7 @@
 <script lang="ts">
     import picture from "$lib/images//committeeMembers/IMG_8972_rectangle.jpg"
 
-    export let member: {name: string, functions: string[]};
+    export let member: {name: string, functions: string[], linkedin: string, email: string};
 
 </script>
 
@@ -21,11 +21,11 @@
         </div>  
     </div>
     <div id="member_socials" class="flex flex-row justify-around w-1/2">
-        <a href="https://www.linkedin.com/in/dilanvanoosten/">
+        <a href="{member.linkedin}">
             <i class="fa-brands text-xl fa-linkedin text-blue-whale hover:text-aquamarine"/>
         </a>
-        <a href="mailto:logistics@avaulabilit.snic.nl">
-            <i class="fa-solid fa-at text-blue-whale hover:text-aquamarine" />
+        <a href="mailto:{member.email}">
+            <i id="mail" class="fa-solid fa-at text-blue-whale hover:text-aquamarine " />
         </a>
     </div>
 
