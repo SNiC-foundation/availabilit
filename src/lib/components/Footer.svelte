@@ -16,7 +16,7 @@
         </div>
     
         <div id="socials" class="flex flex-row items-center md:justify-end gap-4 order-2 md:order-none md:w-80">
-            <SocialMediaButton icon="instagram" link="https://www.instagram.com/snic_sustainabilit/?igsh=bndjYzFqdGp1NmRl"/>
+            <SocialMediaButton icon="instagram" link="https://www.instagram.com/snic_availabilit"/>
             <SocialMediaButton icon="linkedin" link="https://www.linkedin.com/company/snic-congress"/>
         </div>
     </div>
