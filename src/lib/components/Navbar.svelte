@@ -16,6 +16,7 @@
             <Navbutton text="Home" section="#landing_section"/>
             <Navbutton text="Theme" section="#theme_section"/>
             <Navbutton text="About" section="#about_section"/>
+            <Navbutton text="Accessibility" section="#accessibility_section"/>
         </div>
     </div>
 </nav>
