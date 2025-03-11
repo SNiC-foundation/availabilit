@@ -3,8 +3,6 @@
 </script>
 
 <div id="about_section" class="bg-gray-200 flex flex-col w-full content-around pt-[5vh]">
-
-
     <div id="text" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
         <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-black">
@@ -23,19 +21,23 @@
         </article>
 
         <article class="lg:w-1/2">
-            Visitors are enthusiastic Computer Science and Artificial Intelligence bachelor and master students from all
+            Visitors are enthusiastic Computer Science and Artificial Intelligence bachelor and master students from
+            all
             over the Netherlands. Over the past years the congress has grown considerably and we expect around 700
             visitors in 2025.
         </article>
 
         <article class="lg:w-1/2">
-            Various talks have been held at the congress by speakers from both the business world and the academic world.
-            The students are challenged to dive into a specific topic from different perspectives. We want to inspire
+            Various talks have been held at the congress by speakers from both the business world and the academic
+            world.
+            The students are challenged to dive into a specific topic from different perspectives. We want to
+            inspire
             them and invite them to think further than their current views.
         </article>
 
         <article class="lg:w-1/2">
-            In addition, SNiC is a chance for students to speak with many companies during the breaks and the drink at
+            In addition, SNiC is a chance for students to speak with many companies during the breaks and the drink
+            at
             the company fair, to connect with potential employers or to find a thesis or internship spot.
         </article>
 
