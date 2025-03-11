@@ -7,7 +7,7 @@
 
     <div id="text" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
-        <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-blue-whale">
+        <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-black">
         <article class="lg:w-1/2">
             SNiC, Stichting Nationaal informatica Congres (which can be translated as the Foundation National
             informatics Congress), was established in December 2004. 9 study associations from cities in the
@@ -17,9 +17,9 @@
 
         <article class="lg:w-1/2">
             Every year one of the associations of the foundation organizes a congress with an IT related subject. On November the
-            25th in 2025, the congress will be organized by the study association <a class="text-inter-actief"
+            25th in 2025, the congress will be organized by the study association <a class="text-blue-whale"
                 href="https://www.inter-actief.utwente.nl">I.C.T.S.V. Inter-<i>Actief</i></a>
-            from the University of Twente in Enschede.
+            &nbsp from the University of Twente in Enschede.
         </article>
 
         <article class="lg:w-1/2">

@@ -29,7 +29,6 @@ export default {
                 },
                 'blue-whale': "#003249",
                 'picton-blue': "#36D1FE",
-                'inter-actief': "#1D428A",
                 aquamarine: "#70F5E3",
                 start: "#003249",
                 gradient_end: "#36D1FE"
