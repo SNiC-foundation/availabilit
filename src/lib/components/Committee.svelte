@@ -5,7 +5,7 @@
     import Dilan from "$lib/images/committeeMembers/Dilan.png";
     import Danil from "$lib/images/committeeMembers/Danil.png";
     import Arda from "$lib/images/committeeMembers/Arda.jpeg";
-    import Mariska from "$lib/images/committeeMembers/Mariska.jpeg";
+    import Mariska from "$lib/images/committeeMembers/Mariska.png";
     import Bram from "$lib/images/committeeMembers/Bram.jpeg";
     import Hayel from "$lib/images/committeeMembers/Hayel.jpeg";
 
@@ -25,7 +25,7 @@
 <div id="committee_section" class="p-8 max-w-full">
     <h1 class="sectionTitle text-center mb-8">Committee</h1>
 
-    <div id="members" class="container flex flex-col flex-wrap gap-4 lg:flex-row lg:gap-12 justify-center">
+    <div id="members" class="container flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-12 justify-center">
         {#each members as member}
             <Member member={member}/>
         {/each}

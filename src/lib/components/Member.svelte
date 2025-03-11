@@ -5,7 +5,7 @@
 
 
 <div id="member" class="memberContainer">
-    <div id="picture" class="w-fill h-44 overflow-hidden shrink-0 round-bottom">
+    <div id="picture" class="w-40 h-40 mt-4 sm:mt-0 rounded-full sm:w-full sm:h-44 overflow-hidden shrink-0 round-bottom">
         <img src={member.picture} alt="Picture of {member.name}" class="w-fill"/>
     </div>
     <div id="info" class="text-wrap text-center text-blue-whale h-full p-2">
@@ -33,8 +33,12 @@
 </div>
 
 <style scoped>
-.round-bottom {
-    border-bottom-left-radius: 100% 20%;
-    border-bottom-right-radius: 100% 20%;
-}
+    @media (min-width: 640px) {
+        .round-bottom {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 100% 20%;
+            border-bottom-right-radius: 100% 20%;
+        }
+    }
 </style>
