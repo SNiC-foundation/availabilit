@@ -2,7 +2,7 @@
 
      <h2 class="text-blue-whale text-2xl md:text-5xl font-bold">Accessibility</h2>
 
-     <div class="flex flex-col lg:flex-row w-full lg:max-h-[70vh] gap-8 lg:gap-4 text-blue-whale">
+     <div class="flex flex-col lg:flex-row w-full lg:max-h-[70vh] gap-8 lg:gap-4 text-black">
 
          <article class="lg:w-1/2">
              At SNiC, we are dedicated to ensuring that our event is inclusive for all attendees. We strive to

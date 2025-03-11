@@ -9,7 +9,7 @@
 
     <div id="theme_section" class="w-full flex flex-col gap-4 p-6 text-center lg:text-left lg:p-0">
         <h1 class="text-blue-whale text-2xl md:text-3xl lg:text-5xl font-bold">The Reach of Technology</h1>
-        <article class="text-blue-whale">
+        <article>
             SNiC is the largest national Computer Science and Artificial Intelligence conference, organized for and by
             students. This edition's theme of the conference is AvailabilIT, where we focus on the reach of technology
             and how it shapes our world. We will explore concepts such as open source software, privacy-enhancing
