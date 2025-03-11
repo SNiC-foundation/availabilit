@@ -1,32 +1,40 @@
 <script lang="ts">
-    import picture from "$lib/images//committeeMembers/IMG_8972_rectangle.jpg"
-
     export let member: {name: string, functions: string[], linkedin: string, email: string};
 
 </script>
 
 
 <div id="member" class="memberContainer">
-    <div id="picture">
-        <img src={picture} alt="Picture of {member.name}" class="rounded-full h-[25vh] lg:h-[35vh]"/>
+    <div id="picture" class="w-fill h-44 overflow-hidden shrink-0 round-bottom">
+        <img src={member.picture} alt="Picture of {member.name}" class="w-fill"/>
     </div>
-    <div id="info" class="text-wrap text-center text-blue-whale">
-        <h3 class="font-bold">{member.name}</h3>
-        <div id="functions" class="h-[10vh] flex flex-col justify-center">
-        {#if member.functions.length > 1}
-            <h3><i>{member.functions[0]} & <br> {member.functions[1]}</i></h3>
-        {:else}
-            <h3><i>{member.functions[0]}</i></h3>
-        {/if}
+    <div id="info" class="text-wrap text-center text-blue-whale h-full p-2">
+        <h3 class="font-semibold">{member.name}</h3>
+        <div id="functions" class="flex flex-col justify-center">
+            <p class="text-lg">
+        {#each member.functions as memberFunction, memberFunctionIndex}
+            {memberFunction}
+            {#if memberFunctionIndex !== member.functions.length - 1}
+                &
+            {/if}
+        {/each}
+    </p>
         </div>  
     </div>
-    <div id="member_socials" class="flex flex-row justify-around w-1/2">
+    <div id="member_socials" class="flex flex-row gap-4 justify-center items-center w-full pb-2">
         <a href="{member.linkedin}">
-            <i class="fa-brands text-xl fa-linkedin text-blue-whale hover:text-aquamarine"/>
+            <i class="fa-brands fa-fw text-xl fa-linkedin text-blue-whale hover:text-aquamarine"/>
         </a>
         <a href="mailto:{member.email}">
-            <i id="mail" class="fa-solid fa-at text-blue-whale hover:text-aquamarine " />
+            <i id="mail" class="fa-solid fa-fw fa-envelope text-blue-whale hover:text-aquamarine " />
         </a>
     </div>
 
 </div>
+
+<style scoped>
+.round-bottom {
+    border-bottom-left-radius: 100% 20%;
+    border-bottom-right-radius: 100% 20%;
+}
+</style>
