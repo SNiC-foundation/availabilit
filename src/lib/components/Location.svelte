@@ -1,5 +1,5 @@
 <script>
-    import Test from "$lib/images/orpheus.jpeg";
+    import EntreeZuid from "$lib/images/Entree Zuid verlicht 03.jpg";
 </script>
 
 
@@ -13,18 +13,16 @@
         <div id="text-and-image" class="flex flex-col lg:flex-row w-full lg:h-max-[70vh] gap-8 lg:gap-4 text-blue-whale">
 
             <article class="lg:w-1/2">
-                Orpheus is het grootste culturele podium van Apeldoorn en de wijde regio. 
-                Wij presenteren een breed, aantrekkelijk en deels vernieuwend en exclusief aanbod aan 
-                theater en muziek voor een breed en divers publiek uit Apeldoorn en omstreken. Ons theater 
-                biedt een gastvrij podium aan creatieve initiatieven van binnen en buiten de stad. Wij zijn
-                 daardoor een belangrijke culturele ontmoetingsplek, waar het publiek gastvrij wordt 
-                 ontvangen en het zich door ons laat inspireren, uitdagen en vermaken. Daarnaast verwelkomen 
-                 wij zakelijke evenementen met excellente service en dragen daarmee niet alleen bij aan 
-                 de eigen gezonde exploitatie, maar ook aan de economische bedrijvigheid en positionering
-                  van Apeldoorn.
+                <a href="https://www.orpheus.nl">Orpheus</a> is the largest cultural stage in Apeldoorn and the wider region. They present a broad, attractive and 
+                partly innovative and exclusive range of theatre and music for a wide and diverse audience from Apeldoorn 
+                and the surrounding area. The theatre offers a welcoming stage to creative initiatives from inside and 
+                outside the city. They are therefore an important cultural meeting place, where audiences are hospitably welcomed
+                 and allowed to be inspired, challenged and entertained by us. They also welcome business events with 
+                 excellent service, contributing not only to their own healthy operation, but also to Apeldoorn's
+                  economic activity and positioning.
             </article>
 
-            <img src={Test} alt="" class="lg:w-1/2"/>
+            <img src={EntreeZuid} alt="" class="lg:w-1/2"/>
 
         </div>
     </div>
