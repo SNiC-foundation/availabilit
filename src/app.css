@@ -22,5 +22,9 @@
         @apply w-full mx-auto max-w-screen-lg flex
     }
 
+    .allow-keywords {
+        interpolate-size: allow-keywords;
+    }
+
 }
 
