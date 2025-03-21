@@ -13,7 +13,7 @@
         <div id="text-and-image" class="flex flex-col lg:flex-row w-full lg:h-max-[70vh] gap-8 lg:gap-4 text-blue-whale">
 
             <article class="lg:w-1/2">
-                <a href="https://www.orpheus.nl">Orpheus</a> is the largest cultural stage in Apeldoorn and the wider region. They present a broad, attractive and 
+                <a href="https://www.orpheus.nl" class="text-blue-whale">Orpheus</a> is the largest cultural stage in Apeldoorn and the wider region. They present a broad, attractive and 
                 partly innovative and exclusive range of theatre and music for a wide and diverse audience from Apeldoorn 
                 and the surrounding area. The theatre offers a welcoming stage to creative initiatives from inside and 
                 outside the city. They are therefore an important cultural meeting place, where audiences are hospitably welcomed
