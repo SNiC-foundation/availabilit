@@ -1,10 +1,12 @@
 <script lang="ts">
     import LogoNedap from "$lib/images/companies/nedap.svg";
-    import Alternate from "$lib/images/companies/nedap2.svg";
-    const logos = [LogoNedap, Alternate, LogoNedap, Alternate, LogoNedap, Alternate, LogoNedap, Alternate, LogoNedap, Alternate, LogoNedap]
+    
+    const logos = [LogoNedap]
     let containerWidth: number;
     let trackWidth: number;
 </script>
+
+{#if logos.length > 3}
 <div class="overflow-hidden h-20 relative gradient-borders w-full {containerWidth <= trackWidth ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth}>
     <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
@@ -21,6 +23,7 @@
         {/if}
     </div>
 </div>
+{/if}
 
 
 <style scoped>
