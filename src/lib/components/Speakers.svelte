@@ -18,6 +18,12 @@
 In addition to his technical prowess, John is also a thought leader in the field of innovation. He has authored multiple papers and articles on the subject, and his work is frequently cited by peers and professionals. John's passion for technology is matched by his commitment to mentoring the next generation of innovators, making him a respected figure in both academic and professional circles."
                     tags="{['Technology', 'Innovation', 'Philosophy']}"
                     height={i}
+                    links={
+                        [
+                            {icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/in/johndoe/"},
+                            {icon: "fa-brands fa-twitter", url: "https://twitter.com/johndoe"}
+                        ]
+                    }
             />
         {/each}
     </div>
