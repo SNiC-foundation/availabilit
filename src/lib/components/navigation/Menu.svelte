@@ -7,14 +7,17 @@
     export let height:number;
 
     let width:number;
+    let showNavbar: boolean = true;
+
+    $: showNavbar = width > 640;
 
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 
-{#if width <= 640}
-    <NavDropdown />
+{#if !showNavbar}
+    <NavDropdown scroll={y_axis} height={height}/>
 {:else}
     <Navbar scroll={y_axis} height={height}/>
 {/if}
