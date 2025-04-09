@@ -4,6 +4,7 @@
     import About from "$lib/components/About.svelte";
     import Navbar from "$lib/components/Navbar.svelte";
     import Theme from "$lib/components/Theme.svelte";
+    import Committee from "$lib/components/Committee.svelte";
     import Accessibility from "$lib/components/Accessibility.svelte";
     import Location from "$lib/components/Location.svelte";
 
@@ -24,6 +25,8 @@
     <Accessibility />
 
     <Location />
+
+    <Committee />
 
     <Footer />
 
