@@ -6,13 +6,13 @@
     import Danil from "$lib/images/committeeMembers/Danil.png";
     import Arda from "$lib/images/committeeMembers/Arda.jpeg";
     import Mariska from "$lib/images/committeeMembers/Mariska.png";
-    import Bram from "$lib/images/committeeMembers/Bram.jpeg";
-    import Hayel from "$lib/images/committeeMembers/Hayel.jpeg";
+    import Bram from "$lib/images/committeeMembers/Bram.png";
+    import Hayel from "$lib/images/committeeMembers/Hayel.png";
 
     const members = [
         {name: "Matthias Wentink", functions: ["Chairman", "PR"], linkedin: "https://www.linkedin.com/in/matthias-wentink/", email: "chairman@availabilit.snic.nl", picture: Matthias},
-        {name: "Dilan van Oosten", functions: ["Logistics"], linkedin: "https://www.linkedin.com/in/dilanvanoosten/", email: "logistics@availabilit.snic.nl", picture: Dilan},
         {name: "Danil Aliforenko", functions: ["Treasurer"], linkedin: "https://www.linkedin.com/in/danil-aliforenko-8a9187317/", email: "treasurer@availabilit.snic.nl", picture: Danil},
+        {name: "Dilan van Oosten", functions: ["Logistics"], linkedin: "https://www.linkedin.com/in/dilanvanoosten/", email: "logistics@availabilit.snic.nl", picture: Dilan},
         {name: "Arda Koç", functions: ["External Affairs"], linkedin: "https://www.linkedin.com/in/ardakocm/", email: "arda@availabilit.snic.nl", picture: Arda},
         {name: "Mariska Frelier", functions: ["External Affairs"], linkedin: "https://www.linkedin.com/in/mariska-frelier/", email: "mariska@availabilit.snic.nl", picture: Mariska},
         {name: "Bram Rutgers", functions: ["Speakers"],linkedin: "https://www.linkedin.com/in/bram-rutgers-81b318203/", email: "bram@availabilit.snic.nl", picture: Bram},
