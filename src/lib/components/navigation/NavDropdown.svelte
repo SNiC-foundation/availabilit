@@ -12,7 +12,7 @@
         isDropDown = !isDropDown;
     }
 
-const handleNavbuttonClick = () => {
+    const handleNavbuttonClick = () => {
         isDropDown = false;
     }
 
@@ -30,7 +30,7 @@ const handleNavbuttonClick = () => {
         <button id=dropdown class="text-picton-blue" on:click={handleDropdown}>
             <!-- Switch between the icons -->
             {#if isDropDown}
-                <i class="fa-solid fa-bars-staggered"></i>
+                <i class="fa-solid fa-xmark"></i>
             {:else}
                 <i class="fa-solid fa-bars"></i>
             {/if}
@@ -38,7 +38,7 @@ const handleNavbuttonClick = () => {
     </div>
 </nav>
 <!-- Dropdown content -->
-<div class="flex-col items-center gap-3 h-fit w-full fixed z-10 size-10 backblue-whale"
+<div class="flex-col items-center gap-3 h-fit w-full fixed z-20 size-10 "
          style={dropdownStyle}>
     <Navbutton text="Home" section="#landing_section" />
     <Navbutton text="Theme" section="#theme_section"  />
