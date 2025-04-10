@@ -12,16 +12,10 @@
         isDropDown = !isDropDown;
     }
 
-    const handleNavbuttonClick = () => {
-        isDropDown = false;
-    }
-
     $: dropdownStyle = `display: ${isDropDown ? 'flex' : 'none'};
-     top: ${Math.max(64, Math.min(scroll / height, 1) * 64)}px;
+     top: ${(Math.max(64, Math.min(scroll / height, 1) * 64)) - 10}px;
      background: rgba(0,50,73,${Math.min(scroll / height,1)});`;
    
-
-
 </script>
 
 <nav class="navbar flex w-screen h-16 fixed top-0 z-10 backdrop-blur-md items-center" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
@@ -38,7 +32,7 @@
     </div>
 </nav>
 <!-- Dropdown content -->
-<div class="flex-col items-center gap-3 h-fit w-full fixed z-20 size-10 "
+<div class="flex-col items-center gap-3 py-[2vh] h-fit w-full fixed z-20 size-10 "
          style={dropdownStyle}>
     <Navbutton text="Home" section="#landing_section" />
     <Navbutton text="Theme" section="#theme_section"  />
