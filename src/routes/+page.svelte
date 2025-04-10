@@ -5,6 +5,7 @@
     import Theme from "$lib/components/Theme.svelte";
     import Accessibility from "$lib/components/Accessibility.svelte";
     import Menu from "$lib/components/navigation/Menu.svelte";
+    import Location from "$lib/components/Location.svelte";
 
     let y:number;
     let height:number;
@@ -21,6 +22,8 @@
     <About />
 
     <Accessibility />
+
+    <Location />
 
     <Footer />
 
