@@ -1,4 +1,4 @@
-import flowbitePlugin from 'flowbite/plugin'
+    import flowbitePlugin from 'flowbite/plugin'
 
 /** @type {import('tailwindcss').Config} */
 export default {
