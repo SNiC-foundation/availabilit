@@ -25,8 +25,6 @@
 
     <Location />
 
-    <Footer />
-
 </div>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={height} />
