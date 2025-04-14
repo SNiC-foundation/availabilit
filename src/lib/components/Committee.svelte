@@ -22,7 +22,7 @@
     ];
 </script>
 
-<div id="committee_section" class="p-8 max-w-full">
+<div id="committee_section" class="p-8 max-w-full bg-gray-100">
     <h1 class="sectionTitle text-center mb-8">Committee</h1>
 
     <div id="members" class="container flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-12 justify-center">

@@ -9,7 +9,6 @@
     </div>
 
     <div id="email">
-        <p>For questions you can reach out to:</p>
         <a href="mailto:info@availabilit.snic.nl">info@availabilit.snic.nl</a>
     </div>
 
