@@ -1,10 +1,10 @@
 <script lang="ts">
-    
+    export let title:string = "";
 </script>
 
 
-<div class="h-48 overflow-hidden relative w-full bg-bottom-backdrop text-white flex items-end py-8">
-    <h1 class="container text-8xl">Speakers</h1>
+<div class="h-48 overflow-hidden relative w-full bg-bottom-backdrop text-white flex items-end">
+    <h1 class="container text-8xl px-8">{title}</h1>
 </div>
 
 <style>
