@@ -11,7 +11,7 @@
     let showMore = false
 </script>
 
-<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all duration-200 {showMore ? 'w-96 -mb-60 shadow-2xl' : 'w-80 shadow-md'}" style="z-index: {10-height};">
+<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all duration-200 mb-24 {showMore ? 'w-96 -mb-60 shadow-2xl' : 'w-80 shadow-md'}" style="z-index: {10-height};">
     <img src={image} alt="{name}" class="h-60 w-full object-cover"/>
     <div class="flex items-center -translate-y-1/2">
         <div class="bg-blue-whale px-4 py-2 pr-8 rounded-r-full flex flex-col leading-[75%]">

@@ -21,11 +21,9 @@
 </script>
 <Navbar scroll={0} height={100}/>
 <Header title="Speakers"/>
-<div id="speakers_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
+<div id="speakers_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
     {#if speakers.length === 0}
-    <div class="min-h-96">
-        We will display our speakers here soon! Be sure to follow us on Instagram and LinkedIn to stay up to date with the latest news!
-    </div>
+    We will display our speakers here soon! Be sure to follow us on Instagram and LinkedIn to stay up to date with the latest news!
 
     {:else}
     <div class="flex flex-row flex-wrap gap-4 justify-center items-start">
