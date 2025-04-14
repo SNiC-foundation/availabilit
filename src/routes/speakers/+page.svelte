@@ -1,12 +1,11 @@
 <script>
   import Header from "$lib/components/Header.svelte";
-  import Navbar from "$lib/components/Navbar.svelte";
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
   /**
    * @type {string | any[]}
    */
   const speakers = [
-    // {
+    // {\
     //     image: "https://celerit.snic.nl/speakers/c96dc266-99f5-44d6-ba68-3823abb1de1c.png",
     //     name: "John Doe",
     //     description: "John Doe is a seasoned expert in technology and innovation. He has over 20 years of experience in the field.",
@@ -19,7 +18,6 @@
     // }
   ]
 </script>
-<Navbar scroll={0} height={100}/>
 <Header title="Speakers"/>
 <div id="speakers_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
     {#if speakers.length === 0}
