@@ -11,13 +11,20 @@
 
     $: showNavbar = width > 640;
 
+    let pages = [
+        { text: "Home", route: "/" },
+        { text: "Partners", route: "/partners" },
+        { text: "Speakers", route: "/speakers" },
+        { text: "Contact", route: "/contact" },
+    ];
+
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 
 {#if !showNavbar}
-    <NavDropdown scroll={y_axis} height={height}/>
+    <NavDropdown scroll={y_axis} height={height} pages={pages}/>
 {:else}
-    <Navbar scroll={y_axis} height={height}/>
+    <Navbar scroll={y_axis} height={height} pages={pages}/>
 {/if}
