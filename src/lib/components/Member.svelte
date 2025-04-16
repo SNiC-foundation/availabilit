@@ -12,13 +12,13 @@
         <h3 class="font-semibold">{member.name}</h3>
         <div id="functions" class="flex flex-col justify-center">
             <p class="text-lg">
-        {#each member.functions as memberFunction, memberFunctionIndex}
-            {memberFunction}
-            {#if memberFunctionIndex !== member.functions.length - 1}
-                &
-            {/if}
-        {/each}
-    </p>
+                {#each member.functions as memberFunction, memberFunctionIndex}
+                    {memberFunction}
+                    {#if memberFunctionIndex !== member.functions.length - 1}
+                        &
+                    {/if}
+                {/each}
+            </p>
         </div>  
     </div>
     <div id="member_socials" class="flex flex-row gap-4 justify-center items-center w-full pb-2">
