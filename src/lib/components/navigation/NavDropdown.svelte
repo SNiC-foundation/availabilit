@@ -5,6 +5,7 @@
 
     export let scroll:number;
     export let height:number;
+    export let pages:any[];
 
     let isDropDown:boolean = false;
 
@@ -36,11 +37,9 @@
 <!-- Dropdown content -->
 <div class="navbar flex-col items-center gap-3 py-[2vh] h-fit w-full fixed z-20 size-10"
          style={dropdownStyle}>
-    <Navbutton text="Home" section="#landing_section" />
-    <Navbutton text="Theme" section="#theme_section"  />
-    <Navbutton text="About" section="#about_section"  />
-    <Navbutton text="Accessibility" section="#accessibility_section" />
-    <Navbutton text="Location" section="#location_section" />
+         {#each pages as page }
+            <Navbutton text="{page.text}" route="{page.route}" />        
+         {/each}
 </div>
 
 <style>
