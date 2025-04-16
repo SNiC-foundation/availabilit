@@ -10,7 +10,7 @@
     import Hayel from "$lib/images/committeeMembers/Hayel.png";
 
     const members = [
-        {name: "Matthias Wentink", functions: ["Chairman", "PR"], linkedin: "https://www.linkedin.com/in/matthias-wentink/", email: "chairman@availabilit.snic.nl", picture: Matthias},
+        {name: "Matthias Wentink", functions: ["Chairman", " PR"], linkedin: "https://www.linkedin.com/in/matthias-wentink/", email: "chairman@availabilit.snic.nl", picture: Matthias},
         {name: "Danil Aliforenko", functions: ["Treasurer"], linkedin: "https://www.linkedin.com/in/danil-aliforenko-8a9187317/", email: "treasurer@availabilit.snic.nl", picture: Danil},
         {name: "Dilan van Oosten", functions: ["Logistics"], linkedin: "https://www.linkedin.com/in/dilanvanoosten/", email: "logistics@availabilit.snic.nl", picture: Dilan},
         {name: "Arda Koç", functions: ["External Affairs"], linkedin: "https://www.linkedin.com/in/ardakocm/", email: "arda@availabilit.snic.nl", picture: Arda},
