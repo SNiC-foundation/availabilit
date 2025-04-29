@@ -37,7 +37,10 @@ export default {
                 aquamarine: "#70F5E3",
                 start: "#003249",
                 gradient_end: "#36D1FE"
-            }
+            },
+            spacing: {
+                160: '40rem',
+            },
         },
     },
     plugins: [flowbitePlugin],
