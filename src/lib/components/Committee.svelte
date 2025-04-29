@@ -7,7 +7,7 @@
     import Arda from "$lib/images/committeeMembers/Arda.jpeg";
     import Mariska from "$lib/images/committeeMembers/Mariska.png";
     import Bram from "$lib/images/committeeMembers/Bram.png";
-    import Hayel from "$lib/images/committeeMembers/Hayel.png";
+    import Hayel from "$lib/images/committeeMembers/Hayel.jpeg";
 
     const members = [
         {name: "Matthias Wentink", functions: ["Chairman", " PR"], linkedin: "https://www.linkedin.com/in/matthias-wentink/", email: "chairman@availabilit.snic.nl", picture: Matthias},
