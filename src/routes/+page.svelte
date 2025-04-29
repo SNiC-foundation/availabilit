@@ -5,10 +5,13 @@
     import Committee from "$lib/components/Committee.svelte";
     import Accessibility from "$lib/components/Accessibility.svelte";
     import Location from "$lib/components/Location.svelte";
+    import CompanyBar from "$lib/components/CompanyBar.svelte";
 </script>
 
 <div id="wrapper" class="min-h-full flex flex-col">
     <Title />
+
+    <CompanyBar/>
 
     <Theme/>
 
