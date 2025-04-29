@@ -1,7 +1,7 @@
 <script lang="ts">
     import LogoNedap from "$lib/images/companies/nedap.svg";
     
-    const logos = [LogoNedap]
+    const logos:string[] = []
     let containerWidth: number;
     let trackWidth: number;
 </script>
