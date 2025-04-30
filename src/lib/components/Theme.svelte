@@ -3,8 +3,8 @@
 </script>
 
 <div id="theme" class="container flex-col lg:flex-row items-center justify-center lg:p-8 lg:gap-16">
-    <div id="image" class="lg:w-96 h-96 w-screen lg:h-fit overflow-hidden">
-        <img src={engineeringHand} alt="" class="w-full lg:rounded-3xl">
+    <div id="image" class="lg:w-96 h-96 w-screen p-8 lg:h-fit overflow">
+        <img src={engineeringHand} alt="" class="lg:w-full lg:h-auto w-auto mx-auto h-full rounded-3xl">
     </div>
 
     <div id="theme_section" class="w-full flex flex-col gap-4 p-6 text-center lg:text-left lg:p-0">
