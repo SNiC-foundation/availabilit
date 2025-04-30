@@ -26,8 +26,8 @@
         {/each}
     </div>
     <div class="px-4 -mt-6 py-2">
-        <p class="text-black hyphens-auto">{description}</p>
-        <p class="text-gray-800 {showMore ? 'h-60' : 'h-0'} overflow-auto transition-all duration-200 allow-keywords">{extendedDescription}</p>
+        <p class="text-black hyphens-auto">{@html description}</p>
+        <p class="text-gray-800 {showMore ? 'h-60' : 'h-0'} overflow-auto transition-all duration-200 allow-keywords">{@html extendedDescription}</p>
         <button on:click={() => showMore = !showMore} class="text-blue-500 mt-2">
             {#if showMore} Show Less {:else} Show More {/if}
         </button>
