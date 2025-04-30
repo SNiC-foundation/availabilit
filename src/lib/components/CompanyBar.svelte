@@ -1,6 +1,4 @@
 <script lang="ts">
-    import LogoNedap from "$lib/images/companies/nedap.svg";
-    
     const logos:string[] = []
     let containerWidth: number;
     let trackWidth: number;
@@ -11,13 +9,13 @@
     <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
             {#each logos as logo}
-            <img src={logo} alt="Nedap logo" class="w-20 h-20"/>
+            <img src={logo} class="w-20 h-20"/>
             {/each}
         </div>
         {#if containerWidth < trackWidth}
             <div class="flex flex-row gap-20">
                 {#each logos as logo}
-                <img src={logo} alt="Nedap logo" class="w-20 h-20"/>
+                <img src={logo} class="w-20 h-20"/>
                 {/each}
             </div>
         {/if}
