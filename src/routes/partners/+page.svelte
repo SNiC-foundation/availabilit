@@ -3,6 +3,10 @@
     import CompanyCard from "./CompanyCard.svelte";
     import TierHeader from "./TierHeader.svelte";
     import LogoNedap from "$lib/images/companies/nedap_color.svg";
+    import LogoYer from "$lib/images/companies/yer_color.png";
+    import LogoBasetide from "$lib/images/companies/basetide_color.svg";
+    import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
+    import LogoING from "$lib/images/companies/ing_color.svg";
 
     const Nedap = {
                 name: "Nedap",
@@ -13,17 +17,52 @@
                 website: "https://www.nedap.com/en/"
             }
 
+    const Yer = {
+                name: "Yer",
+                tags: ["Engineering","IT","Consultancy"],
+                shortDescription: "Starting your career, made simple. \"What do I want to do?\" \"Where do I even start?\"; \"Am I experienced enough?\" If these questions sound familiar, you're not alone. You don't have to figure it all out by yourself. At YER, we specialize in helping students and recent grads like you take the first confident steps into the working world. Whether you’re unsure about your direction or just need a bit of guidance, our consultants are here to help you find clarity—and real opportunities.", 
+                extendedDescription: "Here’s how we make starting your career simple: Career coaching Get practical advice, CV and LinkedIn feedback, and a personalized plan to move forward. Access to 3,000+ opportunities We connect you with real jobs, traineeships and projects at top companies in tech, engineering, finance, public sector and more.Training & development; Not quite there yet? No problem. We’ll help you build the skills you need to land the role you want—with coaching, mentoring and upskilling. Work that works for you Whether you’re looking for a permanent job, a stepping stone or a project-based assignment, we tailor our approach to fit your goals. Since 1987, we’ve helped thousands of young professionals find their footing and grow into careers they love. Our consultants know the market inside out, and we’re here to guide you from “Where do I begin?” to “This is exactly where I’m meant to be.” Let’s make your next move the right one.",
+                logo: LogoYer,
+                website: "https://www.yer.nl/"
+    }
+
+    const BaseTide = {
+                name: "BaseTide",
+                tags: ["Engineering","IT","Consultancy"],
+                shortDescription: "TODO",
+                extendedDescription: "TODO",
+                logo: LogoBasetide,
+                website: "https://www.basetide.com/"
+    }
+
+    const Chipsoft = {
+                name: "Chipsoft",
+                tags: ["Healthcare","IT"],
+                shortDescription: "TODO",
+                extendedDescription: "TODO",
+                logo: LogoChipsoft,
+                website: "https://www.chipsoft.nl/"
+    }
+    const ING = {
+                name: "ING",
+                tags: ["Finance","IT"],
+                shortDescription: "TODO",
+                extendedDescription: "TODO",
+                logo: LogoING,
+                website: "https://www.ing.nl/"
+    }
+
     const companies = {
         platinum: [
             Nedap
         ],
         gold: [
-            Nedap,
-            Nedap,
-            Nedap,
+            Chipsoft,
+            ING
         ],
         silver: [
-
+            Yer,
+            BaseTide
         ],
         bronze: [
 
@@ -32,8 +71,8 @@
   </script>
   <Header title="Partners"/>
   <div id="partners_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
-      We will display our partners here soon! Be sure to follow us on Instagram and LinkedIn to stay up to date with the latest news!
       {#each Object.entries(companies) as [tier, tierCompanies]}
+      {#if tierCompanies.length > 0}
       <TierHeader tier={tier}/>
         <div class="flex items-center gap-4 flex-wrap justify-center">
             {#each tierCompanies as company}
@@ -47,6 +86,7 @@
                 />
         {/each}
         </div>
+        {/if}
       {/each}
   </div>
   
