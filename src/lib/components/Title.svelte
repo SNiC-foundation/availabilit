@@ -44,7 +44,7 @@
 </script>
 
 
-<div id="landing_section"
+<div id="title_section"
      class="h-[98vh] overflow-hidden relative w-full bg-bottom-backdrop text-white flex items-center justify-center gap-[5vh]">
     <div bind:this={container} id="logo"
          class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen max-w-screen-md cursor-pointer z-10 p-4"
@@ -67,7 +67,7 @@
 </div>
 
 <style>
-    #landing_section {
+    #title_section {
         border-bottom-left-radius: 100% 20%;
         border-bottom-right-radius: 100% 20%;
     }

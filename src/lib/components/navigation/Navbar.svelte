@@ -7,6 +7,7 @@
     export let height:number;
     export let pages:any[];
 
+
     let background:boolean = true;
 
     let isDropHome = false;
@@ -15,6 +16,7 @@
 
     const dropHome = () => {
         isDropHome = !isDropHome;
+        console.log("Clicked a nav button: ", isDropHome);
         homeLeft = document.getElementById('dropHomeButton')?.getBoundingClientRect().left;
     }
     
@@ -31,22 +33,13 @@
         <a href="{base}/" class="h-12"><img src={WordMark} alt="" class="h-full"></a>
         <div class="flex flex-row items-center sm:gap-4">
             {#each pages as page }
-                <Navbutton text="{page.text}" route="{page.route}" />        
+                <Navbutton scroll={scroll} height={height} 
+                    text="{page.text}" route="{page.route}" sections={page.sections} /> 
             {/each}
         </div>
     </div>
 
 </nav>
-
-<!-- Dropdown of the home page -->
-<!-- <div id="dropHome" class="flex-col items-start gap-3 py-[2vh] h-fit w-fit fixed z-20 size-8"
-         style={dropHomeStyle}>
-    <Navbutton text="Home" section="#landing_section" />
-    <Navbutton text="Theme" section="#theme_section"  />
-    <Navbutton text="About" section="#about_section"  />
-    <Navbutton text="Accessibility" section="#accessibility_section" />
-    <Navbutton text="Location" section="#location_section" />
-</div> -->
 
 <style>
     .navbar {
@@ -54,4 +47,6 @@
         border-bottom-right-radius: 50% 10px;
         overflow: hidden
     }
+
+    
 </style>

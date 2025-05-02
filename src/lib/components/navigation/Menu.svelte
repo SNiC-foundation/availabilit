@@ -12,11 +12,46 @@
     $: showNavbar = width > 640;
 
     let pages = [
-        { text: "Home", route: "/" },
-        { text: "Partners", route: "/partners" },
-        { text: "Speakers", route: "/speakers" },
-        { text: "Contact", route: "/contact" },
+        { 
+            text: "Home", 
+            route: "/", 
+            sections: [
+                "title",
+                "theme",
+                "about",
+                "accessibility",
+                "location"
+            ] 
+        },
+        { 
+            text: "Partners", 
+            route: "/partners", 
+            sections: [
+                "platinum",
+                "gold", 
+                "silver",
+                "bronze",
+            ]
+        },
+        { 
+            text: "Speakers", 
+            route: "/speakers",
+            sections: [
+                "sociatal",
+                "cybersec",
+                "opensource"
+            ]
+        },
+        { 
+            text: "Contact", 
+            route: "/contact", 
+            sections: [
+                "contact",
+                "committee"
+            ]
+        }
     ];
+
 
 </script>
 

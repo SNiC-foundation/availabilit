@@ -38,7 +38,8 @@
 <div class="navbar flex-col items-center gap-3 py-[2vh] h-fit w-full fixed z-20 size-10"
          style={dropdownStyle}>
          {#each pages as page }
-            <Navbutton text="{page.text}" route="{page.route}" />        
+            <Navbutton scroll={scroll} height={height} 
+                text="{page.text}" route="{page.route}" sections={page.sections} />        
          {/each}
 </div>
 
