@@ -1,7 +1,7 @@
 <script>
   import Header from "$lib/components/Header.svelte";
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
-  import { marked } from "marked";
+  // import { marked } from "marked";
   /**
    * @type {string | any[]}
    */
