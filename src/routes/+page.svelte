@@ -7,16 +7,19 @@
     import CompanyBar from "$lib/components/CompanyBar.svelte";
 
     import LogoNedap from "$lib/images/companies/nedap_color.svg";
-    import LogoBasetide from "$lib/images/companies/basetide_color.svg";
+    import LogoBasetide from "$lib/images/companies/basetide_color.png";
     import LogoYer from "$lib/images/companies/yer_color.png";
     import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
     import LogoING from "$lib/images/companies/ing_color.svg";
+    import LogoHarvest from "$lib/images/companies/harvest_color.svg";
+
     const logos = [
         LogoNedap,
         LogoChipsoft,
-        LogoING,
+        // LogoING,
         LogoBasetide,
-        LogoYer
+        LogoHarvest
+        // LogoYer
     ]
 </script>
 
