@@ -39,7 +39,7 @@
     const Chipsoft = {
                 name: "Chipsoft",
                 tags: ["Healthcare","IT"],
-                shortDescription: marked("# Do you want to help improve the field of healthcare from behind the scenes? Check out what ChipSoft has to offer. \n As a leading supplier of healthcare IT, ChipSoft equips a large number of Dutch and Belgian healthcare facilities with efficient and innovative software solutions. Integrated solutions within a single system – HiX – enable healthcare professionals to provide the right care at the right time. \n\n"),
+                shortDescription: marked("### Do you want to help improve the field of healthcare from behind the scenes? Check out what ChipSoft has to offer. \n As a leading supplier of healthcare IT, ChipSoft equips a large number of Dutch and Belgian healthcare facilities with efficient and innovative software solutions. Integrated solutions within a single system – HiX – enable healthcare professionals to provide the right care at the right time. \n\n"),
                 extendedDescription: marked("From ChipSoft's offices in Amsterdam, Antwerp, Heerenveen, and Hoogeveen, passionate developers and IT support consultants with a heart for healthcare work on solutions aimed at reducing the administrative workload for care providers, improving cooperation between healthcare facilities, and promoting patient participation in their own care process. ChipSoft supports large (academic) hospitals, but also general practices, mental healthcare facilities, independent clinics, nursing and residential care homes, and homecare services. \n\n By using HiX as their comprehensive care solution, healthcare facilities of all sizes are well-equipped to meet the care needs of today and tomorrow, in which digital cooperation and data exchange between all parties involved in the care process are more important than ever. \n\n Are you eager to help improve the field of healthcare using smart IT solutions? Get in touch via recruitment@chipsoft.com"),
                 logo: LogoChipsoft,
                 website: "https://www.chipsoft.nl/"
@@ -71,7 +71,7 @@
     }
   </script>
   <Header title="Partners"/>
-  <div id="partners_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
+  <div id="partners_section" class="container flex-col p-8 gap-4 text-center md:text-left min-h-[100vh]">
       {#each Object.entries(companies) as [tier, tierCompanies]}
       {#if tierCompanies.length > 0}
       <TierHeader tier={tier}/>
