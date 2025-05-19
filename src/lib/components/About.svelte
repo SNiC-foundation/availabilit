@@ -5,7 +5,7 @@
 <div id="about_section" class="bg-gray-200 flex flex-col w-full content-around pt-[5vh]">
     <div id="text" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">About SNiC</h1>
-        <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] flex-wrap gap-4 text-black">
+        <div class="flex w-full flex-col content-between max-h-fit lg:max-h-[70vh] 2xl:max-h-[50vh] flex-wrap gap-4 text-black">
         <article class="lg:w-1/2">
             SNiC, Stichting Nationaal informatica Congres (which can be translated as the Foundation National
             informatics Congress), was established in December 2004. 9 study associations from cities in the
