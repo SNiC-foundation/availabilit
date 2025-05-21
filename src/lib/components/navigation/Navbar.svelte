@@ -7,7 +7,6 @@
     export let height:number;
     export let pages:any[];
 
-    let background:boolean = true;
 </script>
 <nav class="navbar flex w-screen h-16 fixed top-0 z-10 backdrop-blur-md items-center" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
     <div class="container sm:px-8 justify-between items-center">
