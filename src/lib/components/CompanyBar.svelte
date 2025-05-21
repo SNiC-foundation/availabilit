@@ -15,7 +15,7 @@
         {#if containerWidth < trackWidth}
             <div class="flex flex-row gap-20">
                 {#each logos as logo}
-                <img src={logo} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
+                <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
                 {/each}
             </div>
         {/if}
