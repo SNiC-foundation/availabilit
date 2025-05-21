@@ -14,13 +14,14 @@
     import LogoHarvest from "$lib/images/companies/harvest_color.svg";
 
     const logos = [
-        LogoNedap,
-        LogoChipsoft,
-        // LogoING,
-        LogoBasetide,
-        LogoHarvest
-        // LogoYer
+        {image: LogoNedap, name: "Nedap"},
+        {image: LogoChipsoft, name: "Chipsoft"},
+        {image: LogoING, name: "ING"},
+        {image: LogoBasetide, name: "BaseTide"},
+        {image: LogoHarvest, name: "Harvest"},
+        {image: LogoYer, name: "Yer"}
     ]
+       
 </script>
 
 <div id="wrapper" class="min-h-full flex flex-col">
