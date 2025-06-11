@@ -11,7 +11,7 @@
     import LogoYer from "$lib/images/companies/yer_color.png";
     import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
     import LogoING from "$lib/images/companies/ing_color.svg";
-    import LogoHarvest from "$lib/images/companies/harvest_color.svg";
+    import LogoHarvest from "$lib/images/companies/harvest_color.png";
 
     const logos = [
         {image: LogoNedap, name: "Nedap"},

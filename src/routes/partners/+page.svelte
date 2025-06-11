@@ -7,6 +7,7 @@
     import LogoBasetide from "$lib/images/companies/basetide_color.png";
     import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
     import LogoING from "$lib/images/companies/ing_color.svg";
+    import LogoHarvest from "$lib/images/companies/harvest_color.png";
     import {marked} from "marked";
 
     const Nedap = {
@@ -28,6 +29,18 @@
                 logo: LogoYer,
                 website: "https://www.yer.nl/"
     }
+
+    const Harvest = {
+                name: "Harvest",
+                show: true,
+                tags: ["Career coaching","Training","Development"],
+                shortDescription: marked("# Harvest – The Launchpad for the Next Generation of Tech Leaders \n Harvest is the premier training program for top technical talent in the IT sector. We support recent graduates with a technical master’s degree in kick-starting their careers. Our unique combination of working, learning, and personal growth ensures that you make an impact from day one at leading organizations, while receiving intensive guidance in both your professional and personal development."),
+                extendedDescription: marked("At the heart of our program is quality. We select high potentials with a technical master’s background and train them to become the next generation of Software, Data, and Business Analyst specialists. This is achieved through an intensive masterclass program that emphasizes both technical depth and soft skills. Our trainers are seasoned experts with years of industry experience, and participants receive personal guidance from a coach, a technology officer, and experienced professionals from the field.\n\n What truly sets Harvest apart is our proven approach: 97% of our talents secure a permanent position at the company where they work during the program. Companies choose Harvest for our high standards and the immediate impact our talents deliver. \n\n Harvest is the only post-master program in the Netherlands specifically developed by and for technical graduates in software, data, and business analytics. The program is officially accredited by CPION, giving it the status of a certified post-master’s program—an acknowledgment of its academic level and content quality. \n\n Our location in Driebergen is more than just a workplace; it’s an inspiring environment where talent develops, ideas are born, friendships are formed, and careers take off. Harvest is for ambitious tech talents who want more than just a job—we offer a career with impact."),
+                logo: LogoHarvest,
+                website: "https://www.harvest.nl/"
+    }
+
+    
 
     const BaseTide = {
                 name: "BaseTide",
@@ -68,6 +81,7 @@
         ],
         silver: [
             Yer,
+            Harvest,
             BaseTide
         ],
         bronze: [
