@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let logos:{image:string,name:string}[];
+    export let logos:{image:string,name:string,url:string}[];
     let containerWidth: number;
     let trackWidth: number;
 </script>
@@ -9,13 +9,17 @@
     <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
             {#each logos as logo}
-            <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}">
+            <a href={logo.url}>
+                <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}">
+            </a>
             {/each}
         </div>
         {#if containerWidth < trackWidth}
             <div class="flex flex-row gap-20">
                 {#each logos as logo}
-                <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
+                <a href={logo.url}>
+                    <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
+                </a>
                 {/each}
             </div>
         {/if}
@@ -27,6 +31,7 @@
 <style scoped>
     .gradient-borders::after {
         position: absolute;
+        pointer-events: none;
         content: '';
         display: block;
         width: 100%;
