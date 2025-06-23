@@ -9,7 +9,7 @@
     <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
             {#each logos as logo}
-            <a href={logo.url}>
+            <a href={logo.url} target="_blank">
                 <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}">
             </a>
             {/each}
@@ -17,7 +17,7 @@
         {#if containerWidth < trackWidth}
             <div class="flex flex-row gap-20">
                 {#each logos as logo}
-                <a href={logo.url}>
+                <a href={logo.url} target="_blank">
                     <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
                 </a>
                 {/each}
