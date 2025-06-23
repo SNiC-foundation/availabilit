@@ -14,8 +14,8 @@
     import LogoHarvest from "$lib/images/companies/harvest_color.png";
 
     const logos = [
-        {image: LogoNedap, name: "Nedap",url: "https://nedap.com"},
-        {image: LogoChipsoft, name: "Chipsoft",url: "https://www.chipsoft.nl"},
+        {image: LogoNedap, name: "Nedap",url: "https://nedap.com/careers/students-at-nedap/"},
+        {image: LogoChipsoft, name: "Chipsoft",url: "https://werkenbijchipsoft.nl/"},
         {image: LogoING, name: "ING",url: "https://www.ing.nl"},
         {image: LogoBasetide, name: "BaseTide",url:"https://basetide.com"},
         {image: LogoHarvest, name: "Harvest",url:"https://harvest.nl"},
