@@ -1,11 +1,10 @@
 <script lang="ts">
     export let logos:{image:string,name:string,url:string}[];
-    let containerWidth: number;
-    let trackWidth: number;
+    let containerWidth: number = 0;
+    let trackWidth: number = 0;
 </script>
-
 {#if logos.length > 0}
-<div class="overflow-hidden h-20 relative gradient-borders w-full {containerWidth <= trackWidth ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth}>
+<div class="overflow-hidden h-20 relative gradient-borders w-full {containerWidth <= trackWidth ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth} style="--track-width: calc(-{trackWidth}px - 5rem);">
     <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
             {#each logos as logo}
@@ -41,7 +40,7 @@
     }
 
     .scroll-animation {
-        animation: scroll 30s linear infinite;
+        animation: scroll 10s linear infinite;
     }
 
     @keyframes scroll {
@@ -49,7 +48,7 @@
             transform: translateX(-0%);
         }
         100% {
-            transform: translateX(-50%);
+            transform: translateX(var(--track-width));
         }
     }
 </style>
