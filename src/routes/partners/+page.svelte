@@ -8,9 +8,11 @@
     import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
     import LogoING from "$lib/images/companies/ing_color.svg";
     import LogoHarvest from "$lib/images/companies/harvest_color.png";
+    import LogoJaneStreet from "$lib/images/companies/janestreet_black.png";
     import {marked} from "marked";
+    import type {Company} from "./types";
 
-    const Nedap = {
+    const Nedap:Company = {
                 name: "Nedap",
                 show: true,
                 tags: ["Healthcare","Livestock","Retail","Security"],
@@ -20,7 +22,7 @@
                 website: "https://nedap.com/careers/students-at-nedap/"
             }
 
-    const Yer = {
+    const Yer:Company = {
                 name: "Yer",
                 show: true,
                 tags: ["Career coaching","Training","Development"],
@@ -30,7 +32,7 @@
                 website: "https://www.yer.nl/"
     }
 
-    const Harvest = {
+    const Harvest:Company = {
                 name: "Harvest",
                 show: true,
                 tags: ["Career coaching","Training","Development"],
@@ -42,7 +44,7 @@
 
     
 
-    const BaseTide = {
+    const BaseTide:Company = {
                 name: "BaseTide",
                 show: false,
                 tags: ["Engineering","IT","Consultancy"],
@@ -52,7 +54,7 @@
                 website: "https://www.basetide.com/"
     }
 
-    const Chipsoft = {
+    const Chipsoft:Company = {
                 name: "Chipsoft",
                 show: true,
                 tags: ["Healthcare","IT"],
@@ -61,7 +63,7 @@
                 logo: LogoChipsoft,
                 website: "https://www.chipsoft.nl/"
     }
-    const ING = {
+    const ING:Company = {
                 name: "ING",
                 show: false,
                 tags: ["Finance","IT"],
@@ -69,6 +71,15 @@
                 extendedDescription: marked("TODO"),
                 logo: LogoING,
                 website: "https://www.ing.nl/"
+    }
+
+    const JaneStreet:Company = {
+                name: "Jane Street",
+                show: true,
+                tags: ["Finance","Trading","Technology"],
+                shortDescription: marked("# Work where your mind matters \n Jane Street is a global trading firm with offices in New York, London, Hong Kong, Singapore, and Amsterdam. Our approach is rooted in technology and rigorous quantitative analysis, but our success is driven by our people. We look for smart people with curious minds from any background, with a passion for critical thinking and creative problem solving."),
+                logo: LogoJaneStreet,
+                website: "https://www.janestreet.com/join-jane-street/overview/"
     }
 
     const companies = {
@@ -85,7 +96,7 @@
             BaseTide
         ],
         bronze: [
-
+            JaneStreet
         ]
     }
   </script>
@@ -96,17 +107,8 @@
       <TierHeader tier={tier}/>
         <div class="flex items-center gap-4 flex-wrap justify-center">
             {#each tierCompanies as company}
-            {#if company.show}
-            <CompanyCard
-                name={company.name}
-                image={company.logo}
-                description={company.shortDescription}
-                extendedDescription={company.extendedDescription}
-                tags={company.tags}
-                links={[{icon: "fa-solid fa-fw fa-link", url: company.website}]}
-                />
-            {/if}
-        {/each}
+                <CompanyCard company={company}/>
+            {/each}
         </div>
         {/if}
       {/each}

@@ -12,6 +12,7 @@
     import LogoChipsoft from "$lib/images/companies/chipsoft_color.svg";
     import LogoING from "$lib/images/companies/ing_color.svg";
     import LogoHarvest from "$lib/images/companies/harvest_color.png";
+    import LogoJaneStreet from "$lib/images/companies/janestreet_black.png";
 
     const logos = [
         {image: LogoNedap, name: "Nedap",url: "https://nedap.com/careers/students-at-nedap/"},
@@ -19,7 +20,8 @@
         {image: LogoING, name: "ING",url: "https://www.ing.nl"},
         {image: LogoBasetide, name: "BaseTide",url:"https://basetide.com"},
         {image: LogoHarvest, name: "Harvest",url:"https://harvest.nl"},
-        {image: LogoYer, name: "Yer",url:"https://www.yer.nl"}
+        {image: LogoYer, name: "Yer",url:"https://www.yer.nl"},
+        {image: LogoJaneStreet, name: "Jane Street", url: "https://www.janestreet.com/careers/"}
     ]
        
 </script>
