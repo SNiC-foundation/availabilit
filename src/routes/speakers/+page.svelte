@@ -26,7 +26,7 @@
         smallTitle: true,
         title: "Securing Europe's Digital Backbone for Research and Education",
         description: marked("GÉANT is an organization that collaborates with different National Research and Education Networks (NRENs) in Europe and beyond."),
-        extendedDescription: marked("Together with these NRENs, they deliver a network for the research and education sector and provide various products and services. This presentation focuses on the services they provide to improve the network's security and maintain its availability. \n\n Jeroen is a software developer in the Security: Products & Services team at GÉANT. This team develops security products internally and for the community. I work mainly on following projects: eduVPN, eduroam, Firewall on Demand and NeMo (anti DDoS)."),
+        extendedDescription: marked("Together with these NRENs, they deliver a network for the research and education sector and provide various products and services. This presentation focuses on the services they provide to improve the network's security and maintain its availability. \n\n Jeroen is a software developer in the Security: Products & Services team at GÉANT. This team develops security products internally and for the community. He works mainly on following projects: eduVPN, eduroam, Firewall on Demand and NeMo (anti DDoS)."),
         tags: ['Network security'],
     },
     
