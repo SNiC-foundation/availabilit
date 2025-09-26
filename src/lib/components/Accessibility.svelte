@@ -19,7 +19,7 @@
          
              <div id="email">
                  <p>For questions you can reach out to:</p>
-                 <a href="mailto:accessibility@availabilit.snic.nl">accessibility@availabilit.snic.nl</a>
+                 <a href="mailto:accessibility@snic.nl">accessibility@snic.nl</a>
              </div>
          
          </div>
