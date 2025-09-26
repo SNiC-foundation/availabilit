@@ -40,6 +40,7 @@ export default {
                 gradient_end: "#36D1FE"
             },
             spacing: {
+                112: '28rem',
                 160: '40rem',
             },
         },

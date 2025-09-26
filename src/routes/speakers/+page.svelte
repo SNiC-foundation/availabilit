@@ -1,22 +1,37 @@
 <script>
   import Header from "$lib/components/Header.svelte";
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
-  // import { marked } from "marked";
+  import { marked } from "marked";
+  import Polylog from "$lib/images/speakers/polylog.jpg"
+  import Jeroen from "$lib/images/speakers/jeroen.jpg"
+
   /**
    * @type {string | any[]}
    */
   const speakers = [
-    // {
-    //     image: "https://celerit.snic.nl/speakers/c96dc266-99f5-44d6-ba68-3823abb1de1c.png",
-    //     name: "John Doe",
-    //     description: marked("**John Doe** is a seasoned expert in technology and innovation. He has over 20 years of experience in the field."),
-    //     extendedDescription: "John Doe has been at the forefront of technological advancements, contributing to numerous groundbreaking projects that have shaped the industry. His expertise spans across various domains including artificial intelligence, machine learning, and blockchain technology. John has been a keynote speaker at several international conferences, sharing his insights and experiences with a global audience.",
-    //     tags: ['Technology', 'Innovation', 'Philosophy'],
-    //     links: [
-    //         {icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/in/johndoe/"},
-    //         {icon: "fa-brands fa-twitter", url: "https://twitter.com/johndoe"}
-    //     ]
-    // }
+    {
+        image: Polylog,
+        name: "Polylog",
+        title: "99% certainty is easy, 100% is hard",
+        description: marked("Polylog is a Youtube channel with 100K+ subscribers where they do deep dives into all kinds of topics in computer science, with an emphasis on algorithms."),
+        extendedDescription: marked("When designing algorithms, a lot of problems become much easier to solve (or even become possible to solve at all) if you give your algorithm access to randomness. This is counterintuitive: why should tossing a coin be helpful in a fundamental way? Starting from examples like quick sort, file checksums, and checking if equations hold, Polylog will build up an understanding of randomness, how it can help us fool the evil worst-case adversary, and where even coin flips can’t save us. \n\n In the second half of the talk, they will discuss the behind-the-scenes aspect of making science education videos. What’s the process? What’s hard about it? How are animations made? How to get started?"),
+        tags: ['Algorithms', 'Science education'],
+        links: [
+            {icon: "fa-brands fa-youtube", url: "https://www.youtube.com/@PolylogCS"},
+        ]
+    },
+    {
+        image: Jeroen,
+        name: "Jeroen Wijenbergh",
+        smallTitle: true,
+        title: "Securing Europe's Digital Backbone for Research and Education",
+        description: marked("GÉANT is an organization that collaborates with different National Research and Education Networks (NRENs) in Europe and beyond."),
+        extendedDescription: marked("Together with these NRENs, they deliver a network for the research and education sector and provide various products and services. This presentation focuses on the services they provide to improve the network's security and maintain its availability. \n\n Jeroen is a software developer in the Security: Products & Services team at GÉANT. This team develops security products internally and for the community. I work mainly on following projects: eduVPN, eduroam, Firewall on Demand and NeMo (anti DDoS)."),
+        tags: ['Network security'],
+    },
+    
+
+
   ]
 </script>
 <Header title="Speakers"/>
@@ -28,13 +43,16 @@
     <div class="flex flex-row flex-wrap gap-4 justify-center items-start">
         {#each speakers as speaker, i}
             <SpeakerCard
-                    image="{speaker.image}"
-                    name="{speaker.name}"
-                    description="{speaker.description}"
-                    extendedDescription="{speaker.extendedDescription}"
-                    tags="{speaker.tags}"
-                    height={i}
-                    links={speaker.links}
+              small="{speaker.smallTitle}"
+              image="{speaker.image}"
+              name="{speaker.name}"
+              category="{speaker.category}"
+              title="{speaker.title}"
+              description="{speaker.description}"
+              extendedDescription="{speaker.extendedDescription}"
+              tags="{speaker.tags}"
+              height={i}
+              links={speaker.links}
             />
         {/each}
     </div>
