@@ -20,7 +20,7 @@
     {name: 'University of Twente', image: UTwente, url: 'https://www.utwente.nl/'},
     {name: 'Radboud university', image: Radboud, url: 'https://www.ru.nl/en'},
     {name: 'Eindhoven university of technology', image: TUE, url: 'https://www.tue.nl/en/'},
-    {name: 'University of Groningen', image: RUG, url: 'rug.nl'},
+    {name: 'University of Groningen', image: RUG, url: 'https://www.rug.nl/'},
     {name: 'Utrecht', image: Utrecht, url: 'https://www.uu.nl/'},
     {name: 'Leiden', image: Leiden, url: 'https://www.universiteitleiden.nl/'},
     ]}" />
