@@ -4,11 +4,25 @@
   import { marked } from "marked";
   import Polylog from "$lib/images/speakers/polylog.jpg"
   import Jeroen from "$lib/images/speakers/jeroen.jpg"
+  import Andre from "$lib/images/speakers/andre.jpg"
 
   /**
    * @type {string | any[]}
    */
   const speakers = [
+    {
+        image: Andre,
+        name: "André Foeken",
+        title: "The work we do",
+        category: "Keynote",
+        description: marked("In this talk, André Foeken — CTO at Nedap Healthcare, shares his perspective on a tech industry in constant motion, and what that means for the next generation of engineers, founders, and creators."),
+        extendedDescription: marked("Whether you’re thinking of building your own company, joining an existing one, or forging your own unique path, the key question remains: *how do you stand out?*\n This talk invites you to: \n * carve out your own space — within companies, across your career, and beyond borders — to dream big and move fast, \n * reflect on Europe’s place in the global tech scene and how we can shift the momentum, \n * and explore the evolving role of AI and software development in shaping the future. \n\n You’ll leave with a sharper sense of how to navigate your career in a world that doesn’t stand still — and how bold ideas, when acted on, can lead to real change."),
+        tags: ['Tech industry'],
+        links: [
+            {icon: "fa-solid fa-globe", url: "https://dreet.je/"},
+            {icon: "fa-solid fa-globe", url: "https://nedap.com/"},
+        ]
+    },
     {
         image: Polylog,
         name: "Polylog",
@@ -35,7 +49,7 @@
   ]
 </script>
 <Header title="Speakers"/>
-<div id="speakers_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
+<div id="speakers_section" class="container text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
     {#if speakers.length === 0}
     We will display our speakers here soon! Be sure to follow us on Instagram and LinkedIn to stay up to date with the latest news!
 

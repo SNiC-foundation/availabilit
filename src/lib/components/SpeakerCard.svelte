@@ -14,31 +14,31 @@
     let showMore = false
 </script>
 
-<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all duration-200 mb-24 {showMore ? 'w-112 -mb-60 shadow-2xl' : 'w-80 shadow-md'}" style="z-index: {10-height};">
+<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all flex flex-col md:min-h-148 duration-200 md:mb-24 {showMore ? 'md:w-112 -mb-60 shadow-2xl' : 'w-full md:w-80 shadow-md'}" style="z-index: {10-height};">
     <img src={image} alt="{name}" class="h-60 w-full object-cover"/>
     <div class="flex items-center -translate-y-1/2">
-        <div class="bg-blue-whale px-4 py-2 pr-8 rounded-r-full flex flex-col leading-[75%]">
+        <div class="bg-blue-whale px-4 py-2 pr-8 rounded-r-full flex flex-col items-start leading-[75%]">
             <span class="text-white font-thin">{category}</span>
             <h2 class="text-2xl text-white whitespace-nowrap">{name}</h2>
         </div>
 
         {#each links as link, index}
-        <a href={link.url} class="bg-picton-blue no-underline border-8 border-white rounded-full h-8 w-8 p-4 flex items-center justify-center text-blue-whale mr-4 hover:bg-blue-whale hover:text-picton-blue transition-all duration-200 {index === 0 ? 'ml-auto' : ''}">
+        <a href={link.url} class="bg-picton-blue no-underline border-8 border-white rounded-full h-8 w-8 p-4 flex items-center justify-center text-blue-whale mr-2 hover:bg-blue-whale hover:text-picton-blue transition-all duration-200 {index === 0 ? 'ml-auto' : ''}">
             <i class={link.icon}></i>
         </a>
         {/each}
     </div>
     <div class="px-4 -mt-6 py-2">
         {#if small}
-            <h5 class="font-bold h-20">{title}</h5>
+            <h5 class="font-bold">{title}</h5>
         {:else}
-            <h2 class="font-bold h-20">{title}</h2>
+            <h2 class="font-bold">{title}</h2>
         {/if}
         <div class="overflow-auto prose prose-sm md:prose-base prose-headings:text-blue-whale prose-headings:m-0 prose-h1:text-2xl prose-ul:my-0 prose-p:mt-0 prose-p:mb-2">
-            <p class="text-black hyphens-auto pb-2">{@html description}</p>
+            <p class="text-black hyphens-auto">{@html description}</p>
             <p class="text-gray-900 {showMore ? 'h-60' : 'h-0 overflow-hidden'} transition-all duration-200 allow-keywords">{@html extendedDescription}</p>
         </div>
-        <button on:click={() => showMore = !showMore} class="text-blue-500 mt-2">
+        <button on:click={() => showMore = !showMore} class="text-blue-500 mt-auto">
             {#if showMore} Show Less {:else} Show More {/if}
         </button>
         
