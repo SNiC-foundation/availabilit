@@ -30,7 +30,7 @@
     </div>
     <div class="px-4 -mt-6 py-2">
         {#if small}
-            <h5 class="font-bold">{title}</h5>
+            <h4 class="font-bold">{title}</h4>
         {:else}
             <h2 class="font-bold">{title}</h2>
         {/if}
