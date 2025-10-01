@@ -43,7 +43,7 @@
         </button>
         
     </div>
-    <div class="flex flex-row flex-wrap bg-gray-200 gap-2 px-4 py-2 mt-auto">
+    <div class="flex flex-row flex-wrap bg-gray-100 gap-2 px-4 py-2 mt-auto">
         {#each tags as tag}
             <span class="text-sm bg-aquamarine  px-3 py-1 rounded-full">{tag}</span>
         {/each}

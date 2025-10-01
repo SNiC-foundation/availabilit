@@ -1,4 +1,5 @@
- <div id="accessibility_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
+<div id="about_section" class="bg-gray-100 flex flex-col w-full content-around pt-[5vh]">
+<div id="accessibility_section" class="container  flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
 
      <h2 class="text-blue-whale text-2xl md:text-5xl font-bold">Accessibility</h2>
 
@@ -13,7 +14,7 @@
 
 
          <!-- The contact person box  -->
-         <div id="wrapper" class="lg:w-1/2 bg-start text-white flex flex-col gap-4 p-4">
+         <div id="wrapper" class="lg:w-1/2 bg-start text-white flex flex-col gap-4 p-4 rounded-3xl">
              
              <h3 class="text-4xl">Questions</h3>
          
@@ -24,5 +25,6 @@
          
          </div>
      </div>
+ </div>
  </div>
 

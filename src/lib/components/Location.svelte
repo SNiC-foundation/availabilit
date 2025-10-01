@@ -3,14 +3,16 @@
 </script>
 
 
-<div id="location_section" class="bg-gray-200 flex flex-col w-full content-around pt-[5vh]">
+<div id="location_section" class="flex flex-col w-full content-around">
 
     <div class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left ">
 
         <h1 class="text-blue-whale text-2xl md:text-5xl font-bold">Location</h1>
 
 
-        <div id="text-and-image" class="flex flex-col lg:flex-row w-full lg:h-max-[70vh] gap-8 lg:gap-4 text-blue-whale">
+        <div id="text-and-image" class="flex flex-col lg:flex-row w-full items-center lg:h-max-[70vh] gap-8 text-blue-whale">
+
+            <img src={EntreeZuid} alt="" class="lg:w-1/2 rounded-3xl"/>
 
             <article class="lg:w-1/2">
                 <a href="https://www.orpheus.nl" class="text-blue-whale">Orpheus</a> is the largest cultural stage in Apeldoorn and the wider region. They present a broad, attractive and 
@@ -21,9 +23,6 @@
                  excellent service, contributing not only to their own healthy operation, but also to Apeldoorn's
                   economic activity and positioning.
             </article>
-
-            <img src={EntreeZuid} alt="" class="lg:w-1/2"/>
-
         </div>
     </div>
     

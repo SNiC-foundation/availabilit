@@ -1,23 +1,29 @@
 <script lang="ts">
     export let logos:{image:string,name:string,url:string}[];
+    export let size:string= 'md'
     let containerWidth: number = 0;
     let trackWidth: number = 0;
+
+    $: isOverflowing = containerWidth <= trackWidth + 100;
+
+    const logoSize = size === 'md' ? 'h-8' : 'h-14'
+
 </script>
 {#if logos.length > 0}
-<div class="overflow-hidden h-20 relative gradient-borders w-full {containerWidth <= trackWidth ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth} style="--track-width: calc(-{trackWidth}px - 5rem);">
-    <div class="flex flex-row gap-20 w-max {containerWidth < trackWidth ? 'scroll-animation absolute' : 'pl-0'}">
-        <div class="flex flex-row gap-20" bind:clientWidth={trackWidth}>
+<div class="overflow-hidden h-20 relative gradient-borders w-full {isOverflowing ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth} style="--track-width: calc(-{trackWidth}px - 5rem);">
+    <div class="flex flex-row items-center h-20 gap-20 w-max {isOverflowing  ? 'scroll-animation absolute' : 'pl-0'}">
+        <div class="flex flex-row items-center gap-20" bind:clientWidth={trackWidth}>
             {#each logos as logo (logo.name)}
             <a href={logo.url} target="_blank" rel="noopener noreferrer">
-                <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}">
+                <img src={logo.image} class="{logoSize} object-contain" alt="Logo {logo.name}">
             </a>
             {/each}
         </div>
-        {#if containerWidth < trackWidth}
-            <div class="flex flex-row gap-20">
+        {#if isOverflowing}
+            <div class="flex items-center flex-row gap-20">
                 {#each logos as logo (logo.name)}
                 <a href={logo.url} target="_blank" rel="noopener noreferrer">
-                    <img src={logo.image} class="w-24 h-20 object-contain" alt="Logo {logo.name}"/>
+                    <img src={logo.image} class="{logoSize} object-contain" alt="Logo {logo.name}"/>
                 </a>
                 {/each}
             </div>
