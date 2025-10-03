@@ -5,6 +5,7 @@
   import Polylog from "$lib/images/speakers/polylog.jpg"
   import Jeroen from "$lib/images/speakers/jeroen.jpg"
   import Andre from "$lib/images/speakers/andre.jpg"
+  import AMLC from "$lib/images/speakers/AMLC.png"
 
   /**
    * @type {string | any[]}
@@ -32,6 +33,18 @@
         tags: ['Algorithms', 'Science education'],
         links: [
             {icon: "fa-brands fa-youtube", url: "https://www.youtube.com/@PolylogCS"},
+        ]
+    },
+    {
+        image: AMLC,
+        name: "Ruben and Jeroen",
+        title: "Leveraging data and tooling for intelligence and investigation",
+        smallTitle: true,
+        description: marked("Two data scientists from the AMLC will present the process from intelligence to investigation using in-house tools and open-source technology. "),
+        extendedDescription: marked("They will show how their tools, the AMLC suite, supports this process and makes crucial data available within their organization. \n\n At AMLC we contribute to FIOD’s intel position on money laundering and we support in developing leads into criminal investigations. This is a combined effort of our data scientists, using latest tools and technology, analysts and anti-money laundering experts. \n\n We also research the latest innovations in the areas of Artificial Intelligence and Machine learning and how these technologies can help our data. "),
+        tags: ['Intelligence', 'Open Source'],
+        links: [
+            {icon: "fa-solid fa-globe", url: "https://www.amlc.nl/"},
         ]
     },
     {
