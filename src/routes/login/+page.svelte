@@ -86,6 +86,8 @@
             >
                 {loading ? 'Logging in...' : 'Login'}
             </button>
+
+            <button type="button" on:click={(event) => goto('/forgotPassword')}>Forgotten password?</button>
         </form>
     </div>
 </div>
