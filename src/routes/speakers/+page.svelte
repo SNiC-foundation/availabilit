@@ -6,6 +6,7 @@
   import Jeroen from "$lib/images/speakers/jeroen.jpg"
   import Andre from "$lib/images/speakers/andre.jpg"
   import AMLC from "$lib/images/speakers/AMLC.png"
+  import CERN from "$lib/images/speakers/CERN.png"
 
   /**
    * @type {string | any[]}
@@ -22,6 +23,19 @@
         links: [
             {icon: "fa-solid fa-globe", url: "https://dreet.je/"},
             {icon: "fa-solid fa-globe", url: "https://nedap.com/"},
+        ]
+    },
+    {
+        image: CERN,
+        name: "CERN",
+        title: "We Tried Open-Source For 20 Years; Here’s What Happened",
+        smallTitle: true,
+        category: "Keynote",
+        description: marked("Pedro is the Head of conferencing technologies at CERN, and Ajob is a software engineer for the Indico team at CERN."),
+        extendedDescription: marked("They will talk about the challenges and benefits of running an open-source project for a long time. This includes topics like their collaborations with organizations like the UN, struggles with funding, the returned benefits and more. Essentially, the good, the bad and the ugly of open source projects. CERN, is best known as the place where the web was invented and where the world’s largest particle accelerator, the Large Hadron Collider, pushes the boundaries of physics. \n\n Beyond groundbreaking science, CERN is also a pioneer in technology and open collaboration. From distributed computing to open-source software used by thousands of researchers and institutions worldwide, CERN shows how technology created for science can ripple far beyond the lab. "),
+        tags: ['Open Source'],
+        links: [
+            {icon: "fa-solid fa-globe", url: "https://home.cern/"},
         ]
     },
     {
