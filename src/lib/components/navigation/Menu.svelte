@@ -15,7 +15,7 @@
         { text: "Home", route: "/" },
         { text: "Partners", route: "/partners" },
         { text: "Speakers", route: "/speakers" },
-        { text: "Tracks", route: "/tracks" },
+        { text: "Program", route: "/program" },
         { text: "Contact", route: "/contact" },
     ];
 
