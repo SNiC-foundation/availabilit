@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { marked } from "marked";
 
 
     export let id: number;
@@ -47,7 +48,7 @@
             <h2 class="font-bold">{title}</h2>
         {/if}
         <div class="overflow-auto prose prose-sm md:prose-base prose-headings:text-blue-whale prose-headings:m-0 prose-h1:text-2xl prose-ul:my-0 prose-p:mt-0 prose-p:mb-2">
-            <p class="text-ellipsis transition-all duration-200 {showMore ? 'h-60' : 'h-28 overflow-hidden line-clamp-4'}">{@html description}</p>
+            <p class="text-ellipsis transition-all duration-200 {showMore ? 'h-60' : 'h-28 overflow-hidden line-clamp-4'}">{@html marked(description)}</p>
         </div>
         <button on:click={() => showMore = !showMore} class="text-blue-500 mt-auto">
             {#if showMore} Show Less {:else} Show More {/if}
