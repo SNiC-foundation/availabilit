@@ -49,7 +49,6 @@ async function getSpeakers() {
     } catch (e) {
         console.error('Error loading speakers:', e);
         speakers = [];
-        error = e;
     }
 }
 
@@ -84,7 +83,7 @@ async function getSpeakers() {
                     id={speaker.id}
                     admin={admin}
                     title={speaker.title}
-                    image={speaker.imageFilename ? `https://availabilit.ia.utwente.nl/api/speaker/${speaker.id}/image` : ''}
+                    image={`https://availabilit.ia.utwente.nl/api/static/speakers/${speaker.imageFilename}`}
                     name={speaker.name}
                     description={speaker.description}
                     tags={speaker.tags || []}
