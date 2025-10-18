@@ -12,7 +12,7 @@
 
 <div id="accessibility_section" class="container  flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
     <h2 class="text-blue-whale text-2xl text-center md:text-5xl font-bold">Affiliated universities</h2>
-    <p class="text-center">Next to out sponsors, SNiC 2025 is made possible through the support of the following universities and funds:</p>
+    <p class="text-center">Next to our sponsors, SNiC 2025 is made possible through the support of the following universities and funds:</p>
 </div>
 
 <LogoBar size="lg" logos="{[
