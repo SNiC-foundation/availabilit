@@ -2,5 +2,5 @@
     import Header from "$lib/components/Header.svelte";
 
 </script>
-<Header title="Tracks" />
+<Header title="Program" />
 
