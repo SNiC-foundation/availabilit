@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     let user: any = null;
     let loading = true;
@@ -12,7 +13,7 @@
 
     async function loadUserProfile() {
         try {           
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/profile", {
+            const response = await fetch(apiUrl('/profile'), {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -37,7 +38,7 @@
 
     async function handleLogout() {
         try {
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/logout", {
+            const response = await fetch(apiUrl('/logout'), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

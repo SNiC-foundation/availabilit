@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { apiUrl } from "$lib/config";
 
     export let id: number = -1;
     export let mode: 'edit' | 'create' = 'create';
@@ -17,7 +18,7 @@
         if (mode !== 'edit' || !id) return;
         loading = true;
         try {
-            const res = await fetch(`https://availabilit.ia.utwente.nl/api/speaker/${id}`, {
+            const res = await fetch(apiUrl(`/speaker/${id}`), {
                 credentials: 'include'
             });
             if (!res.ok) {
@@ -49,7 +50,7 @@
                     const imgRes = await fetch(data.imageUrl, { credentials: 'include' });
                     if (imgRes.ok) imageBlob = await imgRes.blob();
                 } else {
-                    const imgRes = await fetch(`https://availabilit.ia.utwente.nl/api/speaker/${id}/image`, { credentials: 'include' });
+                    const imgRes = await fetch(apiUrl(`/speaker/${id}/image`), { credentials: 'include' });
                     if (imgRes.ok) imageBlob = await imgRes.blob();
                 }
             } catch (imgErr) {
@@ -117,7 +118,7 @@
 
     try {
         // Use PUT for edit mode, POST for create mode
-        const url = mode === 'edit' ? `https://availabilit.ia.utwente.nl/api/speaker/${id}` : "https://availabilit.ia.utwente.nl/api/speaker";
+        const url = mode === 'edit' ? apiUrl(`/speaker/${id}`) : apiUrl('/speaker');
         const method = mode === 'edit' ? "PUT" : "POST";
 
         const response = await fetch(url, {
@@ -140,7 +141,7 @@
                     const formData = new FormData();
                     formData.append('logo', selectedImage);
 
-                    const imageResponse = await fetch(`https://availabilit.ia.utwente.nl/api/speaker/${speakerId}/image`, {
+                    const imageResponse = await fetch(apiUrl(`/speaker/${speakerId}/image`), {
                         method: "PUT",
                         body: formData,
                         credentials: "include"

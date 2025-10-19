@@ -3,7 +3,8 @@
     import Navbutton from "$lib/components/navigation/Navbutton.svelte";
     import { base } from "$app/paths";
     import { onMount } from "svelte";
-  import { isAdmin } from "$lib/util/auth";
+    import { isAdmin } from "$lib/util/auth";
+    import { apiUrl } from "$lib/config";
 
     export let scroll:number;
     export let height:number;
@@ -14,7 +15,7 @@
 
     onMount(async () => {
         try {
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/profile", {
+            const response = await fetch(apiUrl('/profile'), {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     interface User {
         id: number;
@@ -41,7 +42,7 @@
         error = '';
         
         try {
-            const response = await fetch('https://availabilit.ia.utwente.nl/api/ticket', {
+            const response = await fetch(apiUrl('/ticket'), {
                 credentials: 'include'
             });
 
@@ -78,7 +79,7 @@
         loading = true;
         error = '';
         try {
-            const response = await fetch(`https://availabilit.ia.utwente.nl/api/ticket/${id}`, {
+            const response = await fetch(apiUrl(`/ticket/${id}`), {
                 method: 'DELETE',
                 credentials: 'include'
             });

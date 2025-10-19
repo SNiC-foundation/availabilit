@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     // Form data
     let amount = 1;
@@ -21,7 +22,7 @@
         };
 
         try {
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/ticket", {
+            const response = await fetch(apiUrl('/ticket'), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

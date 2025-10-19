@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     let email = '';
     let password = '';
@@ -12,7 +13,7 @@
         error = '';
         
         try {           
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/login", {
+            const response = await fetch(apiUrl('/login'), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

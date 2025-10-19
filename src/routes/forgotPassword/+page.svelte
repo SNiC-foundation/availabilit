@@ -1,10 +1,12 @@
 <script lang="ts">
+    import { apiUrl } from '$lib/config';
+    
     let mailSent = false;
     let email = '';
 
     async function handleForgotPassword() {
         try {
-            fetch('https://availabilit.ia.utwente.nl/api/forgot-password', {
+            fetch(apiUrl('/forgot-password'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

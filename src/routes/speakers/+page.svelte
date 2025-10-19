@@ -4,6 +4,7 @@
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
   import { isAdmin } from "$lib/util/auth";
   import { onMount } from "svelte";
+  import { apiUrl, staticUrl } from "$lib/config";
 
   let admin = false;
   let loading = true;
@@ -11,7 +12,7 @@
 
   async function loadUserProfile() {
         try {           
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/profile", {
+            const response = await fetch(apiUrl('/profile'), {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -35,7 +36,7 @@
 
 async function getSpeakers() {
     try {
-        const response = await fetch("https://availabilit.ia.utwente.nl/api/speaker", {
+        const response = await fetch(apiUrl('/speaker'), {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +84,7 @@ async function getSpeakers() {
                     id={speaker.id}
                     admin={admin}
                     title={speaker.title}
-                    image={`https://availabilit.ia.utwente.nl/api/static/speakers/${speaker.imageFilename}`}
+                    image={staticUrl(`/speakers/${speaker.imageFilename}`)}
                     name={speaker.name}
                     description={speaker.description}
                     tags={speaker.tags || []}

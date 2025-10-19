@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     interface Role {
         id: number;
@@ -50,7 +50,7 @@
         error = '';
         
         try {
-            const response = await fetch('https://availabilit.ia.utwente.nl/api/user', {
+            const response = await fetch(apiUrl('/user'), {
                 credentials: 'include'
             });
 
