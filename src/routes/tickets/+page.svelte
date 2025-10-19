@@ -48,8 +48,7 @@
             if (response.ok) {
                 tickets = await response.json();
             } else {
-                error = 'Failed to load tickets';
-                console.error('Failed to fetch tickets:', response.status);
+                error = response.status === 401 ? 'Unauthorized' : 'Failed to load tickets';
             }
         } catch (err) {
             error = 'Network error occurred';
@@ -77,6 +76,7 @@
 
 <div class="min-h-screen bg-bottom-backdrop p-8">
     <div class="max-w-7xl mx-auto">
+        {#if !error}
         <div class="bg-white rounded-lg shadow-md p-8 mt-16">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-blue-whale">Ticket Management</h1>
@@ -88,12 +88,6 @@
                     {loading ? 'Loading...' : 'Refresh'}
                 </button>
             </div>
-
-            {#if error}
-                <div class="bg-red-100 text-red-700 p-4 rounded mb-6">
-                    {error}
-                </div>
-            {/if}
 
             {#if loading}
                 <div class="flex justify-center items-center py-12">
@@ -187,5 +181,10 @@
                 </div>
             {/if}
         </div>
+        {:else}
+            <div class="bg-red-100 text-red-700 p-4 rounded mt-12 text-center">
+                {error}
+            </div>
+        {/if}
     </div>
 </div>
