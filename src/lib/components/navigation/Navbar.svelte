@@ -3,12 +3,14 @@
     import Navbutton from "$lib/components/navigation/Navbutton.svelte";
     import { base } from "$app/paths";
     import { onMount } from "svelte";
+  import { isAdmin } from "$lib/util/auth";
 
     export let scroll:number;
     export let height:number;
     export let pages:any[];
 
     let loggedIn = false;
+    let admin = false;
 
     onMount(async () => {
         try {
@@ -21,6 +23,8 @@
             });
             if (response.ok) {
                 loggedIn = response.ok;
+                const user = await response.json()
+                admin = await isAdmin(user)
             }
         } catch (error) {
             console.error("Failed to fetch profile:", error);
@@ -36,6 +40,9 @@
             {/each}
 
             {#if loggedIn}
+                {#if admin}
+                    <Navbutton text="Tickets" route="/tickets" />        
+                {/if}
                 <Navbutton text="Profile" route="/profile" />        
             {:else}
                 <Navbutton text="Log in" route="/login" />        

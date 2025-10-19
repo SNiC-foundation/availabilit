@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import Header from "$lib/components/Header.svelte";
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
+  import { isAdmin } from "$lib/util/auth";
   import { onMount } from "svelte";
 
   let admin = false;
@@ -20,7 +21,7 @@
 
             if (response.ok) {
                 const user = await response.json();
-                admin = user && user.roles.map(role => role.name).includes('Admin')
+                admin = isAdmin(user)
             } 
         } catch(e) {
             console.error(e)

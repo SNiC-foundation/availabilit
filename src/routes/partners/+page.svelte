@@ -6,6 +6,7 @@
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
   import type { Company } from "./types";
+  import { isAdmin } from "$lib/util/auth";
 
 
     const tiers = ['platinum','gold','silver','bronze']
@@ -55,7 +56,7 @@
 
             if (response.ok) {
                 const user = await response.json();
-                admin = user && user.roles.map(role => role.name).includes('Admin')
+                admin = isAdmin(user)
             } 
         } catch(e) {
             console.error(e)
