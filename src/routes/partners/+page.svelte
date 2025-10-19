@@ -33,7 +33,6 @@
                 silver: companiesWithTier('silver',data),
                 bronze: companiesWithTier('bronze',data),
             }
-            console.log(companies)
         } catch (e) {
             console.error(e);
         }

@@ -1,4 +1,1 @@
-export const isAdmin = (user) => {
-    console.log(user)
-    return user && user.roles.map(role => role.name).includes('Admin')
-}
+export const isAdmin = (user) => user && user.roles.map(role => role.name).includes('Admin')

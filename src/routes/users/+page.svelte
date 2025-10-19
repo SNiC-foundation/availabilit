@@ -56,7 +56,6 @@
 
             if (response.ok) {
                 users = await response.json();
-                console.log(users)
             } else {
                 error = response.status === 401 ? 'Unauthorized' : 'Failed to load users';
             }

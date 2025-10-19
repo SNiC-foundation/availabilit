@@ -80,6 +80,14 @@
         <div class="bg-white rounded-lg shadow-md p-8 mt-16">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-blue-whale">Ticket Management</h1>
+                <div class="flex gap-2">
+                    <button 
+                    on:click={() => goto('/tickets/create')}
+                    disabled={loading}
+                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
+                >
+                    {loading ? 'Loading...' : 'Add tickets'}
+                </button>
                 <button 
                     on:click={loadTickets}
                     disabled={loading}
@@ -87,6 +95,7 @@
                 >
                     {loading ? 'Loading...' : 'Refresh'}
                 </button>
+                </div>
             </div>
 
             {#if loading}
@@ -143,26 +152,26 @@
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        {ticket.user.name}
+                                        {ticket.user?.name}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {ticket.user.email}
+                                        {ticket.user?.email}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {ticket.association || 'N/A'}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {ticket.user.dietaryWishes || 'None'}
+                                        {ticket.user?.dietaryWishes || 'None'}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {ticket.user.needs || 'None'}
+                                        {ticket.user?.needs || 'None'}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {formatDate(ticket.createdAt)}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {ticket.user.emailVerified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
-                                            {ticket.user.emailVerified ? 'Verified' : 'Unverified'}
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {ticket.user?.emailVerified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                            {ticket.user?.emailVerified ? 'Verified' : 'Unverified'}
                                         </span>
                                     </td>
                                 </tr>

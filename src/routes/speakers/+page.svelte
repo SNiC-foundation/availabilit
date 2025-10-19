@@ -43,7 +43,6 @@ async function getSpeakers() {
         });
         if (response.ok) {
             speakers = await response.json();
-            console.log(speakers)
         } else {
             speakers = [];
         }
