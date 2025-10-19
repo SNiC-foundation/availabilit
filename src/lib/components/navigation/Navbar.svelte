@@ -48,6 +48,7 @@
                 <Navbutton text="Profile" route="/profile" />        
             {:else}
                 <Navbutton text="Log in" route="/login" />        
+                <Navbutton text="Register" route="/register" />   
             {/if}
         </div>
     </div>
