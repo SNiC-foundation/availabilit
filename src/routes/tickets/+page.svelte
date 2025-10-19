@@ -72,6 +72,35 @@
         // Display only first 8 characters of the code for readability
         return code.substring(0, 8) + '...';
     }
+
+    const deleteTicket = async (id: number) => {
+        if (!confirm('Are you sure you want to delete this ticket?')) return;
+        loading = true;
+        error = '';
+        try {
+            const response = await fetch(`https://availabilit.ia.utwente.nl/api/ticket/${id}`, {
+                method: 'DELETE',
+                credentials: 'include'
+            });
+
+            if (response.ok) {
+                tickets = tickets.filter(t => t.id !== id);
+            } else {
+                if (response.status === 401) {
+                    error = 'Unauthorized';
+                    goto('/login');
+                } else {
+                    const text = await response.text().catch(() => '');
+                    error = `Failed to delete ticket${text ? ': ' + text : ''}`;
+                }
+            }
+        } catch (err) {
+            error = 'Network error occurred';
+            console.error('Error deleting ticket:', err);
+        } finally {
+            loading = false;
+        }
+    };
 </script>
 
 <div class="min-h-screen bg-bottom-backdrop p-8">
@@ -138,6 +167,9 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Email Verified
                                 </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -173,6 +205,11 @@
                                         <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {ticket.user?.emailVerified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
                                             {ticket.user?.emailVerified ? 'Verified' : 'Unverified'}
                                         </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button class="cursor-pointer" on:click={deleteTicket(ticket.id)}>
+                                            <i class="fa-solid fa-trash text-red-500"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             {/each}
