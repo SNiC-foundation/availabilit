@@ -41,6 +41,7 @@
 
             {#if loggedIn}
                 {#if admin}
+                    <Navbutton text="Users" route="/users" />
                     <Navbutton text="Tickets" route="/tickets" />        
                 {/if}
                 <Navbutton text="Profile" route="/profile" />        
