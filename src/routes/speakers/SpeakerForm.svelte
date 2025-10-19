@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
 
-    export let id: number;
+    export let id: number = -1;
     export let mode: 'edit' | 'create' = 'create';
     let name = '';
     let title = '';
@@ -43,8 +43,6 @@
             }
 
             type = (data.type ?? 'talk').toLowerCase();
-
-            // Try to obtain image: prefer imageUrl field, otherwise try the image endpoint
             let imageBlob: Blob | null = null;
             try {
                 if (data.imageUrl) {

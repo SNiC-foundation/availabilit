@@ -1,9 +1,13 @@
 export type Company = {
+        createdAt: string
+        updatedAt: string
         name: string;
         show: boolean;
-        tags: string[];
+        location: string
+        specialization: string;
         shortDescription: string | Promise<string>;
-        extendedDescription?: string | Promise<string>;
-        logo: string;
-        website: string;
+        description?: string | Promise<string>;
+        package: 'platinum' | 'gold' | 'silver' | 'bronze' 
+        logoFilename: string;
+        url: string;
     };
