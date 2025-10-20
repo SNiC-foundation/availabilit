@@ -3,6 +3,7 @@
         name: string;
         location: string;
         description: string;
+        speakers: any;
     };
     export let subscriptions: number = 0;
 
@@ -22,15 +23,13 @@
     }
 </script>
 
-<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden">
-    <!-- Card Header -->
+<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden max-w-md">
     <div class="p-6 pb-4">
         <div class="flex items-start justify-between mb-3">
             <h3 class="text-xl font-semibold text-blue-whale leading-tight flex-1 mr-4">
                 {activity.name}
             </h3>
             
-            <!-- Subscription Badge -->
             <div class="flex-shrink-0">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium {getSubscriptionColor(subscriptions)}">
                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -41,14 +40,18 @@
             </div>
         </div>
         
-        <!-- Location -->
-        <div class="flex items-center text-gray-600 mb-4">
-            <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span class="text-sm font-medium">{activity.location}</span>
+        <div class="flex gap-3">
+            <div class="flex gap-2 items-center text-gray-600 mb-4">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="text-sm font-medium">{activity.location}</span>
+            </div>
+
+            <div class="flex gap-2 items-center text-gray-600 mb-4">
+                <i class="fa-solid fa-user"></i>
+                <span class="text-sm font-medium">{activity.speakers.map(speaker => speaker.name)}</span>
+            </div>
         </div>
+        
     </div>
 
     <!-- Card Body -->

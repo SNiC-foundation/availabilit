@@ -3,6 +3,7 @@
 
     export let part;
     export let activities;
+    let open = true;
 
     function formatTime(dateString: string): string {
         return new Date(dateString).toLocaleTimeString('en-US', {
@@ -27,8 +28,7 @@
         }
     }
 </script>
-<div class="p-6 hover:bg-gray-50 transition-colors">
-    <div class="flex items-start justify-between">
+<button on:click={() => open = !open} class="p-6 w-full flex items-center justify-between hover:bg-gray-50 transition-colors">
         <div class="flex-1">
             <div class="flex items-center space-x-4 mb-2">
                 <h3 class="text-lg font-medium text-gray-900">
@@ -51,14 +51,12 @@
             </div>
         </div>
         
-        <div class="text-right text-sm text-gray-500">
-            <div>ID: #{part.id}</div>
-            <div class="mt-1">v{part.version}</div>
-        </div>
-    </div>
-</div>
-<div class="bg-gray-300">
+        <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
+    </button>
+{#if open}
+<div class="bg-gray-300 p-2">
     {#each activities as activity}
         <Activity activity={activity.activity} subscriptions={activity.nrOfSubscribers}/>
     {/each}
 </div>
+{/if}
