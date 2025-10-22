@@ -19,6 +19,12 @@
     let activities = []
     let loading = true;
     let error = '';
+    
+    let loadingProgramParts = true;
+    let loadingActivities = true;
+    let loadingUserProfile = true;
+
+    $: loading = loadingProgramParts || loadingActivities || loadingUserProfile;
 
     onMount(async () => {
         await loadProgramParts();
@@ -27,6 +33,7 @@
     });
 
     async function loadUserProfile() {
+        loadingUserProfile = true;
         try {           
             const response = await fetch(apiUrl('/profile'), {
                 method: "GET",
@@ -42,11 +49,13 @@
             } 
         } catch(e) {
             console.error(e)
+        } finally {
+            loadingUserProfile = false;
         }
     }
 
     async function loadProgramParts() {
-        loading = true;
+        loadingProgramParts = true;
         error = '';
         
         try {
@@ -62,12 +71,12 @@
             error = 'Network error occurred';
             console.error('Error fetching program parts:', err);
         } finally {
-            loading = false;
+            loadingProgramParts = false;
         }
     }
 
     async function loadActivities() {
-        loading = true;
+        loadingActivities = true;
         error = '';
         
         try {
@@ -77,14 +86,14 @@
                 activities = await response.json();
                 console.log(activities)
             } else {
-                error = response.status === 401 ? 'Unauthorized' : 'Failed to load program';
-                console.error('Failed to fetch program parts:', response.status);
+                error = response.status === 401 ? 'Unauthorized' : 'Failed to load activities';
+                console.error('Failed to fetch activities:', response.status);
             }
         } catch (err) {
             error = 'Network error occurred';
-            console.error('Error fetching program parts:', err);
+            console.error('Error fetching activities:', err);
         } finally {
-            loading = false;
+            loadingActivities = false;
         }
     }
 </script>
@@ -96,7 +105,11 @@
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-blue-whale">Event Program</h1>
                 <button 
-                    on:click={loadProgramParts}
+                    on:click={() => {
+                        loadProgramParts();
+                        loadActivities();
+                        loadUserProfile();
+                    }}
                     disabled={loading}
                     class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
                 >
@@ -105,8 +118,20 @@
             </div>
 
             {#if loading}
-                <div class="flex justify-center items-center py-12">
-                    <div class="text-gray-500">Loading program...</div>
+                <div class="flex justify-center items-center py-16">
+                    <div class="text-center">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-whale mx-auto mb-4"></div>
+                        <div class="text-gray-500 text-lg">Loading program...</div>
+                        <div class="text-gray-400 text-sm mt-2">
+                            {#if loadingProgramParts}
+                                Loading program parts...
+                            {:else if loadingActivities}
+                                Loading activities...
+                            {:else if loadingUserProfile}
+                                Loading user profile...
+                            {/if}
+                        </div>
+                    </div>
                 </div>
             {:else if programParts.length === 0}
                 <div class="text-center py-12">

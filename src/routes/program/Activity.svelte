@@ -53,21 +53,12 @@
         new Date(activity.subscribe.subscriptionListCloseDate) > new Date();
 </script>
 
-<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden max-w-md">
+<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden max-w-xs">
     <div class="p-6 pb-4">
         <div class="flex items-start justify-between mb-3">
             <h3 class="text-xl font-semibold text-blue-whale leading-tight flex-1 mr-4">
                 {activity.name}
             </h3>
-            
-            {#if subscriptionAvailable}
-            <div class="flex-shrink-0">
-                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-gray-700">
-                    <i class="fa-solid fa-users"></i>
-                    {nrOfSubscribers} / {activity.subscribe.maxParticipants}
-                </span>
-            </div>
-            {/if}
         </div>
         
         <div class="flex gap-3">
@@ -80,6 +71,13 @@
                 <i class="fa-solid fa-user"></i>
                 <span class="text-sm font-medium">{activity.speakers.map(speaker => speaker.name)}</span>
             </div>
+
+            {#if subscriptionAvailable}
+            <div class="flex gap-2 items-center text-gray-600 mb-4 flex-shrink-0">
+                <i class="fa-solid fa-users"></i>
+                <span>{nrOfSubscribers} / {activity.subscribe.maxParticipants}</span>
+            </div>
+            {/if}
         </div>
         
     </div>

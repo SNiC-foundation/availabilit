@@ -75,7 +75,7 @@
     });
 </script>
 <button on:click={() => open = !open} class="p-6 w-full flex items-center gap-8 hover:bg-gray-50 transition-colors">
-        <div>
+        <div class="mr-auto">
             <div class="flex items-center space-x-4 mb-2">
                 <h3 class="text-lg font-medium text-gray-900">
                     {part.name}
@@ -97,7 +97,7 @@
             </div>
         </div>
         {#if subscribedActivity}
-        <div class="bg-blue-whale px-4 py-2 rounded-full items-center text-white ml-auto flex gap-2">
+        <div class="bg-blue-whale px-4 py-2 rounded-full items-center text-white flex gap-2">
             <div class="flex gap-1 items-center">
                 <i class="fa-solid fa-person-chalkboard"></i>
                 <span class="max-w-48 overflow-hidden whitespace-nowrap text-ellipsis">
