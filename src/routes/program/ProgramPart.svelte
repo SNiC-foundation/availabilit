@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import Activity from "./Activity.svelte";
 
     export let part;
     export let activities;
+    export let admin;
     let open = true;
 
     function formatTime(dateString: string): string {
@@ -54,9 +56,14 @@
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
-<div class="bg-gray-300 p-2">
+<div class="flex gap-2 items-stretch bg-gray-300 p-2">
     {#each activities as activity}
         <Activity activity={activity.activity} subscriptions={activity.nrOfSubscribers}/>
     {/each}
+    {#if admin}
+    <div class="flex items-center">
+        <button class="size-16 bg-blue-whale text-white text-5xl rounded-full ml-2" on:click={() => goto(`/program/activity/${part.id}/create`)}>+</button>
+    </div>
+    {/if}
 </div>
 {/if}

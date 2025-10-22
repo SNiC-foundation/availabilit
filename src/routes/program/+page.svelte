@@ -1,7 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
-  import ProgramPart from './ProgramPart.svelte';
+    import ProgramPart from './ProgramPart.svelte';
+  import { isAdmin } from '$lib/util/auth';
 
     interface ProgramPart {
         id: number;
@@ -13,6 +14,7 @@
         endTime: string;
     }
 
+    let admin: boolean = false;
     let programParts: ProgramPart[] = [];
     let activities = []
     let loading = true;
@@ -21,7 +23,27 @@
     onMount(async () => {
         await loadProgramParts();
         await loadActivities();
+        await loadUserProfile();
     });
+
+    async function loadUserProfile() {
+        try {           
+            const response = await fetch(apiUrl('/profile'), {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include",
+            });
+
+            if (response.ok) {
+                const user = await response.json();
+                admin = isAdmin(user)
+            } 
+        } catch(e) {
+            console.error(e)
+        }
+    }
 
     async function loadProgramParts() {
         loading = true;
@@ -95,7 +117,7 @@
                 <div class="space-y-8">
                     <div class="divide-y divide-gray-200">
                         {#each programParts as part}
-                            <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)}/>
+                            <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} {admin}/>
                         {/each}
                     </div>
                 </div>

@@ -4,23 +4,23 @@
         location: string;
         description: string;
         speakers: any;
+        subscribe: any;
     };
-    export let subscriptions: number = 0;
 
-    // Function to truncate description if it's too long
+    console.log(activity.subscribe)
+
     function truncateDescription(text: string, maxLength: number = 150): string {
         if (text.length <= maxLength) return text;
         return text.substring(0, maxLength).trim() + '...';
     }
 
-    // Function to get subscription color based on number
-    function getSubscriptionColor(count: number): string {
-        if (count === 0) return 'bg-gray-100 text-gray-600';
-        if (count < 10) return 'bg-blue-100 text-blue-700';
-        if (count < 25) return 'bg-green-100 text-green-700';
-        if (count < 50) return 'bg-yellow-100 text-yellow-700';
-        return 'bg-red-100 text-red-700';
-    }
+    const subscriptionAvailable = activity.subscribe && activity.subscribe.maxParticipants && activity.subscribe.subscribers
+    const subscribable = subscriptionAvailable &&
+        subscriptionAvailable &&
+        !isNaN(Date.parse(activity.subscribe.subscriptionListOpenDate)) &&
+        !isNaN(Date.parse(activity.subscribe.subscriptionListCloseDate)) &&
+        new Date(activity.subscribe.subscriptionListOpenDate) <= new Date() &&
+        new Date(activity.subscribe.subscriptionListCloseDate) > new Date();
 </script>
 
 <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden max-w-md">
@@ -30,14 +30,14 @@
                 {activity.name}
             </h3>
             
+            {#if subscriptionAvailable}
             <div class="flex-shrink-0">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium {getSubscriptionColor(subscriptions)}">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                    </svg>
-                    {subscriptions} {subscriptions === 1 ? 'person' : 'people'}
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                    <i class="fa-solid fa-users"></i>
+                    {activity.subscribe.subscribers.length} / {activity.subscribe.maxParticipants}
                 </span>
             </div>
+            {/if}
         </div>
         
         <div class="flex gap-3">
@@ -54,59 +54,31 @@
         
     </div>
 
-    <!-- Card Body -->
-    <div class="px-6 pb-6">
-        <!-- Description -->
+    <div class="px-6">
         <div class="text-gray-700 text-sm leading-relaxed mb-4">
             {truncateDescription(activity.description)}
         </div>
 
-        <!-- Footer Actions -->
         <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-            <div class="flex items-center space-x-4">
-                <!-- Popularity Indicator -->
-                {#if subscriptions > 0}
-                    <div class="flex items-center text-xs text-gray-500">
-                        <div class="flex -space-x-1 mr-2">
-                            {#each Array(Math.min(subscriptions, 3)) as _, i}
-                                <div class="w-6 h-6 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center">
-                                    <span class="text-white text-xs font-bold">{i + 1}</span>
-                                </div>
-                            {/each}
-                            {#if subscriptions > 3}
-                                <div class="w-6 h-6 rounded-full bg-gray-400 border-2 border-white flex items-center justify-center">
-                                    <span class="text-white text-xs">+</span>
-                                </div>
-                            {/if}
-                        </div>
-                        <span>
-                            {#if subscriptions > 10}
-                                Popular activity
-                            {:else if subscriptions > 5}
-                                Good interest
-                            {:else if subscriptions > 0}
-                                Some interest
-                            {/if}
-                        </span>
-                    </div>
-                {:else}
-                    <div class="flex items-center text-xs text-gray-400">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        Be the first to join!
-                    </div>
-                {/if}
-            </div>
-            
-            <!-- Action Button -->
-            <button class="inline-flex items-center px-4 py-2 border border-blue-600 rounded-md text-sm font-medium text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                </svg>
+            {#if subscriptionAvailable}
+            {#if subscribable} 
+            <button class="inline-flex shrink-0 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-700 items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-whale hover:bg-blue-whale-dark transition-colors duration-200" disabled={!subscribable}>
+                <i class="fa-solid fa-plus"></i>
                 Join Activity
             </button>
+            {:else}
+                {#if new Date(activity.subscribe.subscriptionListOpenDate) > new Date()}
+                    <span class="text-xs">Activity subscription opens on { new Date(activity.subscribe.subscriptionListOpenDate)}</span>
+                {:else}
+                    <span class="text-xs">Activity subscription closed on { new Date(activity.subscribe.subscriptionListCloseDate)}</span>
+                {/if}
+            {/if}
+            {/if}
         </div>
+    </div>
+
+    <div class="px-6 py-2">
+        
     </div>
 </div>
 
