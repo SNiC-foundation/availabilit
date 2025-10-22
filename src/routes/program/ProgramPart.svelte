@@ -1,11 +1,32 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { apiUrl } from "$lib/config";
   import Activity from "./Activity.svelte";
+  import { onMount } from "svelte";
 
     export let part;
     export let activities;
     export let admin;
     let open = true;
+    let user:any = undefined;
+
+    async function loadUserProfile() {
+        try {           
+            const response = await fetch(apiUrl('/profile'), {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include",
+            });
+
+            if (response.ok) {
+                user = await response.json();
+            } 
+        } catch(e) {
+            console.error(e)
+        }
+    }
 
     function formatTime(dateString: string): string {
         return new Date(dateString).toLocaleTimeString('en-US', {
@@ -29,9 +50,16 @@
             return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
         }
     }
+
+    const isSubscribedToActivity = (user, activityId) => user?.subscriptions?.length && user.subscriptions.some(sub => sub.activity.id === activityId);
+    
+
+    onMount(() => {
+        loadUserProfile();
+    });
 </script>
-<button on:click={() => open = !open} class="p-6 w-full flex items-center justify-between hover:bg-gray-50 transition-colors">
-        <div class="flex-1">
+<button on:click={() => open = !open} class="p-6 w-full flex items-center gap-8 hover:bg-gray-50 transition-colors">
+        <div>
             <div class="flex items-center space-x-4 mb-2">
                 <h3 class="text-lg font-medium text-gray-900">
                     {part.name}
@@ -52,13 +80,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="bg-blue-whale px-4 py-2 rounded-full items-center text-white ml-auto flex gap-2">
+            <div class="flex gap-1 items-center">
+                <i class="fa-solid fa-person-chalkboard"></i>
+                <span class="max-w-48 overflow-hidden whitespace-nowrap text-ellipsis">
+                    Testen of dit nu werkt met subscription options
+                </span>
+            </div>
+
+            <div class="flex gap-1 items-center">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="max-w-32 overflow-hidden whitespace-nowrap text-ellipsis">
+                    Altioszaal
+                </span>
+            </div>
+        </div>
         
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
 <div class="flex gap-2 items-stretch bg-gray-300 p-2">
     {#each activities as activity}
-        <Activity activity={activity.activity} subscriptions={activity.nrOfSubscribers}/>
+        <Activity activity={activity.activity} nrOfSubscribers={activity.nrOfSubscribers} isSubscribed={isSubscribedToActivity(user,activity.activity.id)}/>
     {/each}
     {#if admin}
     <div class="flex items-center">
