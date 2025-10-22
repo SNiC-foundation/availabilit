@@ -74,9 +74,10 @@
         loadUserProfile();
     });
 </script>
-<button on:click={() => open = !open} class="p-6 w-full flex items-center gap-8 hover:bg-gray-50 transition-colors">
+<div class="flex flex-col shadow-md shadow-black/35 rounded-xl">
+<button on:click={() => open = !open} class="p-6 w-full flex rounded-t-xl items-center gap-8 bg-gray-100 hover:bg-gray-200 transition-colors">
         <div class="mr-auto">
-            <div class="flex items-center space-x-4 mb-2">
+            <div class="flex items-center space-x-4">
                 <h3 class="text-lg font-medium text-gray-900">
                     {part.name}
                 </h3>
@@ -117,7 +118,7 @@
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
-<div class="flex gap-2 items-stretch bg-gray-300 p-2">
+<div class="flex gap-2 items-stretch bg-gray-300 p-2 rounded-b-xl">
     {#each activities as activity}
         <Activity 
             activity={activity.activity} 
@@ -133,3 +134,4 @@
     {/if}
 </div>
 {/if}
+</div>
