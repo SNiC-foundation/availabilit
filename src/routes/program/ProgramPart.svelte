@@ -52,7 +52,23 @@
     }
 
     const isSubscribedToActivity = (user, activityId) => user?.subscriptions?.length && user.subscriptions.some(sub => sub.activity.id === activityId);
-    
+    let subscribedActivity: any = undefined;
+
+    $: subscribedActivity = (user && user.subscriptions && activities)
+        ? (activities.find((a: any) =>
+                user.subscriptions.some((s: any) => s.activity?.id === a.activity?.id)
+            )?.activity ?? undefined)
+        : undefined;
+
+    function handleActivitySubscribed(event) {
+        const { activity } = event.detail;
+        
+        open = false;
+        
+        subscribedActivity = activity;
+        
+        loadUserProfile();
+    }
 
     onMount(() => {
         loadUserProfile();
@@ -80,29 +96,35 @@
                 </div>
             </div>
         </div>
-
+        {#if subscribedActivity}
         <div class="bg-blue-whale px-4 py-2 rounded-full items-center text-white ml-auto flex gap-2">
             <div class="flex gap-1 items-center">
                 <i class="fa-solid fa-person-chalkboard"></i>
                 <span class="max-w-48 overflow-hidden whitespace-nowrap text-ellipsis">
-                    Testen of dit nu werkt met subscription options
+                    {subscribedActivity.name}
                 </span>
             </div>
 
             <div class="flex gap-1 items-center">
                 <i class="fa-solid fa-location-dot"></i>
                 <span class="max-w-32 overflow-hidden whitespace-nowrap text-ellipsis">
-                    Altioszaal
+                    {subscribedActivity.location}
                 </span>
             </div>
         </div>
+        {/if}
         
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
 <div class="flex gap-2 items-stretch bg-gray-300 p-2">
     {#each activities as activity}
-        <Activity activity={activity.activity} nrOfSubscribers={activity.nrOfSubscribers} isSubscribed={isSubscribedToActivity(user,activity.activity.id)}/>
+        <Activity 
+            activity={activity.activity} 
+            nrOfSubscribers={activity.nrOfSubscribers} 
+            isSubscribed={isSubscribedToActivity(user,activity.activity.id)}
+            on:activitySubscribed={handleActivitySubscribed}
+        />
     {/each}
     {#if admin}
     <div class="flex items-center">

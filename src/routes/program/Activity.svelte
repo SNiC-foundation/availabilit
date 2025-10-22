@@ -1,5 +1,8 @@
 <script lang="ts">
   import { apiUrl } from "$lib/config";
+  import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
 
     export let activity: {
         id:number;
@@ -20,11 +23,25 @@
     let justSubscribed = false;
 
     const subscribe = async () => {
-        await fetch(apiUrl(`/activity/${activity.id}/subscribe`), {
-            method: 'POST',
-            credentials: 'include',
-        });
-        justSubscribed = true;
+        try {
+            const response = await fetch(apiUrl(`/activity/${activity.id}/subscribe`), {
+                method: 'POST',
+                credentials: 'include',
+            });
+            
+            if (response.ok) {
+                justSubscribed = true;
+                
+                dispatch('activitySubscribed', {
+                    activity: activity,
+                    activityId: activity.id
+                });
+            } else {
+                console.error('Failed to subscribe to activity');
+            }
+        } catch (error) {
+            console.error('Error subscribing to activity:', error);
+        }
     }
 
     const subscriptionAvailable = activity.subscribe && activity.subscribe.maxParticipants && activity.subscribe.subscribers
