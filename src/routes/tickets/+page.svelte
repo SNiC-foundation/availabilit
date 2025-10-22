@@ -142,9 +142,6 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Ticket ID
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Code
                                 </th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -176,12 +173,9 @@
                         <tbody class="bg-white divide-y divide-gray-200">
                             {#each tickets as ticket}
                                 <tr class="hover:bg-gray-50">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        #{ticket.id}
-                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">
                                         <span title={ticket.code}>
-                                            {formatCode(ticket.code)}
+                                            {ticket.code}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
