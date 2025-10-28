@@ -100,7 +100,7 @@
                 <p class="text-gray-400 mt-2">Check back later for updates</p>
             </div>
         {:else}
-            <div class="space-y-8 my-8">
+            <div class="space-y-8 p-8">
                 {#each programParts as part}
                     <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} admin={$isAdmin}/>
                 {/each}
