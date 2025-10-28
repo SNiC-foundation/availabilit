@@ -5,11 +5,13 @@
     import { auth, isAdmin } from '$lib/stores/auth';
     import PartnerForm from '../PartnerForm.svelte';
     import { apiUrl } from '$lib/config';
+    import { getUrlParamInt } from '$lib/util/searchParams';
 
-    $: id = parseInt($page.url.searchParams.get('id') || '0');
+    let id = 0;
 
     onMount(async () => {
         await auth.requireAdmin();
+        id = getUrlParamInt('id');
     });
 
     async function deletePartner() {

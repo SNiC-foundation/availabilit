@@ -4,12 +4,14 @@
     import { onMount } from 'svelte';
     import { auth, isAdmin } from '$lib/stores/auth';
     import { apiUrl } from '$lib/config';
+    import { getUrlParam } from '$lib/util/searchParams';
     import SpeakerForm from '../SpeakerForm.svelte';
     
-    $: id = $page.url.searchParams.get('id') || '';
+    let id = '';
 
     onMount(async () => {
         await auth.requireAdmin();
+        id = getUrlParam('id');
     });
 
     async function deleteSpeaker() {

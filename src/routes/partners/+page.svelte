@@ -5,9 +5,9 @@
     import {marked} from "marked";
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
-  import type { Company } from "./types";
-  import { isAdmin } from "$lib/util/auth";
-  import { apiUrl } from "$lib/config";
+    import type { Company } from "./types";
+    import { apiUrl } from "$lib/config";
+    import { isAdmin } from "$lib/stores/auth";
 
 
     const tiers = ['platinum','gold','silver','bronze']
@@ -43,34 +43,13 @@
         loadCompanies();
     });
 
-    let admin = false
-    async function loadUserProfile() {
-        try {           
-            const response = await fetch(apiUrl("/profile"), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-
-            if (response.ok) {
-                const user = await response.json();
-                admin = isAdmin(user)
-            } 
-        } catch(e) {
-            console.error(e)
-        }
-    }
-
     onMount(async () => {
-        await loadUserProfile();
         await loadCompanies();
     });
   </script>
   <Header title="Partners"/>
   <div id="partners_section" class="container flex-col p-8 gap-4 text-center md:text-left min-h-[100vh]">
-    {#if admin}
+    {#if $isAdmin}
         <button class="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" on:click={()=>goto('/partners/create')}>
             Add Partner
         </button>
@@ -80,7 +59,7 @@
       <TierHeader tier={tier}/>
         <div class="flex items-center gap-4 flex-wrap justify-center">
             {#each tierCompanies as company}
-                <CompanyCard company={company} admin={admin}/>
+                <CompanyCard company={company} admin={$isAdmin}/>
             {/each}
         </div>
         {/if}

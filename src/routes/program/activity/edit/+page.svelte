@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
+    import { getUrlParamInt } from '$lib/util/searchParams';
     import { auth } from '$lib/stores/auth';
     import ActivityForm from '../ActivityForm.svelte';
 
@@ -23,7 +24,7 @@
     }
 
 
-    $: activityId = parseInt($page.url.searchParams.get('id') || '0');
+    let activityId = 0;
 
     let activity: Activity | null = null;
     let loading = true;
@@ -31,6 +32,7 @@
 
     onMount(async () => {
         await auth.requireAdmin();
+        activityId = getUrlParamInt('id');
         await loadActivity();
     });
 

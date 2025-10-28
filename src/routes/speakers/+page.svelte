@@ -2,32 +2,12 @@
   import { goto } from "$app/navigation";
   import Header from "$lib/components/Header.svelte";
   import SpeakerCard from "$lib/components/SpeakerCard.svelte";
-  import { isAdmin } from "$lib/util/auth";
   import { onMount } from "svelte";
   import { apiUrl, staticUrl } from "$lib/config";
+  import { isAdmin } from "$lib/stores/auth";
 
-  let admin = false;
   let loading = true;
   let error = '';
-
-  async function loadUserProfile() {
-        try {           
-            const response = await fetch(apiUrl('/profile'), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-
-            if (response.ok) {
-                const user = await response.json();
-                admin = isAdmin(user)
-            } 
-        } catch(e) {
-            console.error(e)
-        }
-    }
 
   /**
    * @type {string | any[]}
@@ -54,14 +34,13 @@ async function getSpeakers() {
 }
 
   onMount(async () => {
-        await loadUserProfile();
         await getSpeakers();
         loading = false;
     });
 </script>
 <Header title="Speakers"/>
 <div id="speakers_section" class="container flex-col text-blue-whale p-8 gap-4 text-center md:text-left min-h-[100vh]">
-    {#if admin}
+    {#if $isAdmin}
         <button class="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" on:click={()=>goto('/speakers/create')}>
             Add Speaker
         </button>
@@ -82,7 +61,7 @@ async function getSpeakers() {
             {#each speakers as speaker, index}
                 <SpeakerCard
                     id={speaker.id}
-                    admin={admin}
+                    admin={$isAdmin}
                     title={speaker.title}
                     image={staticUrl(`/speakers/${speaker.imageFilename}`)}
                     name={speaker.name}

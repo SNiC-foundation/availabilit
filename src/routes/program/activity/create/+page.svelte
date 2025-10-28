@@ -3,13 +3,15 @@
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { auth } from '$lib/stores/auth';
+    import { getUrlParamInt } from '$lib/util/searchParams';
     import ActivityForm from '../ActivityForm.svelte';
 
     // Get programPartId from URL
-    $: programPartId = parseInt($page.url.searchParams.get('programPartId') || '0');
+    let programPartId = 0;
 
     onMount(async () => {
         await auth.requireAdmin();
+        programPartId = getUrlParamInt('programPartId');
     });
 
     function handleSuccess(event: CustomEvent) {
