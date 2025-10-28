@@ -10,7 +10,7 @@
 
     let showMore = false
 
-    const editCompany = (id:number) => goto(`/partners/${id}/edit`)
+    const editCompany = (id:number) => goto(`/partners/edit?id=${id}`)
 </script>
 <div class="flex flex-col md:flex-row items-stretch bg-gray-100 shadow-black/50 border border-gray rounded-3xl overflow-hidden transition-all duration-200 shadow-md w-full grow shrink-0 max-w-full">
     <div class="flex {showMore ? 'md:w-80' : 'md:w-60'} w-full h-40 md:h-auto bg-white items-center justify-center shrink-0 p-4 transition-width duration-200 border-b md:border-r md:border-b-0 border-gray relative">

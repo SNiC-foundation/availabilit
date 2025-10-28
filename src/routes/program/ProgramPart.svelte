@@ -102,7 +102,7 @@
             </div>
         </div>
         {#if $isAdmin}
-        <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/${activities[0].activity.id}/edit`)}>
+        <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/edit?id=${activities[0].activity.id}`)}>
                     <i class="fa-solid fa-pencil text-picton-blue"></i>
         </button>
         {/if}
@@ -172,7 +172,7 @@
     {/each}
     {#if admin}
     <div class="flex items-center">
-        <button class="size-16 bg-blue-whale text-white text-5xl rounded-full ml-2" on:click={() => goto(`/program/activity/${part.id}/create`)}>+</button>
+        <button class="size-16 bg-blue-whale text-white text-5xl rounded-full ml-2" on:click={() => goto(`/program/activity/create?programPartId=${part.id}`)}>+</button>
     </div>
     {/if}
 </div>

@@ -4,7 +4,7 @@
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
     import { auth } from '$lib/stores/auth';
-    import ActivityForm from '../../ActivityForm.svelte';
+    import ActivityForm from '../ActivityForm.svelte';
 
     interface Activity {
         id: number;
@@ -23,7 +23,7 @@
     }
 
 
-    $: activityId = parseInt($page.params.id);
+    $: activityId = parseInt($page.url.searchParams.get('id') || '0');
 
     let activity: Activity | null = null;
     let loading = true;
