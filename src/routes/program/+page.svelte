@@ -81,20 +81,6 @@
 <Header title="Program"/>
 <div id="program_section" class="container flex-col text-blue-whale gap-4 text-center md:text-left">
     {#if !error}
-        <div class="flex justify-between items-center mb-6">
-            <button 
-                on:click={() => {
-                    loadProgramParts();
-                    loadActivities();
-                    auth.refresh();
-                }}
-                disabled={loading}
-                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
-            >
-                {loading ? 'Loading...' : 'Refresh'}
-            </button>
-        </div>
-
         {#if loading}
             <div class="flex justify-center items-center py-16">
                 <div class="text-center">
@@ -115,19 +101,10 @@
                 <p class="text-gray-400 mt-2">Check back later for updates</p>
             </div>
         {:else}
-            <div class="space-y-8">
+            <div class="space-y-8 my-8">
                 {#each programParts as part}
                     <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} admin={$isAdmin}/>
                 {/each}
-            </div>
-
-            <div class="mt-8 flex justify-between items-center text-sm text-gray-500">
-                <div>
-                    Showing {programParts.length} program part{programParts.length !== 1 ? 's' : ''}
-                </div>
-                <div>
-                    Last updated: {new Date().toLocaleTimeString()}
-                </div>
             </div>
         {/if}
     {:else}
