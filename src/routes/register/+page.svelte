@@ -10,11 +10,20 @@
     let needs = '';
     let agreeToPrivacyPolicy = false;
     let studyProgram = '';
+    let selectedLanguages: string[] = [];
     
     // UI state
     let loading = false;
     let error = '';
     let success = '';
+
+    function toggleLanguage(language: string) {
+        if (selectedLanguages.includes(language)) {
+            selectedLanguages = selectedLanguages.filter(lang => lang !== language);
+        } else {
+            selectedLanguages = [...selectedLanguages, language];
+        }
+    }
 
     async function handleRegister() {
         loading = true;
@@ -36,6 +45,7 @@
                 dietaryWishes: dietaryWishes.trim() || undefined,
                 needs: needs.trim() || undefined,
                 agreeToPrivacyPolicy: agreeToPrivacyPolicy,
+                languages: selectedLanguages.length > 0 ? selectedLanguages : undefined,
                 participantInfo: {
                     studyProgram: studyProgram.trim() || undefined
                 }
@@ -63,6 +73,7 @@
                 needs = '';
                 agreeToPrivacyPolicy = false;
                 studyProgram = '';
+                selectedLanguages = [];
                 
                 // Redirect to login after success
                 setTimeout(() => {
@@ -183,6 +194,34 @@
                         placeholder="Any accessibility requirements or special assistance needed"
                     ></textarea>
                     <p class="text-xs text-gray-500 mt-1">Optional: Accessibility or special assistance requirements</p>
+                </div>
+
+                <div class="mt-4">
+                    <span class="block text-sm font-medium text-gray-700 mb-2">Languages</span>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                checked={selectedLanguages.includes('English')}
+                                on:change={() => toggleLanguage('english')}
+                                disabled={loading}
+                                class="mr-2 rounded"
+                            />
+                            <span class="text-sm text-gray-700">English</span>
+                        </label>
+                        
+                        <label class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                checked={selectedLanguages.includes('Dutch')}
+                                on:change={() => toggleLanguage('dutch')}
+                                disabled={loading}
+                                class="mr-2 rounded"
+                            />
+                            <span class="text-sm text-gray-700">Dutch</span>
+                        </label>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Select all languages that you speak</p>
                 </div>
             </div>
             </div>

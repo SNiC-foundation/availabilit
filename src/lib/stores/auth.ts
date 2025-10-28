@@ -26,6 +26,7 @@ export interface User {
             location: string;
         }
     }[]
+    languages: ('english' | 'dutch')[]
 }
 
 export interface AuthState {

@@ -11,6 +11,7 @@
         if (!$isLoggedIn && !$isLoading) {
             goto('/login');
         }
+        auth.setUser()
     });
 
     // Generate QR code when user data is available
@@ -103,6 +104,17 @@
                             <div>
                                 <div class="block text-sm font-medium text-gray-700">Special Needs</div>
                                 <p class="mt-1 text-sm text-gray-900 bg-gray-50 p-2 rounded">{$user.needs || 'None'}</p>
+                            </div>
+
+                            <div>
+                                <div class="block text-sm font-medium text-gray-700">Spoken languages</div>
+                                <div class="flex flex-wrap gap-2 text-gray-900 bg-gray-50 p-2 rounded">
+                                {#each $user.languages as language}
+                                    <span class="inline-flex capitalize items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        {language}
+                                    </span>
+                                {/each}
+                                </div>
                             </div>
                         </div>
                     </div>
