@@ -37,6 +37,13 @@
             return;
         }
 
+        // Validate language selection
+        if (selectedLanguages.length === 0) {
+            error = 'Please select at least one language (Dutch or English)';
+            loading = false;
+            return;
+        }
+
         const registrationData = {
             token: token.trim(),
             user: {
@@ -197,7 +204,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <span class="block text-sm font-medium text-gray-700 mb-2">Languages</span>
+                    <span class="block text-sm font-medium text-gray-700 mb-2">Languages *</span>
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input 
@@ -221,7 +228,7 @@
                             <span class="text-sm text-gray-700">Dutch</span>
                         </label>
                     </div>
-                    <p class="text-xs text-gray-500 mt-1">Select all languages that you speak</p>
+                    <p class="text-xs text-gray-500 mt-1">Select all languages that you speak *</p>
                 </div>
             </div>
             </div>
@@ -244,7 +251,7 @@
             <button 
                 type="submit" 
                 class="w-full mt-6 p-3 bg-blue-whale text-white rounded-md hover:bg-blue-whale-dark disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={loading || !agreeToPrivacyPolicy}
+                disabled={loading || !agreeToPrivacyPolicy || selectedLanguages.length === 0}
             >
                 {loading ? 'Creating Account...' : 'Register'}
             </button>
