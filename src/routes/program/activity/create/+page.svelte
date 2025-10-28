@@ -3,10 +3,10 @@
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { auth } from '$lib/stores/auth';
-    import ActivityForm from '../../ActivityForm.svelte';
+    import ActivityForm from '../ActivityForm.svelte';
 
     // Get programPartId from URL
-    $: programPartId = parseInt($page.params.id);
+    $: programPartId = parseInt($page.url.searchParams.get('programPartId') || '0');
 
     onMount(async () => {
         await auth.requireAdmin();

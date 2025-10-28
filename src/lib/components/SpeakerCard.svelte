@@ -16,7 +16,7 @@
 
     let showMore = false
 
-    const editSpeaker = () => goto(`${id}/edit`)
+    const editSpeaker = () => goto(`/speakers/edit?id=${id}`)
 </script>
 
 <div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all flex flex-col md:min-h-148 duration-200 {showMore ? 'w-full md:w-112 md:-mb-60 shadow-2xl' : 'w-full md:w-80 shadow-md'}" style="z-index: {10-height};">

@@ -57,7 +57,7 @@
 
             <div class="h-full flex gap-2 items-center">
                 {#if $isAdmin}
-                <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/${activity.id}/edit`)}>
+                <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/edit?id=${activity.id}`)}>
                     <i class="fa-solid fa-pencil text-picton-blue"></i>
                 </button>
                 {/if}
