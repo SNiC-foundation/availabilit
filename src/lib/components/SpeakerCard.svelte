@@ -20,7 +20,7 @@
     const editSpeaker = () => goto(`${id}/edit`)
 </script>
 
-<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all flex flex-col md:min-h-148 duration-200 md:mb-24 {showMore ? 'md:w-112 -mb-60 shadow-2xl' : 'w-full md:w-80 shadow-md'}" style="z-index: {10-height};">
+<div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all flex flex-col md:min-h-148 duration-200 {showMore ? 'w-full md:w-112 md:-mb-60 shadow-2xl' : 'w-full md:w-80 shadow-md'}" style="z-index: {10-height};">
     <div class="relative">
         {#if admin}
             <button class="rounded-lg bg-blue-whale absolute top-2 right-2 shadow shadow-black shadow-lg w-8 h-8" on:click={editSpeaker}>

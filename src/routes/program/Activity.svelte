@@ -53,7 +53,7 @@
         new Date(activity.subscribe.subscriptionListCloseDate) > new Date();
 </script>
 
-<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden max-w-xs">
+<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-200 overflow-hidden w-full md:max-w-xs">
     <div class="p-6 pb-4">
         <div class="flex items-start justify-between mb-3">
             <h3 class="text-xl font-semibold text-blue-whale leading-tight flex-1 mr-4">

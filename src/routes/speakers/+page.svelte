@@ -79,7 +79,7 @@ async function getSpeakers() {
         <p>We will display our speakers here soon! Be sure to follow us on Instagram and LinkedIn to stay up to date with the latest news!</p>
     {:else if speakers && speakers.length > 0}
         <div class="flex flex-row flex-wrap gap-4 justify-center items-start">
-            {#each speakers as speaker}
+            {#each speakers as speaker, index}
                 <SpeakerCard
                     id={speaker.id}
                     admin={admin}
@@ -89,6 +89,7 @@ async function getSpeakers() {
                     description={speaker.description}
                     tags={speaker.tags || []}
                     links={speaker.links || []}
+                    height={index}
                 />
             {/each}
         </div>
