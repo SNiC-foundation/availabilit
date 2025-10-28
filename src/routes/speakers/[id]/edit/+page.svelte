@@ -2,7 +2,7 @@
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
-    import { auth } from '$lib/stores/auth';
+    import { auth, isAdmin } from '$lib/stores/auth';
     import { apiUrl } from '$lib/config';
     import SpeakerForm from '../../SpeakerForm.svelte';
     
@@ -34,6 +34,7 @@
     }
 </script>
 
+{#if $isAdmin}
 <div class="min-h-screen bg-bottom-backdrop p-8">
     <div class="max-w-4xl my-8 mx-auto">
         <div class="bg-white rounded-lg shadow-md p-8">
@@ -59,3 +60,4 @@
         </div>
     </div>
 </div>
+{/if}
