@@ -1,10 +1,16 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    import { auth } from '$lib/stores/auth';
     import ActivityForm from '../../ActivityForm.svelte';
 
     // Get programPartId from URL
     $: programPartId = parseInt($page.params.id);
+
+    onMount(async () => {
+        await auth.requireAdmin();
+    });
 
     function handleSuccess(event: CustomEvent) {
         // Redirect after success

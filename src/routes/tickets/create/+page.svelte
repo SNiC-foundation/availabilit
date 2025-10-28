@@ -1,5 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    import { auth } from '$lib/stores/auth';
     import { apiUrl } from '$lib/config';
 
     // Form data
@@ -10,6 +12,10 @@
     let loading = false;
     let error = '';
     let success = '';
+
+    onMount(async () => {
+        await auth.requireAdmin();
+    });
 
     async function handleSubmit() {
         loading = true;

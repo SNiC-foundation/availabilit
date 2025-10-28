@@ -154,6 +154,29 @@ function createAuthStore() {
                 isLoading: false,
                 isLoggedIn: false
             });
+        },
+
+        // Redirect to home if user is not admin
+        async requireAdmin() {
+            let currentState = this.getState();
+            if (currentState.isLoading) {
+                await this.init();
+                currentState = this.getState();
+            }
+
+            if (!currentState.isLoggedIn || !currentState.user?.roles?.some(role => role.name === 'Admin')) {
+                if (typeof window !== 'undefined') {
+                    window.location.href = '/';
+                }
+                return false;
+            }
+            return true;
+        },
+
+        getState(): AuthState {
+            let currentState: AuthState = { user: null, isLoading: true, isLoggedIn: false };
+            this.subscribe(state => currentState = state)();
+            return currentState;
         }
     };
 }

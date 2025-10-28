@@ -1,6 +1,12 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    import { auth } from '$lib/stores/auth';
     import PartnerForm from '../PartnerForm.svelte';
+
+    onMount(async () => {
+        await auth.requireAdmin();
+    });
 </script>
 
 <div class="min-h-screen bg-bottom-backdrop p-8">

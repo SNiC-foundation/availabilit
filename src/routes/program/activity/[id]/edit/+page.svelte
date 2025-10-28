@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
+    import { auth } from '$lib/stores/auth';
     import ActivityForm from '../../ActivityForm.svelte';
 
     interface Activity {
@@ -29,6 +30,7 @@
     let error = '';
 
     onMount(async () => {
+        await auth.requireAdmin();
         await loadActivity();
     });
 

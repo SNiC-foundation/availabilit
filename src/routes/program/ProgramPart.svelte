@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { apiUrl } from "$lib/config";
+  import { isAdmin } from "$lib/stores/auth";
   import Activity from "./Activity.svelte";
   import { onMount } from "svelte";
 
@@ -160,9 +161,11 @@
                 </div>
             </div>
         </div>
+        {#if $isAdmin}
         <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/${activities[0].activity.id}/edit`)}>
                     <i class="fa-solid fa-pencil text-picton-blue"></i>
-                </button>
+        </button>
+        {/if}
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
         </button>
         {#if open}

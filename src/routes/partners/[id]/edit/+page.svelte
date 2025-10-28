@@ -1,10 +1,16 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    import { auth } from '$lib/stores/auth';
     import PartnerForm from '../../PartnerForm.svelte';
-  import { apiUrl } from '$lib/config';
+    import { apiUrl } from '$lib/config';
 
     $: id = parseInt($page.params.id);
+
+    onMount(async () => {
+        await auth.requireAdmin();
+    });
 
     async function deletePartner() {
         if (!confirm('Are you sure you want to delete this partner?')) return;
