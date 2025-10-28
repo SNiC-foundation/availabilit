@@ -102,7 +102,7 @@
         {:else}
             <div class="space-y-8 p-8">
                 {#each programParts as part}
-                    <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} admin={$isAdmin}/>
+                    <ProgramPart {part} activities={activities.filter((a) => a?.activity?.programPart?.id === part.id)} admin={$isAdmin}/>
                 {/each}
             </div>
         {/if}

@@ -73,8 +73,11 @@
     onMount(() => {
         loadUserProfile();
     });
+
+    const isKeynote = activities.some(a => !a.activity.speakers.some((speaker) => speaker.type === 'keynote'))
 </script>
 <div class="flex flex-col shadow-md shadow-black/35 rounded-xl overflow-hidden">
+{#if isKeynote}
 <button on:click={() => open = !open} class="p-6 w-full flex rounded-t-xl items-center gap-8 bg-gray-100 hover:bg-gray-200 transition-colors">
         <div class="mr-auto">
             <div class="flex items-center space-x-4">
@@ -133,5 +136,43 @@
     </div>
     {/if}
 </div>
+{/if}
+{:else}
+    <button on:click={() => open = !open} class="py-4 px-6 w-full flex rounded-t-xl items-center gap-8 bg-gray-100 hover:bg-gray-200 transition-colors">
+    <div class="mr-auto">
+            <div class="flex items-center space-x-4">
+                <h3 class="text-lg font-medium text-gray-900">
+                    <b>{part.name}:</b> {activities?.[0].activity.name ?? ''}
+                </h3>
+                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                    {getDuration(part.beginTime, part.endTime)}
+                </span>
+            </div>
+            
+            <div class="flex items-center space-x-6 text-sm text-gray-600">
+                <div class="flex items-center space-x-1">
+                    <span class="font-medium">Start:</span>
+                    <span>{formatTime(part.beginTime)}</span>
+                </div>
+                <div class="flex items-center space-x-1">
+                    <span class="font-medium">End:</span>
+                    <span>{formatTime(part.endTime)}</span>
+                </div>
+            </div>
+        </div>
+        <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/${activities[0].activity.id}/edit`)}>
+                    <i class="fa-solid fa-pencil text-picton-blue"></i>
+                </button>
+        <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
+        </button>
+        {#if open}
+<div class="flex gap-2 flex-col items-stretch bg-gray-100 py-2 px-6 rounded-b-xl">
+    {activities[0].activity.description}
+    <br/>
+    <div class="pt-2 mt-2 border-t">
+        <span class="text-xs">This is a keynote, you are automatically subscribed to this activity</span>
+    </div>
+</div>
+{/if}
 {/if}
 </div>
