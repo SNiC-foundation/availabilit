@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { apiUrl } from "$lib/config";
   import { createEventDispatcher } from 'svelte';
 
@@ -58,6 +59,12 @@
             <h3 class="text-xl font-semibold text-blue-whale leading-tight flex-1 mr-4">
                 {activity.name}
             </h3>
+
+            <div class="h-full flex items-center">
+                <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/${activity.id}/edit`)}>
+                    <i class="fa-solid fa-pencil text-picton-blue"></i>
+                </button>
+            </div>
         </div>
         
         <div class="flex gap-3">

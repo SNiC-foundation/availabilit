@@ -65,7 +65,6 @@
 
             if (response.ok) {
                 activities = await response.json();
-                console.log(activities)
             } else {
                 error = response.status === 401 ? 'Unauthorized' : 'Failed to load activities';
                 console.error('Failed to fetch activities:', response.status);
