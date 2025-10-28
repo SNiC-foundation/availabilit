@@ -21,7 +21,7 @@
         };
     }
 
-    // Get activityId from URL
+
     $: activityId = parseInt($page.params.id);
 
     let activity: Activity | null = null;
@@ -55,6 +55,28 @@
         }
     }
 
+    async function deleteActivity() {
+        loading = true;
+        error = '';
+        
+        try {
+            const response = await fetch(apiUrl(`/activity/${activityId}`), {
+                method: 'DELETE',
+                credentials: 'include'
+            });
+            if (response.ok) {
+                goto('/program')
+            } else {
+                error = "Could not delete activity"
+            }
+        } catch (err) {
+            error = 'Network error occurred';
+            console.error('Error deleting activity:', err);
+        } finally {
+            loading = false;
+        }
+    }
+
     function handleSuccess(event: CustomEvent) {
         // Redirect after success
         setTimeout(() => {
@@ -81,12 +103,21 @@
                         <p class="text-gray-600 mt-1">{activity.name}</p>
                     {/if}
                 </div>
-                <button 
-                    on:click={() => goto('/program')}
-                    class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-                >
-                    Back to Program
-                </button>
+                <div class="flex gap-2">
+                    <button 
+                    on:click={deleteActivity}
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                    >
+                        Delete activity
+                    </button>
+                    <button 
+                        on:click={() => goto('/program')}
+                        class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                    >
+                        Back to Program
+                    </button>
+                </div>
+                
             </div>
 
             {#if loading}

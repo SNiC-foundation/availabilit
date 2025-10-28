@@ -8,7 +8,6 @@
     export let admin: boolean;
     export let name: string;
     export let title: string;
-    export let small: boolean = false;
     export let category: string = "Talk";
     export let description: string;
     export let tags: string[] = [];
@@ -42,7 +41,7 @@
         {/each}
     </div>
     <div class="px-4 -mt-6 py-2">
-        {#if small}
+        {#if title.length > 50 }
             <h4 class="font-bold">{title}</h4>
         {:else}
             <h2 class="font-bold">{title}</h2>
