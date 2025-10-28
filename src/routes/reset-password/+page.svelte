@@ -13,6 +13,7 @@
     let newPassword = '';
     let confirmPassword = '';
     let token = '';
+    let email = '';
     
     // UI state
     let loading = false;
@@ -34,6 +35,7 @@
         } else {
             checkingToken = false;
         }
+        email = $page.url.searchParams.get('email') ?? ''
     });
 
     async function validateToken() {
@@ -134,7 +136,7 @@
 
 <div class="min-h-screen bg-bottom-backdrop p-8 flex flex-col items-center justify-center">
     <div class="p-6 w-full max-w-md rounded-lg bg-white shadow-md">
-        <h1 class="text-2xl font-bold text-blue-whale mb-6">Reset Password</h1>
+        <h1 class="text-2xl font-bold text-blue-whale mb-6">Reset password for {email}</h1>
         {#if checkingToken}
             <div class="flex justify-center items-center py-8">
                 <div class="text-gray-500">Validating reset token...</div>
