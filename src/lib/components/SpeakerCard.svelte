@@ -30,7 +30,7 @@
     </div>
     <div class="flex items-center -translate-y-1/2">
         <div class="bg-blue-whale px-4 py-2 pr-8 rounded-r-full flex flex-col items-start leading-[75%]">
-            <span class="text-white font-thin">{category}</span>
+            <span class="text-white font-thin capitalize">{category}</span>
             <h2 class="text-2xl text-white whitespace-nowrap">{name}</h2>
         </div>
 
