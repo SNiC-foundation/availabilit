@@ -2,6 +2,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { staticUrl } from "$lib/config";
+  import { marked } from "marked";
   import type { Company } from "./types";
 
     export let company: Company;
@@ -31,8 +32,7 @@
             </a>
         </div>
         <div class="px-3 md:px-6 py-3 prose prose-sm md:prose-base prose-headings:text-blue-whale prose-headings:m-0 prose-h1:text-2xl prose-ul:my-0 prose-p:mt-0 max-w-none ">
-            <p class="hyphens-auto ">{@html company.shortDescription}</p>
-            <p class="text-gray-800 {showMore ? 'h-fit mt-6' : 'h-0'} overflow-auto transition-all duration-200 allow-keywords">{@html company.description}</p>
+            <p class="text-ellipsis transition-all duration-200 {showMore ? 'h-50' : 'h-28 overflow-hidden line-clamp-4'}">{@html marked(company.description)}</p>
             {#if company.description && typeof company.description === 'string' && company.description.length > 0}
                 <button on:click={() => showMore = !showMore} class="text-blue-500 mt-2">
                     {#if showMore} Show Less {:else} Show More {/if}

@@ -8,7 +8,6 @@
     let name = '';
     let location = '';
     let specialization = '';
-    let shortDescription = '';
     let description = '';
     let url = '';
     let sponsorPackage = 'bronze';
@@ -90,7 +89,6 @@
             name: name.trim(),
             location: location.trim(),
             specialization: specialization.trim(),
-            ...(shortDescription.trim() && { shortDescription: shortDescription.trim() }),
             ...(description.trim() && { description: description.trim() }),
             url: url.trim(),
             package: sponsorPackage
@@ -140,7 +138,6 @@
                     name = '';
                     location = '';
                     specialization = '';
-                    shortDescription = '';
                     description = '';
                     url = '';
                     sponsorPackage = 'bronze';
@@ -251,18 +248,6 @@
                         <option value={pkg.value}>{pkg.label}</option>
                     {/each}
                 </select>
-            </div>
-
-            <div>
-                <label for="shortDescription" class="block text-sm font-medium text-gray-700">Short Description</label>
-                <textarea 
-                    id="shortDescription"
-                    bind:value={shortDescription}
-                    disabled={loading}
-                    rows="3"
-                    class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Brief description of the company (optional)"
-                ></textarea>
             </div>
 
             <div>
