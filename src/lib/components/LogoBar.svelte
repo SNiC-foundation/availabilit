@@ -9,6 +9,7 @@
     const logoSize = size === 'md' ? 'h-8' : 'h-14'
 
 </script>
+{#if logos.length > 0}
 <div class="overflow-hidden h-20 relative gradient-borders w-full {isOverflowing ? '' : 'flex justify-center'}" bind:clientWidth={containerWidth} style="--track-width: calc(-{trackWidth}px - 5rem);">
     <div class="flex flex-row items-center h-20 gap-20 w-max {isOverflowing  ? 'scroll-animation absolute' : 'pl-0'}">
         <div class="flex flex-row items-center gap-20" bind:clientWidth={trackWidth}>
@@ -29,6 +30,7 @@
         {/if}
     </div>
 </div>
+{/if}
 
 
 <style scoped>

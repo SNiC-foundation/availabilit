@@ -108,7 +108,7 @@
                 <div class="flex gap-2">
                     <button 
                     on:click={deleteActivity}
-                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                     >
                         Delete activity
                     </button>

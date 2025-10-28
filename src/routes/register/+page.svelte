@@ -209,7 +209,7 @@
                         <label class="flex items-center">
                             <input 
                                 type="checkbox" 
-                                checked={selectedLanguages.includes('English')}
+                                checked={selectedLanguages.includes('english')}
                                 on:change={() => toggleLanguage('english')}
                                 disabled={loading}
                                 class="mr-2 rounded"
@@ -220,7 +220,7 @@
                         <label class="flex items-center">
                             <input 
                                 type="checkbox" 
-                                checked={selectedLanguages.includes('Dutch')}
+                                checked={selectedLanguages.includes('dutch')}
                                 on:change={() => toggleLanguage('dutch')}
                                 disabled={loading}
                                 class="mr-2 rounded"

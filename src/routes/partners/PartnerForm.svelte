@@ -31,7 +31,6 @@
             name = data.name ?? '';
             location = data.location ?? '';
             specialization = data.specialization ?? '';
-            shortDescription = data.shortDescription ?? '';
             description = data.description ?? '';
             url = data.url ?? '';
             sponsorPackage = data.package ?? 'bronze';
