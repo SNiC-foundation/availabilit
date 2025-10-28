@@ -3,33 +3,15 @@
     import Navbutton from "$lib/components/navigation/Navbutton.svelte";
     import { base } from "$app/paths";
     import { onMount } from "svelte";
-    import { isAdmin } from "$lib/util/auth";
-    import { apiUrl } from "$lib/config";
+    import { auth, isLoggedIn, isAdmin } from "$lib/stores/auth";
 
     export let scroll:number;
     export let height:number;
     export let pages:any[];
 
-    let loggedIn = false;
-    let admin = false;
-
     onMount(async () => {
-        try {
-            const response = await fetch(apiUrl('/profile'), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-            if (response.ok) {
-                loggedIn = response.ok;
-                const user = await response.json()
-                admin = await isAdmin(user)
-            }
-        } catch (error) {
-            console.error("Failed to fetch profile:", error);
-        }
+        // Initialize auth state on app load
+        await auth.init();
     });
 </script>
 <nav class="navbar flex w-screen h-16 fixed top-0 z-10 backdrop-blur-md items-center" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
@@ -40,8 +22,8 @@
                 <Navbutton text="{page.text}" route="{page.route}" />        
             {/each}
 
-            {#if loggedIn}
-                {#if admin}
+            {#if $isLoggedIn}
+                {#if $isAdmin}
                     <Navbutton text="Users" route="/users" />
                     <Navbutton text="Tickets" route="/tickets" />        
                 {/if}
@@ -58,6 +40,6 @@
     .navbar {
         border-bottom-left-radius: 50% 10px;
         border-bottom-right-radius: 50% 10px;
-        overflow: hidden
+        overflow: hidden;
     }
 </style>

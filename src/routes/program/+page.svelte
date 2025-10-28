@@ -2,8 +2,8 @@
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
     import ProgramPart from './ProgramPart.svelte';
-  import { isAdmin } from '$lib/util/auth';
-  import Header from '$lib/components/Header.svelte';
+    import { auth, isAdmin, isLoggedIn } from '$lib/stores/auth';
+    import Header from '$lib/components/Header.svelte';
 
     interface ProgramPart {
         id: number;
@@ -15,7 +15,6 @@
         endTime: string;
     }
 
-    let admin: boolean = false;
     let programParts: ProgramPart[] = [];
     let activities = []
     let loading = true;
@@ -23,37 +22,18 @@
     
     let loadingProgramParts = true;
     let loadingActivities = true;
-    let loadingUserProfile = true;
 
-    $: loading = loadingProgramParts || loadingActivities || loadingUserProfile;
+    $: loading = loadingProgramParts || loadingActivities;
 
     onMount(async () => {
+        // Initialize auth if not already done
+        if (!$isLoggedIn) {
+            await auth.init();
+        }
+        
         await loadProgramParts();
         await loadActivities();
-        await loadUserProfile();
     });
-
-    async function loadUserProfile() {
-        loadingUserProfile = true;
-        try {           
-            const response = await fetch(apiUrl('/profile'), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-
-            if (response.ok) {
-                const user = await response.json();
-                admin = isAdmin(user)
-            } 
-        } catch(e) {
-            console.error(e)
-        } finally {
-            loadingUserProfile = false;
-        }
-    }
 
     async function loadProgramParts() {
         loadingProgramParts = true;
@@ -106,7 +86,7 @@
                 on:click={() => {
                     loadProgramParts();
                     loadActivities();
-                    loadUserProfile();
+                    auth.refresh();
                 }}
                 disabled={loading}
                 class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
@@ -125,8 +105,6 @@
                             Loading program parts...
                         {:else if loadingActivities}
                             Loading activities...
-                        {:else if loadingUserProfile}
-                            Loading user profile...
                         {/if}
                     </div>
                 </div>
@@ -139,7 +117,7 @@
         {:else}
             <div class="space-y-8">
                 {#each programParts as part}
-                    <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} {admin}/>
+                    <ProgramPart {part} activities={activities.filter((activity) => activity.activity.programPart.id === part.id)} admin={$isAdmin}/>
                 {/each}
             </div>
 

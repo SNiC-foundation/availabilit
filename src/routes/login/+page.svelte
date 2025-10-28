@@ -1,39 +1,21 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import { apiUrl } from '$lib/config';
+    import { auth, isLoading } from '$lib/stores/auth';
 
     let email = '';
     let password = '';
     let rememberMe = false;
-    let loading = false;
     let error = '';
 
     async function handleLogin() {
-        loading = true;
         error = '';
         
-        try {           
-            const response = await fetch(apiUrl('/login'), {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-                body: JSON.stringify({
-                    email,
-                    password,
-                    rememberMe
-                }),
-            });
-
-            if (response.ok) {
-                goto('/profile')
-            }
-        } catch (err) {
-            console.error("🚨 Network error:", err);
-            error = "Network error occurred";
-        } finally {
-            loading = false;
+        const result = await auth.login(email, password);
+        
+        if (result.success) {
+            goto('/profile');
+        } else {
+            error = result.error || 'Login failed';
         }
     }
 </script>
@@ -56,7 +38,7 @@
                     bind:value={email}
                     required 
                     class="p-2 border rounded" 
-                    disabled={loading}
+                    disabled={$isLoading}
                 />
             </label>
             
@@ -67,7 +49,7 @@
                     bind:value={password}
                     required 
                     class="p-2 border rounded" 
-                    disabled={loading}
+                    disabled={$isLoading}
                 />
             </label>
             
@@ -75,7 +57,7 @@
                 <input 
                     type="checkbox" 
                     bind:checked={rememberMe}
-                    disabled={loading}
+                    disabled={$isLoading}
                 />
                 <span>Remember me</span>
             </label>
@@ -83,9 +65,9 @@
             <button 
                 type="submit" 
                 class="mt-4 p-2 bg-blue-whale text-white rounded hover:bg-blue-whale-dark disabled:opacity-50"
-                disabled={loading}
+                disabled={$isLoading}
             >
-                {loading ? 'Logging in...' : 'Login'}
+                {$isLoading ? 'Logging in...' : 'Login'}
             </button>
 
             <button type="button" on:click={(event) => goto('/forgotPassword')}>Forgotten password?</button>
