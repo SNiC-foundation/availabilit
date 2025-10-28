@@ -70,7 +70,7 @@
             });
 
             if (response.ok) {
-                success = "Registration successful! You can now log in.";
+                success = "Registration successful! Check your mailbox for a link to set a password";
                 
                 // Reset form
                 token = '';
