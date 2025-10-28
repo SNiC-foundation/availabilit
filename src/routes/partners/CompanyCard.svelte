@@ -1,6 +1,7 @@
 <!-- filepath: /Users/matthias/Desktop/1 Projects/SNiC/website/availabilit/src/lib/components/SpeakerCard.svelte -->
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { staticUrl } from "$lib/config";
   import type { Company } from "./types";
 
     export let company: Company;
@@ -12,9 +13,9 @@
 </script>
 <div class="flex flex-col md:flex-row items-stretch bg-gray-100 shadow-black/50 border border-gray rounded-3xl overflow-hidden transition-all duration-200 shadow-md w-full grow shrink-0 max-w-full">
     <div class="flex {showMore ? 'md:w-80' : 'md:w-60'} w-full h-40 md:h-auto bg-white items-center justify-center shrink-0 p-4 transition-width duration-200 border-b md:border-r md:border-b-0 border-gray relative">
-        <img src={`https://availabilit.ia.utwente.nl/api/static/${company.logoFilename}`} alt="Logo {company.name}" class="md:w-full h-full md:h-auto object-contain"/>
+        <img src={staticUrl(company.logoFilename)} alt="Logo {company.name}" class="md:w-full h-full md:h-auto object-contain"/>
         {#if admin}
-            <button class="rounded-lg bg-blue-whale absolute top-2 right-2 shadow shadow-black shadow-lg w-8 h-8" on:click={editCompany(company.id)}>
+            <button class="rounded-lg bg-blue-whale absolute top-2 right-2 shadow shadow-black shadow-lg w-8 h-8" on:click={() => editCompany(company.id)}>
                 <i class="fa-solid fa-pencil text-picton-blue"></i>
             </button>
         {/if}
@@ -31,7 +32,7 @@
         </div>
         <div class="px-3 md:px-6 py-3 prose prose-sm md:prose-base prose-headings:text-blue-whale prose-headings:m-0 prose-h1:text-2xl prose-ul:my-0 prose-p:mt-0 max-w-none ">
             <p class="hyphens-auto ">{@html company.shortDescription}</p>
-            <p class="text-gray-800 {showMore ? 'h-fit mt-6' : 'h-0'} overflow-auto transition-all duration-200 allow-keywords">{@html company.extendedDescription}</p>
+            <p class="text-gray-800 {showMore ? 'h-fit mt-6' : 'h-0'} overflow-auto transition-all duration-200 allow-keywords">{@html company.description}</p>
             {#if company.description && typeof company.description === 'string' && company.description.length > 0}
                 <button on:click={() => showMore = !showMore} class="text-blue-500 mt-2">
                     {#if showMore} Show Less {:else} Show More {/if}

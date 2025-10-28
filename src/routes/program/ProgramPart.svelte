@@ -74,7 +74,7 @@
         loadUserProfile();
     });
 </script>
-<div class="flex flex-col shadow-md shadow-black/35 rounded-xl">
+<div class="flex flex-col shadow-md shadow-black/35 rounded-xl overflow-hidden">
 <button on:click={() => open = !open} class="p-6 w-full flex rounded-t-xl items-center gap-8 bg-gray-100 hover:bg-gray-200 transition-colors">
         <div class="mr-auto">
             <div class="flex items-center space-x-4">

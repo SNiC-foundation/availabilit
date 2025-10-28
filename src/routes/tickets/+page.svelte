@@ -202,7 +202,7 @@
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <button class="cursor-pointer" on:click={deleteTicket(ticket.id)}>
+                                        <button class="cursor-pointer" on:click={() => deleteTicket(ticket.id)}>
                                             <i class="fa-solid fa-trash text-red-500"></i>
                                         </button>
                                     </td>

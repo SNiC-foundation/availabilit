@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
+  import { apiUrl } from "$lib/config";
 
     export let id: number = -1;
     export let mode: 'edit' | 'create' = 'create';
@@ -19,7 +20,7 @@
         if (mode !== 'edit' || !id) return;
         loading = true;
         try {
-            const res = await fetch(`https://availabilit.ia.utwente.nl/api/partner/${id}`, {
+            const res = await fetch(apiUrl(`/partner/${id}`), {
                 credentials: 'include'
             });
             if (!res.ok) {
@@ -43,7 +44,7 @@
                     const imgRes = await fetch(data.logoUrl, { credentials: 'include' });
                     if (imgRes.ok) imageBlob = await imgRes.blob();
                 } else {
-                    const imgRes = await fetch(`https://availabilit.ia.utwente.nl/api/partner/${id}/logo`, { credentials: 'include' });
+                    const imgRes = await fetch(apiUrl(`/partner/${id}/logo`), { credentials: 'include' });
                     if (imgRes.ok) imageBlob = await imgRes.blob();
                 }
             } catch (imgErr) {
@@ -96,11 +97,10 @@
         };
 
         try {
-            // Use PUT for edit mode, POST for create mode
-            const apiUrl = mode === 'edit' ? `https://availabilit.ia.utwente.nl/api/partner/${id}` : "https://availabilit.ia.utwente.nl/api/partner";
+            const urlAPI = mode === 'edit' ? apiUrl(`/partner/${id}`) : apiUrl("/partner");
             const method = mode === 'edit' ? "PUT" : "POST";
 
-            const response = await fetch(apiUrl, {
+            const response = await fetch(urlAPI, {
                 method: method,
                 headers: {
                     "Content-Type": "application/json",
@@ -120,7 +120,7 @@
                         const formData = new FormData();
                         formData.append('logo', selectedImage);
 
-                        const imageResponse = await fetch(`https://availabilit.ia.utwente.nl/api/partner/${partnerId}/logo`, {
+                        const imageResponse = await fetch(apiUrl(`/partner/${partnerId}/logo`), {
                             method: "PUT",
                             body: formData,
                             credentials: "include"

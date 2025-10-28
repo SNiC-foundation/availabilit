@@ -46,7 +46,6 @@
 
     const subscriptionAvailable = activity.subscribe && activity.subscribe.maxParticipants && activity.subscribe.subscribers
     const subscribable = subscriptionAvailable &&
-        subscriptionAvailable &&
         !isNaN(Date.parse(activity.subscribe.subscriptionListOpenDate)) &&
         !isNaN(Date.parse(activity.subscribe.subscriptionListCloseDate)) &&
         new Date(activity.subscribe.subscriptionListOpenDate) <= new Date() &&

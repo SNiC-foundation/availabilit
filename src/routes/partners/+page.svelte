@@ -7,6 +7,7 @@
     import { goto } from "$app/navigation";
   import type { Company } from "./types";
   import { isAdmin } from "$lib/util/auth";
+  import { apiUrl } from "$lib/config";
 
 
     const tiers = ['platinum','gold','silver','bronze']
@@ -15,7 +16,7 @@
 
     async function loadCompanies() {
         try {
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/partner", {
+            const response = await fetch(apiUrl("/partner"), {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -45,7 +46,7 @@
     let admin = false
     async function loadUserProfile() {
         try {           
-            const response = await fetch("https://availabilit.ia.utwente.nl/api/profile", {
+            const response = await fetch(apiUrl("/profile"), {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

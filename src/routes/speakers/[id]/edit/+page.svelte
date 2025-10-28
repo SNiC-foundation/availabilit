@@ -5,12 +5,13 @@
     $: id = $page.params.id;
 
     import { goto } from '$app/navigation';
+    import { apiUrl } from '$lib/config';
 
     async function deleteSpeaker() {
         if (!confirm('Are you sure you want to delete this speaker?')) return;
 
         try {
-            const res = await fetch(`https://availabilit.ia.utwente.nl/api/speaker/${encodeURIComponent(id)}`, {
+            const res = await fetch(apiUrl(`/speaker/${encodeURIComponent(id)}`), {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: "include",

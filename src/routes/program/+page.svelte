@@ -101,7 +101,6 @@
 <Header title="Program"/>
 <div id="program_section" class="container flex-col text-blue-whale gap-4 text-center md:text-left">
     {#if !error}
-    <div class="rounded-lg shadow-md p-8">
         <div class="flex justify-between items-center mb-6">
             <button 
                 on:click={() => {
@@ -153,7 +152,6 @@
                 </div>
             </div>
         {/if}
-    </div>
     {:else}
         <div class="bg-red-100 text-red-700 p-4 rounded mt-12 text-center">
             {error}

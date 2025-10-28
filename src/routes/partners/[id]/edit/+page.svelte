@@ -2,6 +2,7 @@
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
     import PartnerForm from '../../PartnerForm.svelte';
+  import { apiUrl } from '$lib/config';
 
     $: id = parseInt($page.params.id);
 
@@ -9,7 +10,7 @@
         if (!confirm('Are you sure you want to delete this partner?')) return;
 
         try {
-            const res = await fetch(`https://availabilit.ia.utwente.nl/api/partner/${encodeURIComponent(id)}`, {
+            const res = await fetch(apiUrl(`/partner/${encodeURIComponent(id)}`), {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: "include",
