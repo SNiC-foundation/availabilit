@@ -20,7 +20,6 @@ export default {
                 'bottom-backdrop': "url('$lib/images/backdropBottom.png')",
             },
             colors: {
-                // flowbite colors, we can of course add more colors here or change the basic theme by using a colour scheme
                 primary: {
                     50: '#FFF5F2',
                     100: '#FFF1EE',
@@ -34,6 +33,7 @@ export default {
                     900: '#A5371B'
                 },
                 'blue-whale': "#003249",
+                'blue-whale-dark': "#001a25",
                 'picton-blue': "#36D1FE",
                 aquamarine: "#70F5E3",
                 start: "#003249",

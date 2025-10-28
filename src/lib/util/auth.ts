@@ -1,0 +1,1 @@
+export const isAdmin = (user) => user && user.roles.map(role => role.name).includes('Admin')
