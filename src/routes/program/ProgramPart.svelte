@@ -121,7 +121,7 @@
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
-<div class="flex gap-2 flex-col md:flex-row items-stretch bg-gray-300 p-2 rounded-b-xl">
+<div class="flex gap-4 flex-col md:flex-row items-stretch bg-gray-300 p-4 rounded-b-xl overflow-auto">
     {#each activities as activity}
         <Activity 
             activity={activity.activity} 
