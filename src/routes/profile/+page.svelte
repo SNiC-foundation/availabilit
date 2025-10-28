@@ -2,15 +2,36 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import { auth, user, isLoggedIn, isLoading } from '$lib/stores/auth';
+    import QRCode from 'qrcode';
 
     let error = '';
+    let qrCodeDataUrl = '';
 
     onMount(async () => {
         if (!$isLoggedIn && !$isLoading) {
             goto('/login');
         }
-        auth.setUser();
     });
+
+    // Generate QR code when user data is available
+    $: if ($user?.ticket?.code) {
+        generateQRCode($user.ticket.code);
+    }
+
+    async function generateQRCode(ticketCode: string) {
+        try {
+            qrCodeDataUrl = await QRCode.toDataURL(ticketCode, {
+                width: 200,
+                margin: 2,
+                color: {
+                    dark: '#003249', // blue-whale color
+                    light: '#FFFFFF'
+                }
+            });
+        } catch (err) {
+            console.error('Failed to generate QR code:', err);
+        }
+    }
 
     // Reactive statement to redirect if not logged in
     $: if (!$isLoggedIn && !$isLoading) {
@@ -111,16 +132,21 @@
                     {#if $user.ticket}
                         <div class="space-y-4">
                             <h2 class="text-xl font-semibold text-blue-whale">Ticket</h2>
+
                             
-                            <div>
-                                <div class="block text-sm font-medium text-gray-700">Association</div>
-                                <p class="mt-1 text-sm text-gray-900 bg-gray-50 p-2 rounded">{$user.ticket.association}</p>
-                            </div>
-                            
-                            <div>
-                                <div class="block text-sm font-medium text-gray-700">Ticket Code</div>
-                                <p class="mt-1 text-sm text-gray-900 bg-gray-50 p-2 rounded font-mono">{$user.ticket.code}</p>
-                            </div>
+                                <div class="flex justify-center">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border">
+                                        {#if qrCodeDataUrl}
+                                        <img 
+                                            src={qrCodeDataUrl} 
+                                            alt="QR Code for ticket {$user.ticket.code}"
+                                            class="mx-auto"
+                                        />
+                                        {/if}
+                                        <p class="mt-1 text-sm font-mono">{$user.ticket.code}</p>
+                                        <p class="mt-1 text-sm ">{$user.ticket.association}</p>
+                                    </div>
+                                </div>
                         </div>
                     {/if}
 
