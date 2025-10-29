@@ -17,7 +17,26 @@
             const res = await fetch(apiUrl('/partner'));
             if (!res.ok) throw new Error(`Fetch error: ${res.status}`);
             const partners = await res.json();
-            logos = partners.map((partner) => ({image: staticUrl(partner.logoFilename), name: partner.name, url: partner.url}))
+
+            const tierOrder = {
+                platinum: 0,
+                gold: 1,
+                silver: 2,
+                bronze: 3
+            };
+
+            partners.sort((a, b) => {
+                const aTier = tierOrder[a.package]
+                const bTier = tierOrder[b.package]
+                if (aTier !== bTier) return aTier - bTier;
+                return (a.name || '').localeCompare(b.name || '');
+            });
+
+            logos = partners.map((partner) => ({
+                image: staticUrl(partner.logoFilename),
+                name: partner.name,
+                url: partner.url
+            }));
         } catch (err) {
             console.error('Failed to load partner logos', err);
         }
