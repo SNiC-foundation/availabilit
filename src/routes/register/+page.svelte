@@ -171,7 +171,7 @@
                         required
                         disabled={loading}
                         class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="e.g., Computer Science, Business Administration"
+                        placeholder="e.g., Computer Science, Artificial intelligence"
                     />
                 </div>
             </div>
