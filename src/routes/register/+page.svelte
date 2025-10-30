@@ -1,6 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { apiUrl } from '$lib/config';
+    import privacyPdf from '$lib/Privacy Policy SNiC 2025.pdf';
 
     // Form fields
     let token = ''; // Ticket code
@@ -243,7 +244,7 @@
                         class="mt-1 mr-2"
                     />
                     <label for="privacy" class="text-sm text-gray-700">
-                        I agree to the <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                        I agree to the <a href={privacyPdf} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Privacy Policy</a>
                     </label>
                 </div>
             </div>
