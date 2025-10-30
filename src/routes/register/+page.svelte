@@ -50,8 +50,8 @@
             user: {
                 email: email.trim(),
                 name: name.trim(),
-                dietaryWishes: dietaryWishes.trim() || undefined,
-                needs: needs.trim() || undefined,
+                dietaryWishes: dietaryWishes.trim() || "Not defined",
+                needs: needs.trim() || "Not defined",
                 agreeToPrivacyPolicy: agreeToPrivacyPolicy,
                 languages: selectedLanguages.length > 0 ? selectedLanguages : undefined,
                 participantInfo: {
@@ -163,11 +163,12 @@
                 </div>
 
                 <div class="mt-4">
-                    <label for="studyProgram" class="block text-sm font-medium text-gray-700">Study Program</label>
+                    <label for="studyProgram" class="block text-sm font-medium text-gray-700">Study Program *</label>
                     <input 
                         type="text" 
                         id="studyProgram"
                         bind:value={studyProgram}
+                        required
                         disabled={loading}
                         class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                         placeholder="e.g., Computer Science, Business Administration"
