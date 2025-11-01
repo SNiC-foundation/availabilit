@@ -11,6 +11,16 @@
     let open = true;
     let user:any = undefined;
 
+    let sortedActivities: any[] = [];
+
+    $: sortedActivities = activities
+      ? [...activities].sort((a: any, b: any) => {
+          const aMax = a?.activity?.subscribe?.maxParticipants ?? 0;
+          const bMax = b?.activity?.subscribe?.maxParticipants ?? 0;
+          return bMax - aMax; 
+        })
+      : [];
+
     async function loadUserProfile() {
         try {           
             const response = await fetch(apiUrl('/profile'), {
@@ -162,7 +172,7 @@
     </button>
 {#if open}
 <div class="flex gap-4 flex-col md:flex-row items-stretch bg-gray-300 p-4 rounded-b-xl overflow-auto">
-    {#each activities as activity}
+    {#each sortedActivities as activity}
         <Activity 
             activity={activity.activity} 
             nrOfSubscribers={activity.nrOfSubscribers} 
