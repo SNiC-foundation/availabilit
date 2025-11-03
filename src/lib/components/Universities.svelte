@@ -8,6 +8,7 @@
     import RUG from '$lib/images/universities/rug.png'
     import Utrecht from '$lib/images/universities/utrecht.png'
     import Leiden from '$lib/images/universities/leiden.png'
+    import Amsterdam from '$lib/images/universities/amsterdam.svg'
 </script>
 
 <div id="accessibility_section" class="container  flex-col text-blue-whale p-8 gap-4 text-center md:text-left">
@@ -23,4 +24,5 @@
     {name: 'University of Groningen', image: RUG, url: 'https://www.rug.nl/'},
     {name: 'Utrecht', image: Utrecht, url: 'https://www.uu.nl/'},
     {name: 'Leiden', image: Leiden, url: 'https://www.universiteitleiden.nl/'},
+    {name: 'Amsterdam', image: Amsterdam, url: 'https://www.uva.nl/'},
     ]}" />
