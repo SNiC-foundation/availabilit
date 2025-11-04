@@ -47,12 +47,14 @@
         <div class="bg-white rounded-lg shadow-md p-8">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-blue-whale">User Profile</h1>
+                {#if $isLoggedIn}
                 <button 
                     on:click={handleLogout}
                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                 >
                     Logout
                 </button>
+                {/if}
             </div>
 
             {#if $isLoading}
@@ -186,6 +188,8 @@
                         </div>
                     {/if}
                 </div>
+            {:else}
+                No user set
             {/if}
         </div>
     </div>
