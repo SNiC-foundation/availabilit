@@ -47,12 +47,12 @@ function createAuthStore() {
         
         async init() {
             update(state => ({ ...state, isLoading: true }));
-            this.setUser();
+            await this.setUser();
         },
 
         async login(email: string, password: string) {
             update(state => ({ ...state, isLoading: true }));
-            
+
             try {
                 const response = await fetch(apiUrl('/login'), {
                     method: 'POST',
@@ -64,12 +64,14 @@ function createAuthStore() {
                 });
 
                 if (response.ok) {
-                    set({
-                        user: null,
-                        isLoading: false,
-                        isLoggedIn: true,
-                    })
-                    return {success: true}
+                    // After successful login, fetch the profile to confirm session and populate user
+                    const ok = await this.setUser();
+                    if (ok) {
+                        return { success: true };
+                    } else {
+                        // Profile fetch failed (e.g. server returned 401) — treat as failed login
+                        return { success: false, error: 'Failed to load profile after login' };
+                    }
                 } else {
                     const error = await response.text();
                     set({
@@ -127,12 +129,14 @@ function createAuthStore() {
                         isLoading: false,
                         isLoggedIn: true
                     });
+                    return true;
                 } else {
                     set({
                         user: null,
                         isLoading: false,
                         isLoggedIn: false
                     });
+                    return false;
                 }
             } catch (error) {
                 console.error('Failed to fetch profile:', error);
@@ -141,6 +145,7 @@ function createAuthStore() {
                     isLoading: false,
                     isLoggedIn: false
                 });
+                return false;
             }
         },
 

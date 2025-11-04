@@ -8,10 +8,10 @@
     let qrCodeDataUrl = '';
 
     onMount(async () => {
+        await auth.setUser();
         if (!$isLoggedIn && !$isLoading) {
             goto('/login');
         }
-        auth.setUser()
     });
 
     // Generate QR code when user data is available
