@@ -9,9 +9,6 @@
 
     onMount(async () => {
         await auth.setUser();
-        if (!$isLoggedIn && !$isLoading) {
-            goto('/login');
-        }
     });
 
     // Generate QR code when user data is available
