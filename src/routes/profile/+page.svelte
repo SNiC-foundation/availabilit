@@ -34,11 +34,6 @@
         }
     }
 
-    // Reactive statement to redirect if not logged in
-    $: if (!$isLoggedIn && !$isLoading) {
-        goto('/login');
-    }
-
     async function handleLogout() {
         try {
             await auth.logout();
