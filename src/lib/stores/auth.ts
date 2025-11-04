@@ -65,6 +65,7 @@ function createAuthStore() {
 
                 if (response.ok) {
                     update((state) => ({...state, isLoggedIn: true, isLoading: false}))
+                    console.debug('Logging in')
                     return { success: true };
                 } else {
                     const error = await response.text();
@@ -96,7 +97,6 @@ function createAuthStore() {
                 });
             } catch (error) {
                 console.error('Logout request failed:', error);
-                // Continue with local logout even if request fails
             }
             
             set({
@@ -107,6 +107,7 @@ function createAuthStore() {
         },
 
         async setUser() {
+            console.debug('Setting user')
             try {
                 const response = await fetch(apiUrl('/profile'), {
                     method: 'GET',
