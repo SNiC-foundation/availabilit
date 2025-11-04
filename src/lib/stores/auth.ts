@@ -64,7 +64,7 @@ function createAuthStore() {
                 });
 
                 if (response.ok) {
-                    update((state) => ({...state, isLoading: false}))
+                    update((state) => ({...state, isLoggedIn: true, isLoading: false}))
                     return { success: true };
                 } else {
                     const error = await response.text();
