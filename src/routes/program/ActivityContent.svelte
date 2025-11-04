@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
   import { apiUrl } from "$lib/config";
-  import { isAdmin } from "$lib/stores/auth";
+  import { isAdmin, isLoggedIn } from "$lib/stores/auth";
       import { createEventDispatcher } from 'svelte';
 
     export let activity
@@ -100,9 +100,10 @@
 
         <div class="flex items-center justify-between py-2 border-t border-gray-100">
             {#if subscriptionAvailable}
-            {#if subscribable} 
+            {#if subscribable && $isLoggedIn} 
             <button on:click={subscribe} class="inline-flex shrink-0 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-700 items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white {isSubscribed || justSubscribed ? 'bg-green-600' : 'bg-blue-whale hover:bg-blue-whale-dark'} transition-colors duration-200" disabled={!subscribable}>
                 <i class="fa-solid {isSubscribed || justSubscribed ? 'fa-check' : 'fa-plus'}"></i>
+                
                 {#if isSubscribed || justSubscribed}
                     Joined activity
                 {:else}
