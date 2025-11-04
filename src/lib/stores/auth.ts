@@ -64,14 +64,8 @@ function createAuthStore() {
                 });
 
                 if (response.ok) {
-                    // After successful login, fetch the profile to confirm session and populate user
-                    const ok = await this.setUser();
-                    if (ok) {
-                        return { success: true };
-                    } else {
-                        // Profile fetch failed (e.g. server returned 401) — treat as failed login
-                        return { success: false, error: 'Failed to load profile after login' };
-                    }
+                    update((state) => ({...state, isLoading: false}))
+                    return { success: true };
                 } else {
                     const error = await response.text();
                     set({
