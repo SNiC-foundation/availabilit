@@ -113,7 +113,7 @@
             {:else}
                 {#if new Date(activity.subscribe.subscriptionListOpenDate) > new Date()}
                     <span class="text-xs">Activity subscription opens on { new Date(activity.subscribe.subscriptionListOpenDate)}</span>
-                {:else if new Date(activity.subscribe.subscriptionListCloseDate) > new Date()}
+                {:else if new Date(activity.subscribe.subscriptionListCloseDate) < new Date()}
                     <span class="text-xs">Activity subscription closed on { new Date(activity.subscribe.subscriptionListCloseDate)}</span>
                 {:else}
                     <span class="text-xs">Log in to subscribe to an activity</span>
