@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import { auth, user, isLoggedIn, isLoading } from '$lib/stores/auth';
     import QRCode from 'qrcode';
+  import { browser } from '$app/environment';
 
     let error = '';
     let qrCodeDataUrl = '';
@@ -189,7 +190,7 @@
                     {/if}
                 </div>
             {:else}
-                No user set
+                You are not logged in. If this is a mistake, please try again with a different browser.
             {/if}
         </div>
     </div>
