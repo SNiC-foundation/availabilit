@@ -120,6 +120,17 @@
         </button>
         {#if open}
 <div class="flex gap-2 flex-col items-stretch bg-gray-100 py-2 px-6 rounded-b-xl">
+    <div class="flex flex-wrap gap-3">
+        <div class="flex gap-2 items-center text-gray-600 whitespace-nowrap">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="text-sm font-medium">{activities[0].activity.location}</span>
+        </div>
+
+        <div class="flex gap-2 items-center text-gray-600 whitespace-nowrap">
+            <i class="fa-solid fa-user"></i>
+            <span class="text-sm font-medium">{activities[0].activity.speakers.map(speaker => speaker.name)}</span>
+        </div>
+    </div>
     {activities[0].activity.description}
     <br/>
     <div class="pt-2 mt-2 border-t">
