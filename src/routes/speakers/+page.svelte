@@ -9,7 +9,7 @@
   let loading = true;
   let error = '';
 
-const speakers = []
+let speakers = []
 
 async function getSpeakers() {
     try {
