@@ -83,7 +83,7 @@
                 <span class="text-sm font-medium">{activity.speakers.map(speaker => speaker.name)}</span>
             </div>
 
-            {#if subscriptionAvailable}
+            {#if subscribable}
             <div class="flex gap-2 items-center text-gray-600 flex-shrink-0 whitespace-nowrap">
                 <i class="fa-solid fa-users"></i>
                 <span>{nrOfSubscribers} / {activity.subscribe.maxParticipants}</span>
