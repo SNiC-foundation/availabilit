@@ -191,10 +191,14 @@ export const user: Readable<User | null> = derived(auth, $auth => $auth.user);
 export const isLoggedIn: Readable<boolean> = derived(auth, $auth => $auth.isLoggedIn);
 export const isLoading: Readable<boolean> = derived(auth, $auth => $auth.isLoading);
 
-// Derived store for admin check
 export const isAdmin: Readable<boolean> = derived(
     auth, 
     $auth => $auth.user?.roles?.some(role => role.name === 'Admin') ?? false
+);
+
+export const isVolunteer: Readable<boolean> = derived(
+    auth, 
+    $auth => $auth.user?.roles?.some(role => role.name === 'Volunteer') ?? false
 );
 
 // Derived store for specific role checks

@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://api.availabilit.snic.nl/api';
+export const API_BASE_URL = 'http://localhost:3001/api';
 
 export function apiUrl(endpoint: string): string {
     return `${API_BASE_URL}${endpoint.startsWith('/') ? endpoint : '/' + endpoint}`;
