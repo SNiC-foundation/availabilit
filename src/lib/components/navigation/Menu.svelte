@@ -28,9 +28,10 @@
 
     $: pages = allPages.filter(page => {
         // If page requires admin and user is not admin -> hide
-        if (page.adminRequired && !$isAdmin && !$isLoggedIn) return false;
+        if (page.adminRequired && !$isAdmin) return false;
 
-        if (page.volunteerRequired && !$isVolunteer && !$isLoggedIn) return false;
+        // If page requires volunteer and user is not volunteer -> hide
+        if (page.volunteerRequired && !$isVolunteer) return false;
 
         // If page requires logged-in user and user is not logged in -> hide
         if (page.logInRequired === true && !$isLoggedIn) return false;
