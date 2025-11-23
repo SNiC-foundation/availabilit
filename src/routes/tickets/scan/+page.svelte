@@ -92,21 +92,24 @@
     <div class="p-6 w-full rounded-lg bg-white shadow-md">
         <h1 class="font-bold text-2xl">Scanned participant</h1>
         {#if latestScan != undefined}
-        {#each Object.entries(latestScan?.user).filter((entry) => userEntries.includes(entry[0])) as userEntry}
-            <div class="flex justify-between">
-                <b class="font-medium">{formatLabel(userEntry[0])}</b>
-                <span>{userEntry[1]}</span>
-            </div>
-        {/each}
+            {#if latestScan.user}
+                {#each Object.entries(latestScan.user).filter((entry) => userEntries.includes(entry[0])) as userEntry}
+                    <div class="flex justify-between">
+                        <b class="font-medium">{formatLabel(userEntry[0])}</b>
+                        <span>{userEntry[1]}</span>
+                    </div>
+                {/each}
+            {/if}
+        
 
         <div class="flex justify-between">
             <b class="font-medium">Scans</b>
-            <span>{latestScan?.scans.length}</span>
+            <span>{latestScan?.scans?.length ?? 0}</span>
         </div>
-        
+
         <div class="flex justify-between">
             <b class="font-medium">Ticket printed</b>
-            <span>{latestScan?.user.subscriptions.length === 3}</span>
+            <span>{(latestScan?.user?.subscriptions?.length ?? 0) === 3 ? 'Yes' : 'No'}</span>
         </div>
 
         <div class="flex justify-between">
