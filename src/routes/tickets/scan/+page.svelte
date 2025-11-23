@@ -5,7 +5,7 @@
 
     import { onMount } from 'svelte';
     import { apiUrl } from '$lib/config';
-  import { isLoggedIn, isVolunteer } from '$lib/stores/auth';
+    import { isLoggedIn, isVolunteer } from '$lib/stores/auth';
 
     let code = '';
     let loading = false;
@@ -92,17 +92,27 @@
     <div class="p-6 w-full rounded-lg bg-white shadow-md">
         <h1 class="font-bold text-2xl">Scanned participant</h1>
         {#if latestScan != undefined}
-        <div class="flex justify-between">
-            <b class="font-medium">Scans</b>
-            <span>{latestScan?.scans.length}</span>
-        </div>
-
         {#each Object.entries(latestScan?.user).filter((entry) => userEntries.includes(entry[0])) as userEntry}
             <div class="flex justify-between">
                 <b class="font-medium">{formatLabel(userEntry[0])}</b>
                 <span>{userEntry[1]}</span>
             </div>
         {/each}
+
+        <div class="flex justify-between">
+            <b class="font-medium">Scans</b>
+            <span>{latestScan?.scans.length}</span>
+        </div>
+        
+        <div class="flex justify-between">
+            <b class="font-medium">Ticket printed</b>
+            <span>{latestScan?.user.subscriptions.length === 3}</span>
+        </div>
+
+        <div class="flex justify-between">
+            <b class="font-medium">Association</b>
+            <span>{latestScan?.association}</span>
+        </div>
         {/if}
     </div>
     {:else}
