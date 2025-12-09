@@ -55,9 +55,11 @@
     </div>
 
     <div id="infoText"
-         class="absolute bottom-16 w-full text-center text-xl sm:text-2xl lg:text-4xl font-medium text-aquamarine">
-        <h3>Tuesday 25th of November, 2025</h3>
-        <h3><a href="https://www.orpheus.nl" class="no-underline">Orpheus, Apeldoorn</a></h3>
+         class="absolute bottom-16 w-full items-center justify-center flex font-medium cursor-pointer">
+        <a href="/photos" class="shadow text-white hover:text-aquamarine  px-4 py-2 mx-auto rounded text-2xl bg-black/5 no-underline">
+            <i class="fa-solid fa-camera"/>
+            <span>Photos</span>
+        </a>
     </div>
 
     {#each Array.from({length: bokehAmount + 1}) as _, index}
