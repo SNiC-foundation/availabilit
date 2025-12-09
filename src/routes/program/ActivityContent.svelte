@@ -83,6 +83,12 @@
                 <span class="text-sm font-medium">{activity.speakers.map(speaker => speaker.name)}</span>
             </div>
 
+            {#if activity?.recordingUrl !== ""}
+            <a href="{activity.recordingUrl}" class="flex gap-2 items-center text-gray-600 whitespace-nowrap">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            {/if}
+
             {#if subscribable}
             <div class="flex gap-2 items-center text-gray-600 flex-shrink-0 whitespace-nowrap">
                 <i class="fa-solid fa-users"></i>

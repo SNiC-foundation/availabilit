@@ -9,6 +9,7 @@
         description: string;
         speakers: any;
         subscribe: any;
+        recordingUrl: string;
     };
     export let nrOfSubscribers: number;
     export let isSubscribed: boolean;
