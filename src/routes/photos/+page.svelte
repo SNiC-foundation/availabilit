@@ -1,6 +1,6 @@
 <script>
     const pictureURL = "https://www.inter-actief.utwente.nl/activities/7635/photos/"
-    window.location.replace(pictureURL)
+    window?.location.replace(pictureURL)
 </script>
 
 <div class="min-h-screen bg-bottom-backdrop p-8">
