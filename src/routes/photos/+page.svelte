@@ -4,7 +4,7 @@
     const pictureURL = "https://www.inter-actief.utwente.nl/activities/7635/photos/"
 
     onMount(() => {
-        if (window !== undefined) window?.location.replace(pictureURL)}
+        if (window !== undefined) window.location.replace(pictureURL)}
     )
 </script>
 
