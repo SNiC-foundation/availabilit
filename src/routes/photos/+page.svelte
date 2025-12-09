@@ -1,6 +1,11 @@
 <script>
+    import { onMount } from "svelte";
+
     const pictureURL = "https://www.inter-actief.utwente.nl/activities/7635/photos/"
-    window?.location.replace(pictureURL)
+
+    onMount(() => {
+        if (window !== undefined) window?.location.replace(pictureURL)}
+    )
 </script>
 
 <div class="min-h-screen bg-bottom-backdrop p-8">
