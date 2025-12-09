@@ -83,7 +83,7 @@
                 <span class="text-sm font-medium">{activity.speakers.map(speaker => speaker.name)}</span>
             </div>
 
-            {#if activity?.recordingUrl !== ""}
+            {#if activity?.recordingUrl}
             <a href="{activity.recordingUrl}" class="flex gap-2 items-center text-gray-600 whitespace-nowrap">
                 <i class="fa-solid fa-link"></i>
             </a>
