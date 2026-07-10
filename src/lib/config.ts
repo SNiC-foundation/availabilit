@@ -1,15 +1,13 @@
-export const API_BASE_URL = 'https://api.availabilit.snic.nl/api';
-
-export function apiUrl(endpoint: string): string {
-    return `${API_BASE_URL}${endpoint.startsWith('/') ? endpoint : '/' + endpoint}`;
-}
+// The site is fully static: images that used to be served from the backend
+// static server are now bundled into the app. `staticUrl` maps a stored
+// filename (e.g. "partners/logo.svg" or "/speakers/photo.jpg") to the hashed
+// asset URL Vite produces at build time.
+const assets = {
+    ...import.meta.glob('./images/speakers/*', { eager: true, query: '?url', import: 'default' }),
+    ...import.meta.glob('./images/partners/*', { eager: true, query: '?url', import: 'default' }),
+} as Record<string, string>;
 
 export function staticUrl(path: string): string {
-    return `${API_BASE_URL}/static${path.startsWith('/') ? path : '/' + path}`;
+    const clean = path.replace(/^\/+/, '');
+    return assets[`./images/${clean}`] ?? '';
 }
-
-export const config = {
-    api: {
-        baseUrl: API_BASE_URL,
-    },
-};

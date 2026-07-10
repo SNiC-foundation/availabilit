@@ -3,9 +3,7 @@
     import CompanyCard from "./CompanyCard.svelte";
     import TierHeader from "./TierHeader.svelte";
     import { onMount } from "svelte";
-    import { goto } from "$app/navigation";
     import type { Company } from "./types";
-    import { isAdmin } from "$lib/stores/auth";
 
 
     let companies: Record<string, Company[]> = {};
@@ -167,17 +165,12 @@
   </script>
   <Header title="Partners"/>
   <div id="partners_section" class="container flex-col p-8 gap-4 text-center md:text-left min-h-[100vh]">
-    {#if $isAdmin}
-        <button class="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" on:click={()=>goto('/partners/create')}>
-            Add Partner
-        </button>
-    {/if}
     {#each Object.entries(companies) as [tier, tierCompanies]}
     {#if tierCompanies.length > 0}
       <TierHeader tier={tier}/>
         <div class="flex items-center gap-4 flex-wrap justify-center">
             {#each tierCompanies as company}
-                <CompanyCard company={company} admin={$isAdmin}/>
+                <CompanyCard company={company}/>
             {/each}
         </div>
         {/if}

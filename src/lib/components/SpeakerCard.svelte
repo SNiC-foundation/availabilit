@@ -1,11 +1,7 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { marked } from "marked";
 
-
-    export let id: number;
     export let image: string;
-    export let admin: boolean;
     export let name: string;
     export let title: string;
     export let category: string = "Talk";
@@ -15,17 +11,10 @@
     export let links: {icon: string, url: string}[] = [];
 
     let showMore = false
-
-    const editSpeaker = () => goto(`/speakers/edit?id=${id}`)
 </script>
 
 <div class="bg-white shadow-black/50 rounded-3xl overflow-hidden transition-all flex flex-col md:min-h-148 duration-200 {showMore ? 'w-full md:w-112 md:-mb-60 shadow-2xl' : 'w-full md:w-80 shadow-md'}" style="z-index: {height};">
     <div class="relative">
-        {#if admin}
-            <button class="rounded-lg bg-blue-whale absolute top-2 right-2 shadow shadow-black shadow-lg w-8 h-8" on:click={editSpeaker}>
-                <i class="fa-solid fa-pencil text-picton-blue"></i>
-            </button>
-        {/if}
         <img src={image} alt="{name}" class="h-60 w-full object-cover"/>
     </div>
     <div class="flex items-center -translate-y-1/2">

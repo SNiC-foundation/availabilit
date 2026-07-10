@@ -1,15 +1,9 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { apiUrl } from "$lib/config";
-  import { isAdmin } from "$lib/stores/auth";
   import Activity from "./Activity.svelte";
-  import { onMount } from "svelte";
 
     export let part;
     export let activities;
-    export let admin;
     let open = true;
-    let user:any = undefined;
 
     let sortedActivities: any[] = [];
 
@@ -17,27 +11,9 @@
       ? [...activities].sort((a: any, b: any) => {
           const aMax = a?.activity?.subscribe?.maxParticipants ?? 0;
           const bMax = b?.activity?.subscribe?.maxParticipants ?? 0;
-          return bMax - aMax; 
+          return bMax - aMax;
         })
       : [];
-
-    async function loadUserProfile() {
-        try {           
-            const response = await fetch(apiUrl('/profile'), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-
-            if (response.ok) {
-                user = await response.json();
-            } 
-        } catch(e) {
-            console.error(e)
-        }
-    }
 
     function formatTime(dateString: string): string {
         return new Date(dateString).toLocaleTimeString('en-US', {
@@ -52,7 +28,7 @@
         const end = new Date(endTime);
         const diffMs = end.getTime() - start.getTime();
         const diffMins = Math.round(diffMs / (1000 * 60));
-        
+
         if (diffMins < 60) {
             return `${diffMins} min`;
         } else {
@@ -61,29 +37,6 @@
             return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
         }
     }
-
-    const isSubscribedToActivity = (user, activityId) => user?.subscriptions?.length && user.subscriptions.some(sub => sub.activity.id === activityId);
-    let subscribedActivity: any = undefined;
-
-    $: subscribedActivity = (user && user.subscriptions && activities)
-        ? (activities.find((a: any) =>
-                user.subscriptions.some((s: any) => s.activity?.id === a.activity?.id)
-            )?.activity ?? undefined)
-        : undefined;
-
-    function handleActivitySubscribed(event) {
-        const { activity } = event.detail;
-        
-        open = false;
-        
-        subscribedActivity = activity;
-        
-        loadUserProfile();
-    }
-
-    onMount(() => {
-        loadUserProfile();
-    });
 
     const isKeynote = activities.some(a => a.activity.speakers.some((speaker) => speaker.type === 'keynote'))
 </script>
@@ -99,7 +52,7 @@
                     {getDuration(part.beginTime, part.endTime)}
                 </span>
             </div>
-            
+
             <div class="flex items-center space-x-6 text-sm text-gray-600">
                 <div class="flex items-center space-x-1">
                     <span class="font-medium">Start:</span>
@@ -111,11 +64,6 @@
                 </div>
             </div>
         </div>
-        {#if $isAdmin}
-        <button class="rounded-lg bg-blue-whale shadow shadow-black shadow-sm w-8 h-8" on:click={() => goto(`/program/activity/edit?id=${activities[0].activity.id}`)}>
-                    <i class="fa-solid fa-pencil text-picton-blue"></i>
-        </button>
-        {/if}
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
         </button>
         {#if open}
@@ -149,7 +97,7 @@
                     {getDuration(part.beginTime, part.endTime)}
                 </span>
             </div>
-            
+
             <div class="flex items-center space-x-6 text-sm text-gray-600">
                 <div class="flex items-center space-x-1">
                     <span class="font-medium">Start:</span>
@@ -161,41 +109,17 @@
                 </div>
             </div>
         </div>
-        {#if subscribedActivity}
-        <div class="bg-blue-whale px-4 py-2 rounded-full items-center text-white flex gap-2">
-            <div class="flex gap-1 items-center">
-                <i class="fa-solid fa-person-chalkboard"></i>
-                <span class="max-w-48 overflow-hidden whitespace-nowrap text-ellipsis">
-                    {subscribedActivity.name}
-                </span>
-            </div>
 
-            <div class="flex gap-1 items-center">
-                <i class="fa-solid fa-location-dot"></i>
-                <span class="max-w-32 overflow-hidden whitespace-nowrap text-ellipsis">
-                    {subscribedActivity.location}
-                </span>
-            </div>
-        </div>
-        {/if}
-        
         <i class={`fa-solid fa-chevron-${open ? 'up' : 'down'}`}></i>
     </button>
 {#if open}
 <div class="flex gap-4 flex-col md:flex-row items-stretch bg-gray-300 p-4 rounded-b-xl overflow-auto">
     {#each sortedActivities as activity}
-        <Activity 
-            activity={activity.activity} 
-            nrOfSubscribers={activity.nrOfSubscribers} 
-            isSubscribed={isSubscribedToActivity(user,activity.activity.id)}
-            on:activitySubscribed={handleActivitySubscribed}
+        <Activity
+            activity={activity.activity}
+            nrOfSubscribers={activity.nrOfSubscribers}
         />
     {/each}
-    {#if admin}
-    <div class="flex items-center">
-        <button class="size-16 bg-blue-whale text-white text-5xl rounded-full ml-2" on:click={() => goto(`/program/activity/create?programPartId=${part.id}`)}>+</button>
-    </div>
-    {/if}
 </div>
 {/if}
 {/if}

@@ -1,25 +1,16 @@
 <!-- filepath: /Users/matthias/Desktop/1 Projects/SNiC/website/availabilit/src/lib/components/SpeakerCard.svelte -->
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { staticUrl } from "$lib/config";
   import { marked } from "marked";
   import type { Company } from "./types";
 
     export let company: Company;
-    export let admin: boolean;
 
     let showMore = false
-
-    const editCompany = (id:number) => goto(`/partners/edit?id=${id}`)
 </script>
 <div class="flex flex-col md:flex-row items-stretch bg-gray-100 shadow-black/50 border border-gray rounded-3xl overflow-hidden transition-all duration-200 shadow-md w-full grow shrink-0 max-w-full">
     <div class="flex {showMore ? 'md:w-80' : 'md:w-60'} w-full h-40 md:h-auto bg-white items-center justify-center shrink-0 p-4 transition-width duration-200 border-b md:border-r md:border-b-0 border-gray relative">
         <img src={staticUrl(company.logoFilename)} alt="Logo {company.name}" class="md:w-full h-full md:h-auto object-contain"/>
-        {#if admin}
-            <button class="rounded-lg bg-blue-whale absolute top-2 right-2 shadow shadow-black shadow-lg w-8 h-8" on:click={() => editCompany(company.id)}>
-                <i class="fa-solid fa-pencil text-picton-blue"></i>
-            </button>
-        {/if}
     </div>
     <div class="flex flex-col pt-3 w-full">
         <div class="flex items-center gap-2 px-6">

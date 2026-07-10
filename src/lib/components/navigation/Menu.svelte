@@ -1,6 +1,5 @@
 <script lang="ts">
     import Navbar from "./Navbar.svelte";
-    import { isLoggedIn, isAdmin, isVolunteer } from "$lib/stores/auth";
 
     import NavDropdown from "./NavDropdown.svelte";
     
