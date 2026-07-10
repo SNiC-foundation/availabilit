@@ -2,16 +2,10 @@
     import WordMark from "$lib/images/WordMark.png";
     import Navbutton from "$lib/components/navigation/Navbutton.svelte";
     import { base } from "$app/paths";
-    import { onMount } from "svelte";
-    import { auth } from "$lib/stores/auth";
 
     export let scroll:number;
     export let height:number;
     export let pages:any[];
-
-    onMount(async () => {
-        await auth.init();
-    });
 </script>
 <nav class="navbar w-screen h-16 fixed top-0 z-20 backdrop-blur-md items-center hidden lg:flex" style="background: rgba(0,50,73,{Math.min(scroll / height,1)})">
     <div class="container sm:px-8 justify-between items-center">
